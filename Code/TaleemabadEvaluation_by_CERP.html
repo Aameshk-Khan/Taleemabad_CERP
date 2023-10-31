@@ -1,0 +1,226 @@
+<h4><a href="#taleemabad-evaluation-by-cerp-analytics" id="taleemabad-evaluation-by-cerp-analytics">Taleemabad Evaluation by CERP Analytics</a></h4>
+<ol>
+<li>Basic Introduction</li>
+</ol>
+<p>2.Summary of results produced by Taleemabad.</p>
+<p>3.Analytics by CERP:</p>
+<p>4.Sampling Methodology: Power and standard errors:</p>
+<p>5.Balance Tests (ASER, TEACH MELQO): - Attrition: Table - Balance Test(s): Tables:  1 for learning outcome vars and other relevant variables</p>
+<p>6.Results replications (diff-in-diff) regression at school level to measure treatment effect. (ASER, TEACH MELQO)</p>
+<ol>
+<li>Other analysis avenues/data visualization(s) to be explored:</li>
+</ol>
+<pre><code></code></pre>
+<ul>
+<li>Looking at the frequency of schools that were in baseline and endline (Consistent), schools which were only in baseline (Attrition) and schools which were only in endline (Replacement).</li>
+</ul>
+<pre><code>
+
+   matching |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Attrition |         42       19.00       19.00
+Replacement |        148       66.97       85.97
+ Consistent |         31       14.03      100.00
+------------+-----------------------------------
+      Total |        221      100.00
+
+</code></pre>
+<pre><code>
+            |            treatment
+   matching |         0          1          . |     Total
+------------+---------------------------------+----------
+  Attrition |        15         27          0 |        42 
+Replacement |         0         19        129 |       148 
+ Consistent |        15         16          0 |        31 
+------------+---------------------------------+----------
+      Total |        30         62        129 |       221 
+
+</code></pre>
+<ul>
+<li>Balance checks</li>
+</ul>
+<pre><code>
+
+                                                 0:            1:  p-value f~y:
+                                                 _             _             _
+                   (mean) age_b:mean         8.256         8.180         0.740
+    (mean) aser_b_e_capital_per:mean        96.418        98.282         0.128
+      (mean) aser_b_e_small_per:mean        95.533        96.769         0.405
+      (mean) aser_b_e_words_per:mean        73.454        83.687         0.042
+(mean) aser_b_e_word_meaning_~r:mean        66.040        74.112         0.124
+  (mean) aser_b_e_read_sent_per:mean        68.968        81.253         0.074
+  (mean) aser_b_e_sent_flue_per:mean        65.705        71.700         0.287
+(mean) aser_b_e_sent_meaning_~r:mean        62.110        65.148         0.623
+  (mean) aser_b_u_read_sent_per:mean        69.194        73.083         0.535
+  (mean) aser_b_u_sent_flue_per:mean        55.682        61.207         0.335
+      (mean) aser_b_u_words_per:mean        63.502        70.765         0.190
+    (mean) aser_b_u_letters_per:mean        64.758        74.468         0.169
+ (mean) aser_b_u_story_flue_per:mean        62.914        75.232         0.001
+       (mean) aser_b_u_comp_per:mean        68.552        79.434         0.084
+(mean) aser_b_m_minus_2digit_~r:mean        63.324        77.623         0.098
+(mean) aser_b_m_minus_3digit_~r:mean        56.608        70.565         0.083
+    (mean) aser_b_m_100_200_per:mean        84.064        80.917         0.620
+      (mean) aser_b_m_10_99_per:mean        71.724        79.455         0.291
+        (mean) aser_b_m_1_9_per:mean        73.013        89.228         0.097
+   (mean) aser_b_m_division_per:mean        46.337        58.095         0.178
+       (mean) aser_b_m_time_per:mean        36.882        41.461         0.575
+(mean) aser_b_m_word_problem_~r:mean        47.662        50.223         0.733
+ (mean) aser_b_m_shape_name_per:mean        67.816        86.978         0.015
+     (mean) aser_b_gk_act_1_per:mean        82.694        95.272         0.087
+     (mean) aser_b_gk_act_2_per:mean        83.347        94.887         0.110
+     (mean) aser_b_gk_pic_1_per:mean       100.000       100.000             .
+     (mean) aser_b_gk_pic_2_per:mean       100.000       100.000             .
+     (mean) aser_b_gk_pic_3_per:mean       100.000       100.000             .
+
+
+                                                 0:            1:  p-value f~y:
+                                                 _             _             _
+                   (mean) age_e:mean         8.679         8.265         0.063
+    (mean) aser_e_e_capital_per:mean        89.208        92.009         0.013
+      (mean) aser_e_e_small_per:mean        82.558        86.116         0.229
+      (mean) aser_e_e_words_per:mean        75.454        73.894         0.556
+(mean) aser_e_e_word_meaning_~r:mean        63.035        65.272         0.874
+  (mean) aser_e_e_read_sent_per:mean        73.139        81.033         0.096
+  (mean) aser_e_e_sent_flue_per:mean        71.570        74.950         0.566
+(mean) aser_e_e_sent_meaning_~r:mean        63.010        69.155         0.596
+  (mean) aser_e_u_read_sent_per:mean        69.429        71.543         0.876
+  (mean) aser_e_u_sent_flue_per:mean        63.083        60.778         0.940
+      (mean) aser_e_u_words_per:mean        63.442        62.099         0.624
+    (mean) aser_e_u_letters_per:mean        61.033        51.141         0.462
+ (mean) aser_e_u_story_flue_per:mean        69.563        70.821         0.855
+       (mean) aser_e_u_comp_per:mean        72.142        74.395         0.715
+(mean) aser_e_m_minus_2digit_~r:mean        85.970        70.305         0.205
+(mean) aser_e_m_minus_3digit_~r:mean        73.918        80.875         0.675
+    (mean) aser_e_m_100_200_per:mean        76.234        75.389         0.314
+      (mean) aser_e_m_10_99_per:mean        62.222        78.122         0.016
+        (mean) aser_e_m_1_9_per:mean        47.778        70.833         0.123
+   (mean) aser_e_m_division_per:mean        70.216        67.086         0.505
+       (mean) aser_e_m_time_per:mean        62.461        57.598         0.430
+(mean) aser_e_m_word_problem_~r:mean        53.318        51.593         0.815
+ (mean) aser_e_m_shape_name_per:mean        70.945        79.053         0.234
+     (mean) aser_e_gk_act_1_per:mean        98.000        95.892         0.889
+     (mean) aser_e_gk_act_2_per:mean        89.562        92.559         0.748
+     (mean) aser_e_gk_pic_1_per:mean       100.000       100.000             .
+     (mean) aser_e_gk_pic_2_per:mean       100.000       100.000             .
+     (mean) aser_e_gk_pic_3_per:mean       100.000       100.000             .
+
+
+                                                 0:            1:  p-value f~y:
+                                                 _             _             _
+(mean) melqo_b_ev_edible_num_~r:mean        30.991        35.431         0.110
+(mean) melqo_b_ev_animal_num_~r:mean        26.340        31.474         0.039
+(mean) melqo_b_pl_let_identif~p:mean        70.581        67.940         0.705
+(mean) melqo_b_pl_let_sound_per:mean        39.141        48.802         0.344
+(mean) melqo_b_listcomp_story~e:mean        53.558        62.077         0.442
+(mean) melqo_b_name_writing_per:mean        46.777        54.333         0.044
+(mean) melqo_b_pn_verbal_coun~p:mean        67.461        70.140         0.517
+(mean) melqo_b_pn_num_identif~p:mean        59.376        61.795         0.021
+   (mean) melqo_b_ms_shape1_per:mean        66.595        76.057         0.202
+   (mean) melqo_b_ms_shape2_per:mean        74.863        71.204         0.415
+   (mean) melqo_b_ms_shape3_per:mean        52.398        61.790         0.148
+
+
+                                                 0:            1:  p-value f~y:
+                                                 _             _             _
+(mean) melqo_e_ev_edible_num_~r:mean        30.393        37.504         0.063
+(mean) melqo_e_ev_animal_num_~r:mean        27.248        32.919         0.165
+(mean) melqo_e_pl_let_identif~p:mean        69.023        69.580         0.974
+(mean) melqo_e_pl_let_sound_per:mean        43.771        54.050         0.195
+(mean) melqo_e_listcomp_story~e:mean        55.829        63.389         0.131
+(mean) melqo_e_name_writing_per:mean        51.137        62.051         0.314
+(mean) melqo_e_pn_verbal_coun~p:mean        67.411        69.165         0.151
+(mean) melqo_e_pn_num_identif~p:mean        60.194        61.704         0.542
+   (mean) melqo_e_ms_shape1_per:mean        65.320        75.959         0.201
+   (mean) melqo_e_ms_shape2_per:mean        69.641        69.114         0.880
+   (mean) melqo_e_ms_shape3_per:mean        49.146        60.506         0.042
+
+
+                                                 0:            1:  p-value f~y:
+                                                 _             _             _
+                   (mean) age_b:mean         9.813         9.612         0.755
+       (mean) aser_b_e_sent_per:mean        70.669        82.235         0.054
+(mean) aser_b_e_sent_meaning_~r:mean        62.262        72.830         0.086
+ (mean) aser_b_e_story_flue_per:mean        65.265        77.858         0.027
+       (mean) aser_b_e_comp_per:mean        70.634        80.472         0.182
+  (mean) aser_b_e_g1_3_sent_per:mean        49.201        42.417         0.574
+(mean) aser_b_e_g1_3_sen_mean~e:mean        39.514        28.917         0.179
+ (mean) aser_b_e_g1_3_words_per:mean        27.847        47.222         0.116
+(mean) aser_b_e_g1_3_meaning_~r:mean        23.889        35.278         0.219
+ (mean) aser_b_e_g1_3_small_per:mean        46.528        63.273         0.437
+(mean) aser_b_e_g1_3_capital_~r:mean        35.000        41.111         0.540
+ (mean) aser_b_u_story_flue_per:mean        73.225        79.434         0.288
+       (mean) aser_b_u_comp_per:mean        77.580        89.251         0.053
+(mean) aser_b_u_g1_3_storyflu~p:mean        53.124        54.643         0.795
+(mean) aser_b_u_g1_3_compre_per:mean        67.626        75.000         0.483
+    (mean) aser_b_u_grammar_per:mean        42.779        61.891         0.064
+  (mean) aser_b_u_word_sent_per:mean        71.416        82.139         0.105
+  (mean) aser_b_u_read_sent_per:mean        58.008        56.616         0.879
+(mean) aser_b_u_g1_3_sen_flue~e:mean        48.414        47.285         0.874
+(mean) aser_b_u_g1_3_read_wor~_:mean        63.316        67.574         0.647
+(mean) aser_b_u_g1_3_read_let~e:mean        53.530        63.512         0.407
+    (mean) aser_b_u_mas_fem_per:mean        72.942        85.723         0.070
+(mean) aser_b_m_minus_4digit_~r:mean        56.562        75.198         0.092
+(mean) aser_b_m_minus_5digit_~r:mean        68.337        82.480         0.110
+   (mean) aser_b_m_division_per:mean        64.768        72.130         0.481
+(mean) aser_b_m_g1_3_minus_3d~_:mean        61.620        64.923         0.774
+(mean) aser_b_m_g1_3_minus_2d~_:mean        66.761        75.508         0.462
+(mean) aser_b_m_5digit_nums_per:mean        87.349        83.702         0.471
+(mean) aser_b_m_3digit_nums_per:mean        84.571        78.266         0.543
+(mean) aser_b_m_2digit_nums_per:mean        68.333        75.556         0.539
+(mean) aser_b_m_1digit_nums_per:mean        55.000        85.000         0.143
+   (mean) aser_b_m_decimals_per:mean        83.490        74.623         0.142
+       (mean) aser_b_m_time_per:mean        53.863        68.980         0.131
+(mean) aser_b_m_word_problem_~r:mean        50.591        60.485         0.341
+(mean) aser_b_m_g1_3_wordprob~e:mean        50.596        50.635         0.997
+(mean) aser_b_m_complete_pat_~r:mean        56.776        69.546         0.212
+     (mean) aser_b_gk_act_1_per:mean        71.516        88.879         0.074
+     (mean) aser_b_gk_act_2_per:mean        72.364        90.996         0.060
+     (mean) aser_b_gk_pic_1_per:mean       100.000       100.000             .
+     (mean) aser_b_gk_pic_2_per:mean       100.000       100.000             .
+     (mean) aser_b_gk_pic_3_per:mean       100.000       100.000             .
+
+
+                                                 0:            1:  p-value f~y:
+                                                 _             _             _
+                   (mean) age_e:mean         8.926         9.759         0.000
+       (mean) aser_e_e_sent_per:mean        76.275        84.508         0.186
+(mean) aser_e_e_sent_meaning_~r:mean        62.344        72.151         0.256
+ (mean) aser_e_e_story_flue_per:mean        71.089        76.216         0.509
+       (mean) aser_e_e_comp_per:mean        78.003        78.388         0.736
+  (mean) aser_e_e_g1_3_sent_per:mean        44.792        41.713         0.805
+(mean) aser_e_e_g1_3_sen_mean~e:mean        33.482        25.324         0.631
+ (mean) aser_e_e_g1_3_words_per:mean        55.200        40.714         0.627
+(mean) aser_e_e_g1_3_meaning_~r:mean        33.600        24.286         0.222
+ (mean) aser_e_e_g1_3_small_per:mean        81.000        66.667         0.847
+ (mean) aser_e_u_story_flue_per:mean        72.091        77.819         0.601
+       (mean) aser_e_u_comp_per:mean        80.063        80.377         0.987
+(mean) aser_e_u_g1_3_storyflu~p:mean        54.242        58.156         0.507
+(mean) aser_e_u_g1_3_compre_per:mean        69.152        71.071         0.473
+    (mean) aser_e_u_grammar_per:mean        94.924        77.642         0.121
+  (mean) aser_e_u_word_sent_per:mean        79.024        83.204         0.688
+  (mean) aser_e_u_read_sent_per:mean        58.490        60.863         0.508
+(mean) aser_e_u_g1_3_sen_flue~e:mean        47.972        53.916         0.632
+(mean) aser_e_u_g1_3_read_wor~_:mean        66.892        66.369         0.319
+(mean) aser_e_u_g1_3_read_let~e:mean        76.112        58.545         0.326
+    (mean) aser_e_u_mas_fem_per:mean        85.229        83.559         0.934
+(mean) aser_e_m_minus_4digit_~r:mean        86.440        76.760         0.637
+(mean) aser_e_m_minus_5digit_~r:mean        88.405        82.141         0.649
+   (mean) aser_e_m_division_per:mean        80.442        81.816         0.790
+(mean) aser_e_m_g1_3_minus_3d~_:mean        60.265        73.819         0.432
+(mean) aser_e_m_g1_3_minus_2d~_:mean        62.500        65.711         0.945
+(mean) aser_e_m_5digit_nums_per:mean        67.396        80.537         0.092
+(mean) aser_e_m_3digit_nums_per:mean        69.388        82.963         0.529
+(mean) aser_e_m_2digit_nums_per:mean        37.460        63.333         0.107
+(mean) aser_e_m_1digit_nums_per:mean        32.222        48.333         0.095
+   (mean) aser_e_m_decimals_per:mean        66.382        78.678         0.070
+       (mean) aser_e_m_time_per:mean        79.199        73.429         0.333
+(mean) aser_e_m_word_problem_~r:mean        71.583        74.683         0.798
+(mean) aser_e_m_g1_3_wordprob~e:mean        37.484        46.869         0.074
+(mean) aser_e_m_complete_pat_~r:mean        77.238        81.004         0.852
+     (mean) aser_e_gk_act_1_per:mean        97.384        94.335         0.725
+     (mean) aser_e_gk_act_2_per:mean        92.120        95.372         0.433
+     (mean) aser_e_gk_pic_1_per:mean       100.000       100.000             .
+     (mean) aser_e_gk_pic_2_per:mean       100.000       100.000             .
+     (mean) aser_e_gk_pic_3_per:mean       100.000       100.000             .
+
+</code></pre>
