@@ -161,64 +161,35 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	lab def urdu_cat 1 "beginner" 2 "can read letters" 3 "paragraph" 4 "story" 5 "words" 6 "sentence"
 	lab val aser_b_urdu urdu_cat
 	lab var aser_b_urdu "urdu score - categorical"
-	
-* New school name variable school_name_trim is created to match with the way school names are defined in the endline data (lower case and no spaces)	
-	gen school_name_trim = school_name 
-	lab var school_name_trim "school name in lower case wihtout spaces"
-	replace school_name_trim = ustrtrim(school_name_trim)
-	replace school_name_trim = lower(school_name_trim)
-	replace school_name_trim = subinstr(school_name_trim, " ", "",.)
-	replace school_name_trim = subinstr(school_name_trim, ".", "",.)
 		
 tempfile ASER_1_3_baseline
 save `ASER_1_3_baseline', replace
 
 * Adjusting school names using the corrected school names provided by taleemabad. 
 			/////////////////// 
-		import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/schoolcorrection_ASER.xlsx", firstrow clear
-		rename general_details_sectionschool_n school_name_trim
+		import excel "$user/$drive/$folder/Shared by Taleemabad/Schools/ASER_Churn_Baseline.xlsx", firstrow clear	
+		rename general_details_sectionschool_n school_name
 		duplicates drop
-		gen type = "Experimental" if treatment == 1
-		replace type = "Controlled" if treatment == 2
-		keep school_name_trim corrected_school type
-		tempfile schoolcorrection_ASER
-		save `schoolcorrection_ASER', replace
-		
-		import excel "$user/$drive/$folder/Code/Correct_School_names_cerp.xlsx", firstrow clear
-		gen type = "Experimental" if treatment == 1
-		replace type = "Controlled" if treatment == 2
-		duplicates drop
-		keep school_name_trim corrected_school type
-		tempfile schoolcorrection_2
-		save `schoolcorrection_2', replace
+		tempfile ASER_Churn_Baseline
+		save `ASER_Churn_Baseline', replace
 			///////////////////
 			
 use `ASER_1_3_baseline', clear
-	merge m:1 school_name_trim using `schoolcorrection_ASER', gen(m1)
+	merge m:1 school_name using `ASER_Churn_Baseline', gen(m1)
 		/*
-
     Result                           # of obs.
     -----------------------------------------
-    not matched                         1,375
-        from master                     1,159  (m1==1) // already correct
-        from using                        216  (m1==2) // these schools are not present
+    not matched                            53
+        from master                         0  (m1==1)
+        from using                         53  (m1==2) 
 
-    matched                               739  (m1==3)
+    matched                             1,898  (m1==3)
     -----------------------------------------
 	*/
 	drop if m1 == 2 
-	tab school_name_trim if corrected_school == "" 
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1 	
-	
-	merge m:1 school_name_trim using `schoolcorrection_2', gen(m1)
-	drop if m1 == 2 // these schools are not present
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1 	
+	drop school_name
+	rename corrected_school school_name
+	drop m1 		
 
 /* This chunk checks whether the data is unqiue on school id and child id. 
 * Generating School_id 
@@ -234,11 +205,11 @@ save `ASER_1_3_baseline', replace
 
 export excel "$user/$drive/$folder/Output/Excel/ASER_1_3_Baseline_Cleaned.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/ASER_1_3_Baseline_Cleaned.dta",replace
-	sort school_name_trim
-	egen tag = tag(school_name_trim)
+	sort school_name
+	egen tag = tag(school_name)
 	keep if tag
-	keep school_name_trim type 
-* School level dataset with (type (treatment status), school_id (numeric), and school_name variables	
+	keep school_name type 
+* School level dataset with (type (treatment status) and school_name 
 tempfile ASER_1_3_baseline_school_var
 save `ASER_1_3_baseline_school_var', replace
 }
@@ -362,44 +333,28 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	}	
 }	
 	
-	gen school_name_trim = school_name
-	lab var school_name_trim "school name in lower case wihtout spaces"
-	replace school_name_trim = ustrtrim(school_name_trim)
-	replace school_name_trim = lower(school_name_trim)
-	replace school_name_trim = subinstr(school_name_trim, " ", "",.)
-	replace school_name_trim = subinstr(school_name_trim, ".", "",.)
-		
 tempfile ASER_4_5_baseline
 save `ASER_4_5_baseline', replace
 
-	
-	use `ASER_4_5_baseline', clear
-	merge m:1 school_name_trim using `schoolcorrection_ASER', gen(m1)
+* Adjusting school names using the corrected school names provided by taleemabad. 
+			
+use `ASER_4_5_baseline', clear
+	merge m:1 school_name using `ASER_Churn_Baseline', gen(m1)
 		/*
-
     Result                           # of obs.
     -----------------------------------------
-    not matched                           789
-        from master                       572  (m1==1) // already correct
-        from using                        217  (m1==2) // these schools are not present
+    not matched                            58
+        from master                         0  (m1==1)
+        from using                         58  (m1==2)
 
-    matched                               421  (m1==3)
+    matched                               993  (m1==3)
     -----------------------------------------
-		*/
-
+	*/
 	drop if m1 == 2 
-	tab school_name_trim if corrected_school == "" 
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1
-	
-	merge m:1 school_name_trim using `schoolcorrection_2', gen(m1)
-	drop if m1 == 2 // these schools are not present
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1	
+	drop school_name
+	rename corrected_school school_name
+	drop m1 		
+
 /*	
 * Generating School_id 
 	sort school_name_trim
@@ -416,10 +371,10 @@ export excel "$user/$drive/$folder/Output/Excel/ASER_4_5_Baseline_Cleaned.xlsx",
 save "$user/$drive/$folder/Output/Stata/ASER_4_5_Baseline_Cleaned.dta", replace
 
 
-	egen tag = tag(school_name_trim)
+	egen tag = tag(school_name)
 	keep if tag
-	keep school_name_trim type
-* School level dataset with (type (treatment status), school_id (numeric), and school_name variables	
+	keep school_name type
+* School level dataset with (type (treatment status),  and school_name 
 tempfile ASER_4_5_baseline_school_var
 save `ASER_4_5_baseline_school_var', replace
 }
@@ -685,53 +640,44 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_1
 	lab val aser_e_urdu urdu_cat
 	lab var aser_e_urdu "urdu score - categorical"	
 	
-	gen school_name_trim = school_name
-	replace school_name_trim = ustrtrim(school_name_trim)
-	replace school_name_trim = lower(school_name_trim)
-	replace school_name_trim = subinstr(school_name_trim, " ", "",.)
-	replace school_name_trim = subinstr(school_name_trim, ".", "",.)
+	replace school_name = ustrltrim(school_name)
+	replace school_name = lower(school_name)
+	replace school_name = subinstr(school_name, " ", "",.)
+	replace school_name = subinstr(school_name, ".", "",.)
 	
 tempfile ASER_1_3_endline
 save `ASER_1_3_endline', replace	
-	
-	merge m:1 school_name_trim using `schoolcorrection_ASER', gen(m1)
+
+* Adjusting school names using the corrected school names provided by taleemabad. 
+			/////////////////// 
+		import excel "$user/$drive/$folder/Shared by Taleemabad/Schools/schoolcorrection_ASER_Endline.xlsx", firstrow clear	
+		rename general_details_sectionschool_n school_name
+		gen type = "Experimental" if treatment == 1
+		replace type = "Controlled" if treatment == 2
+		replace type = "Controlled" if treatment == .
+		duplicates drop
+		drop treatment
+		rename ttype treatment_type
+		tempfile schoolcorrection_ASER_Endline
+		save `schoolcorrection_ASER_Endline', replace
+			///////////////////	
+	use `ASER_1_3_endline', clear
+	merge m:1 school_name using `schoolcorrection_ASER_Endline', gen(m1)
 		/*
 
     Result                           # of obs.
     -----------------------------------------
-    not matched                            94
+    not matched                            95
         from master                         0  (m1==1)
-        from using                         94  (m1==2)
+        from using                         95  (m1==2)
 
     matched                             2,436  (m1==3)
     -----------------------------------------
 
 	*/
 	drop if m1 == 2
-	tab school_name_trim if corrected_school == "" // no observations
-	drop school_name_trim
-	rename corrected_school school_name_trim 
-	drop m1
-	
-	merge m:1 school_name_trim using `schoolcorrection_2', gen(m1)
-	drop if m1 == 2 // these schools are not present
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1
-
-	merge m:1 school_name_trim using `ASER_1_3_baseline_school_var', gen(m1)
-	/*
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                         1,872
-        from master                     1,840  (m1==1) // "schools in endline that were not in baseline period"
-        from using                         32  (m1==2) // "schools in baseline that were not in endline period"
-
-    matched                               596  (m1==3) // "schools in endline and baseline period"
-    -----------------------------------------
-	*/
-	drop if m1 == 2
+	drop school_name
+	rename corrected_school school_name
 	drop m1
 	
 tempfile ASER_1_3_endline
@@ -857,56 +803,29 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_4
 			lab var `varname' "`varlabel_new'"		
 	}	
 	
-	gen school_name_trim = school_name
-	replace school_name_trim = ustrtrim(school_name_trim)
-	replace school_name_trim = lower(school_name_trim)
-	replace school_name_trim = subinstr(school_name_trim, " ", "",.)
-	replace school_name_trim = subinstr(school_name_trim, ".", "",.)
+	replace school_name = ustrltrim(school_name)
+	replace school_name = lower(school_name)
+	replace school_name = subinstr(school_name, " ", "",.)
+	replace school_name = subinstr(school_name, ".", "",.)
 	
 tempfile ASER_4_5_endline
 save `ASER_4_5_endline', replace	
 	
-	merge m:1 school_name_trim using `schoolcorrection_ASER', gen(m1)
+	merge m:1 school_name using `schoolcorrection_ASER_Endline', gen(m1)
 		/*
-
-
     Result                           # of obs.
     -----------------------------------------
-    not matched                           126
-        from master                         3  (m1==1)
-        from using                        123  (m1==2)
+    not matched                           124
+        from master                         0  (m1==1)
+        from using                        124  (m1==2)
 
-    matched                             1,861  (m1==3)
-    -----------------------------------------
-
-	*/
-	drop if m1 == 2
-	tab school_name_trim if corrected_school == "" // no observations
-	replace corrected_school = school_name_trim if corrected_school == ""
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1
-	
-	merge m:1 school_name_trim using `schoolcorrection_2', gen(m1)
-	drop if m1 == 2 // these schools are not present
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1
-
-	merge m:1 school_name_trim using `ASER_4_5_baseline_school_var', gen(m1)
-    /*
-	Result                           # of obs.
-    -----------------------------------------
-    not matched                         1,330
-        from master                     1,302  (m1==1) // "schools in endline that were not in baseline period"
-        from using                         28  (m1==2) // "schools in baseline that were not in endline period"
-
-    matched                               562  (m1==3) // "schools in endline and baseline period"
+    matched                             1,864  (m1==3)
     -----------------------------------------
 	*/
 	
 	drop if m1 == 2
+	drop school_name
+	rename corrected_school school_name
 	drop m1
 	
 tempfile ASER_4_5_endline
