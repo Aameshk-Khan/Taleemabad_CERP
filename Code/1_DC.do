@@ -332,6 +332,44 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 			lab var `varname' "`varlabel_new'"		
 	}	
 }	
+
+* Creating categorical variables , based on ASER’s ranking methodology 	
+
+		gen aser_b_english_4_5 = 0 if inrange(aser_b_eng_g1_3_capital,0,3)
+		replace aser_b_english_4_5 = 1 if inrange(aser_b_eng_g1_3_capital,4,5) & inrange(aser_b_eng_g1_3_small,0,3)
+		replace aser_b_english_4_5 = 2 if inrange(aser_b_eng_g1_3_small,4,5) & inrange(aser_b_eng_g1_3_words,0,3)
+		replace aser_b_english_4_5 = 3 if inrange(aser_b_eng_g1_3_words,4,5) & inrange(aser_b_eng_g1_3_sentence,0,2)
+		replace aser_b_english_4_5 = 4 if inrange(aser_b_eng_sentences,6,8) & inrange(aser_b_eng_sentence_meaning,0,5)
+		replace aser_b_english_4_5 = 4 if inrange(aser_b_eng_sentences,0,3) & inrange(aser_b_eng_g1_3_sentence,2,4)
+		replace aser_b_english_4_5 = 4 if inrange(aser_b_eng_sentences,4,6)
+		replace aser_b_english_4_5 = 5 if inrange(aser_b_eng_sentences,6,8) & inrange(aser_b_eng_sentence_meaning,6,8) & inrange(aser_b_eng_comprehension,0,1)
+		replace aser_b_english_4_5 = 6 if inrange(aser_b_eng_sentences,6,8) & inrange(aser_b_eng_sentence_meaning,6,8) & aser_b_eng_comprehension == 2	
+		
+	lab def eng_cat_45 0 "Nothing" 1 "Capital letters" 2 "Small letters" 3 "Word" 4 "G2 Sentence" 5 "G5 Sentence" 6 "G5 Story"
+	lab val aser_b_english_4_5 eng_cat_45
+	lab var aser_b_english_4_5 "english score grades 4-5 - categorical"
+	
+	gen aser_b_urdu_4_5 = 0 if inrange(aser_b_urdu_g1_3_read_letters,0,3) 
+	replace aser_b_urdu_4_5 = 1 if inrange(aser_b_urdu_g1_3_read_letters,4,5) & inrange(aser_b_urdu_g1_3_read_words,0,3)
+	replace aser_b_urdu_4_5 = 2 if inrange(aser_b_urdu_g1_3_read_words,4,5) & inrange(aser_b_urdu_g1_3_sen_fluency,0,3)
+	replace aser_b_urdu_4_5 = 3 if inrange(aser_b_urdu_g1_3_sen_fluency,4,5) & inrange(aser_b_urdu_read_sentences,2,4) & inrange(aser_b_urdu_story_fluency,0,3)
+	replace aser_b_urdu_4_5 = 4 if inrange(aser_b_urdu_g1_3_story_fluency,4,5) & inrange(aser_b_urdu_story_fluency,0,3)
+	replace aser_b_urdu_4_5 = 5 if inrange(aser_b_urdu_story_fluency,4,5)
+	
+	lab def urdu_cat_45 0 "Nothing" 1 "Letters" 2 "Words" 3 "G2 Sentence" 4 "G2 Story" 5 "G5 Story"
+	lab val aser_b_urdu_4_5 urdu_cat_45
+	lab var aser_b_urdu_4_5 "urdu score grades 4-5 - categorical"
+	
+	gen aser_b_maths_4_5 = 0 if aser_b_maths_5digit_nums < 4 & aser_b_maths_3digit_nums < 4 & aser_b_maths_2digit_nums < 4 & aser_b_maths_1digit_nums < 4
+	replace aser_b_maths_4_5 = 1 if aser_b_maths_5digit_nums >= 4 & aser_b_maths_3digit_nums >= 4 & aser_b_maths_2digit_nums >= 4 & aser_b_maths_1digit_nums >= 4
+	replace aser_b_maths_4_5 = 2 if aser_b_maths_g1_3_minus_3dig == "correct" & aser_b_maths_g1_3_minus_2dig == "correct"
+	replace aser_b_maths_4_5 = 3 if aser_b_maths_minus_4digit == "correct" & aser_b_maths_minus_5digit == "correct"
+	replace aser_b_maths_4_5 = 4 if aser_b_maths_minus_4digit == "correct" & aser_b_maths_minus_5digit == "correct" & aser_b_maths_division == "correct"
+	
+	lab def math_cat_45 0 "Nothing" 1 "Number Recognition" 2 "Subtraction-2/3" 3 "Subtraction-4/5" 4 "Division" 
+	lab val aser_b_maths_4_5 maths_cat_45
+	lab var aser_b_maths_4_5 "maths score grades 4-5 - categorical"
+	
 	
 tempfile ASER_4_5_baseline
 save `ASER_4_5_baseline', replace
@@ -380,7 +418,7 @@ save `ASER_4_5_baseline_school_var', replace
 }
 ********************************************************************************
 { //* MELQO - BASELINE:
-
+/*
 import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy of MELQO_19dec_raw.xlsx - data.csv", encoding(ISO-8859-1) clear
 
 * Cleaning operations:
@@ -510,6 +548,7 @@ save "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned.dta", replace
 * School level dataset with (type (treatment status), school_id (numeric), and school_name variables	
 tempfile MELQO_baseline_school_var
 save `MELQO_baseline_school_var', replace	
+*/
 }
 ********************************************************************************
 { //* ASER - ENDLINE (1-3):
@@ -791,6 +830,43 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_4
 	gen aser_e_gk_pic_3_per = 100 if aser_e_gk_picture_3 == "correct" 
 	replace aser_e_gk_pic_3_per = 100 if aser_e_gk_picture_3 == "incorrect" 
 
+* Creating categorical variables , based on ASER’s ranking methodology 	
+
+		gen aser_e_english_4_5 = 0 if inrange(aser_e_eng_g1_3_capital,0,3)
+		replace aser_e_english_4_5 = 1 if inrange(aser_e_eng_g1_3_capital,4,5) & inrange(aser_e_eng_g1_3_small,0,3)
+		replace aser_e_english_4_5 = 2 if inrange(aser_e_eng_g1_3_small,4,5) & inrange(aser_e_eng_g1_3_words,0,3)
+		replace aser_e_english_4_5 = 3 if inrange(aser_e_eng_g1_3_words,4,5) & inrange(aser_e_eng_g1_3_sentence,0,2)
+		replace aser_e_english_4_5 = 4 if inrange(aser_e_eng_sentences,6,8) & inrange(aser_e_eng_sentence_meaning,0,5)
+		replace aser_e_english_4_5 = 4 if inrange(aser_e_eng_sentences,0,3) & inrange(aser_e_eng_g1_3_sentence,2,4)
+		replace aser_e_english_4_5 = 4 if inrange(aser_e_eng_sentences,4,6)
+		replace aser_e_english_4_5 = 5 if inrange(aser_e_eng_sentences,6,8) & inrange(aser_e_eng_sentence_meaning,6,8) & inrange(aser_e_eng_comprehension,0,1)
+		replace aser_e_english_4_5 = 6 if inrange(aser_e_eng_sentences,6,8) & inrange(aser_e_eng_sentence_meaning,6,8) & aser_e_eng_comprehension == 2	
+		
+	lab def eng_cat_45 0 "Nothing" 1 "Capital letters" 2 "Small letters" 3 "Word" 4 "G2 Sentence" 5 "G5 Sentence" 6 "G5 Story"
+	lab val aser_e_english_4_5 eng_cat_45
+	lab var aser_e_english_4_5 "english score grades 4-5 - categorical"
+	
+	gen aser_e_urdu_4_5 = 0 if inrange(aser_e_urdu_g1_3_read_letters,0,3) 
+	replace aser_e_urdu_4_5 = 1 if inrange(aser_e_urdu_g1_3_read_letters,4,5) & inrange(aser_e_urdu_g1_3_read_words,0,3)
+	replace aser_e_urdu_4_5 = 2 if inrange(aser_e_urdu_g1_3_read_words,4,5) & inrange(aser_e_urdu_g1_3_sen_fluency,0,3)
+	replace aser_e_urdu_4_5 = 3 if inrange(aser_e_urdu_g1_3_sen_fluency,4,5) & inrange(aser_e_urdu_read_sentences,2,4) & inrange(aser_e_urdu_story_fluency,0,3)
+	replace aser_e_urdu_4_5 = 4 if inrange(aser_e_urdu_g1_3_story_fluency,4,5) & inrange(aser_e_urdu_story_fluency,0,3)
+	replace aser_e_urdu_4_5 = 5 if inrange(aser_e_urdu_story_fluency,4,5)
+	
+	lab def urdu_cat_45 0 "Nothing" 1 "Letters" 2 "Words" 3 "G2 Sentence" 4 "G2 Story" 5 "G5 Story"
+	lab val aser_e_urdu_4_5 urdu_cat_45
+	lab var aser_e_urdu_4_5 "urdu score grades 4-5 - categorical"
+	
+	gen aser_e_maths_4_5 = 0 if aser_e_maths_5digit_nums < 4 & aser_e_maths_3digit_nums < 4 & aser_e_maths_2digit_nums < 4 & aser_e_maths_1digit_nums < 4
+	replace aser_e_maths_4_5 = 1 if aser_e_maths_5digit_nums >= 4 & aser_e_maths_3digit_nums >= 4 & aser_e_maths_2digit_nums >= 4 & aser_e_maths_1digit_nums >= 4
+	replace aser_e_maths_4_5 = 2 if aser_e_maths_g1_3_minus_3dig == "correct" & aser_e_maths_g1_3_minus_2dig == "correct"
+	replace aser_e_maths_4_5 = 3 if aser_e_maths_minus_4digit == "correct" & aser_e_maths_minus_5digit == "correct"
+	replace aser_e_maths_4_5 = 4 if aser_e_maths_minus_4digit == "correct" & aser_e_maths_minus_5digit == "correct" & aser_e_maths_division == "correct"
+	
+	lab def math_cat_45 0 "Nothing" 1 "Number Recognition" 2 "Subtraction-2/3" 3 "Subtraction-4/5" 4 "Division" 
+	lab val aser_e_maths_4_5 maths_cat_45
+	lab var aser_e_maths_4_5 "maths score grades 4-5 - categorical"
+	
 	
 	unab varlist2: *per
 	forval i = 1/`n' {
@@ -837,7 +913,7 @@ save "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned.dta", replace
 }
 ********************************************************************************
 { //* MELQO - ENDLINE:
-
+/*
 import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_2023_08_08_04_24_27_693377.xlsx", firstrow clear
 
 
@@ -967,6 +1043,7 @@ save `MELQO_endline', replace
 
 export excel "$user/$drive/$folder/Output/Excel/MELQO_Endline_Cleaned.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned.dta", replace
+*/
 }
 ********************************************************************************
 
