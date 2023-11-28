@@ -169,6 +169,7 @@ save `ASER_1_3_baseline', replace
 			/////////////////// 
 		import excel "$user/$drive/$folder/Shared by Taleemabad/Schools/ASER_Churn_Baseline.xlsx", firstrow clear	
 		rename general_details_sectionschool_n school_name
+		drop FinalNotesGrades1345 - Z
 		duplicates drop
 		tempfile ASER_Churn_Baseline
 		save `ASER_Churn_Baseline', replace

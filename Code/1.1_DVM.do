@@ -77,7 +77,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Endline_Cleaned", clear
 	drop m1
 
 	tab matching, m
-	order school_name_trim treatment matching
+	order school_name b_treatment e_treatment matching
 	tempfile ASER_1_3_School_level
 	save `ASER_1_3_School_level', replace
 	}
@@ -130,12 +130,13 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned", clear
 	drop m1
 
 	tab matching, m
-	order school_name_trim treatment matching
+	order school_name b_treatment e_treatment matching
 	tempfile ASER_4_5_School_level
 	save `ASER_4_5_School_level', replace
 }
 ********************************************************************************
 { // MELQO
+/*
 * MELQO - BASELINE Cleaned:
 use "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned", clear
 
@@ -185,7 +186,7 @@ use "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned", clear
 	tab matching, m
 	order school_name_trim treatment matching
 	tempfile MELQO_School_level
-	save `MELQO_School_level', replace
+	save `MELQO_School_level', replace*/
 }
 ********************************************************************************
 // School Level Master Dataset
@@ -193,13 +194,12 @@ use `ASER_1_3_School_level', clear
 foreach var of varlist age_b - sd_aser_e_gk_pic_3_per {
 	rename `var' a13_`var'
 }
-merge 1:1 school_name_trim using `ASER_4_5_School_level', gen(m1)
+merge 1:1 school_name using `ASER_4_5_School_level', gen(m1)
 drop m1
-merge 1:1 school_name_trim using `MELQO_School_level', gen(m1)
+//merge 1:1 school_name_trim using `MELQO_School_level', gen(m1)
 
-sort school_name_trim
-encode school_name_trim, gen(school_id)
-lab var treatment "treatment"
+sort school_name
+encode school_name, gen(school_id)
 tempfile MasterDataset_SchoolLevel
 save `MasterDataset_SchoolLevel', replace
 
@@ -207,7 +207,7 @@ export excel "$user/$drive/$folder/Output/Excel/MasterDataset_SchoolLevel.xlsx",
 save "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", replace
 
 preserve
-keep school_name_trim treatment matching school_id
+keep school_name b_treatment e_treatment matching school_id
 export excel "$user/$drive/$folder/Output/Excel/MasterDataset_SchoolLevel_variables.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", replace
 restore
