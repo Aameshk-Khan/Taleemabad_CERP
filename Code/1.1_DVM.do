@@ -278,7 +278,7 @@ tostring grade, replace
 	foreach var of varlist age_b aser_b_e_sent_per - aser_b_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age_b aser_b_e_sent_per - aser_b_gk_pic_3_per treatment (sd) sd_age_b sd_aser_b_e_sent_per - sd_aser_b_gk_pic_3_per, by(school_name_trim grade)
+	collapse (mean) age_b aser_b_e_sent_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_sent_per - sd_aser_b_gk_pic_3_per, by(school_name grade)
 	tempfile ASER_4_5_B_SchoolGrade_level
 	save `ASER_4_5_B_SchoolGrade_level', replace
 	
@@ -291,7 +291,7 @@ tostring grade, replace
 	foreach var of varlist age_e aser_e_e_sent_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}	
-	collapse (mean) age_e aser_e_e_sent_per - aser_e_gk_pic_3_per treatment (sd) sd_age_e sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per, by(school_name_trim grade)
+	collapse (mean) age_e aser_e_e_sent_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per, by(school_name grade)
 	tempfile ASER_4_5_E_SchoolGrade_level
 	save `ASER_4_5_E_SchoolGrade_level', replace
 	
@@ -433,6 +433,7 @@ export excel "$user/$drive/$folder/Output/Excel/Grade6.xlsx", firstrow(variable)
 save "$user/$drive/$folder/Output/Stata/Grade6.dta", replace
 restore
 
+/*
 preserve
 keep if grade == "KG"
 export excel "$user/$drive/$folder/Output/Excel/GradeKG.xlsx", firstrow(variable) replace
@@ -450,6 +451,6 @@ keep if grade == "PG"
 export excel "$user/$drive/$folder/Output/Excel/GradePG.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/GradePG.dta", replace
 restore
- 
+*/ 
 
 exit 
