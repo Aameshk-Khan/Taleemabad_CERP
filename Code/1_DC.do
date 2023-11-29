@@ -140,7 +140,7 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	lab var aser_b_english "english score - categorical"
 
 	// aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" No such observations
-	gen aser_b_maths = 5 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_100_200,4,5) 
+	gen aser_b_maths = 5 if aser_b_maths_minus_2digit == "incorect" | aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_100_200,4,5) 
 	replace aser_b_maths = 4 if aser_b_maths_minus_2digit == "corect" & aser_b_maths_minus_3digit == "correct" & aser_b_maths_division == "correct"
 	replace aser_b_maths = 3 if aser_b_maths_minus_2digit == "corect" & aser_b_maths_minus_3digit == "correct" & aser_b_maths_division == "incorrect"
 	replace aser_b_maths = 2 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_100_200,0,3) & inrange(aser_b_maths_10_99,4,5)
@@ -436,7 +436,7 @@ save `ASER_4_5_baseline_school_var', replace
 }
 ********************************************************************************
 { //* MELQO - BASELINE:
-/*
+
 import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy of MELQO_19dec_raw.xlsx - data.csv", encoding(ISO-8859-1) clear
 
 * Cleaning operations:
@@ -509,43 +509,51 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 			lab var `varname' "`varlabel_new'"		
 	}
 	*/
-	gen school_name_trim = school_name
-	lab var school_name_trim "school name in lower case wihtout spaces"
-	replace school_name_trim = ustrtrim(school_name_trim)
-	replace school_name_trim = lower(school_name_trim)
-	replace school_name_trim = subinstr(school_name_trim, " ", "",.)
-	replace school_name_trim = subinstr(school_name_trim, ".", "",.)
+
+	replace school_name = itrim(trim(school_name))
+	generate str name_string = school_name
+	replace school_name = ""
+	compress school_name
+	replace school_name = name_string
+	drop name_string
+	describe school_name
 	
 tempfile MELQO_baseline
-save `MELQO_baseline', replace
-
+save `MELQO_baseline', replace	
+	
+				/////////////////// 
+		import excel "$user/$drive/$folder/School name correction files - CERP/MELQO_Baseline.xlsx", firstrow clear	
+		rename general_details_sectionschool_n school_name
+		drop D - W
+		duplicates drop
+		tempfile MELQO_Baseline_correct
+		save `MELQO_Baseline_correct', replace
+			///////////////////
+			
 	use `MELQO_baseline', clear
-	merge m:1 school_name_trim using `schoolcorrection_ASER', gen(m1)
+	merge m:1 school_name using `MELQO_Baseline_correct', gen(m1)
 		/*
-
     Result                           # of obs.
     -----------------------------------------
-    not matched                         1,110
-        from master                       884  (m1==1) // already correct
-        from using                        226  (m1==2) // these schools are not present
+    not matched                            64
+        from master                         0  (m1==1)
+        from using                         64  (m1==2)
 
-    matched                               949  (m1==3)
+    matched                             1,833  (m1==3)
     -----------------------------------------
 		*/
 
-	drop if m1 == 2 
-	tab school_name_trim if corrected_school == "" 
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
+	drop if m1 == 2  
+	drop school_name
 	rename corrected_school school_name_trim
 	drop m1
+	
+	tab type
+	gen treatment = "Experimental" if type == "Taleemabad school"
+	replace treatment = "Controlled" if type == "Non Taleemabad School"
+	drop type
+	rename treatment type
 
-	merge m:1 school_name_trim using `schoolcorrection_2', gen(m1)
-	drop if m1 == 2 // these schools are not present
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1
 /*
 * Generating School_id 
 	sort school_name_trim
@@ -560,13 +568,13 @@ save `MELQO_baseline', replace
 export excel "$user/$drive/$folder/Output/Excel/MELQO_Baseline_Cleaned.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned.dta", replace
 
-	egen tag = tag(school_name_trim)
+	egen tag = tag(school_name)
 	keep if tag
-	keep school_name_trim type
-* School level dataset with (type (treatment status), school_id (numeric), and school_name variables	
+	keep school_name type
+* School level dataset with (type (treatment status) and school_name variables	
 tempfile MELQO_baseline_school_var
 save `MELQO_baseline_school_var', replace	
-*/
+
 }
 ********************************************************************************
 { //* ASER - ENDLINE (1-3):
@@ -948,7 +956,7 @@ save "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned.dta", replace
 }
 ********************************************************************************
 { //* MELQO - ENDLINE:
-/*
+
 import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_2023_08_08_04_24_27_693377.xlsx", firstrow clear
 
 
@@ -1019,60 +1027,55 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 			lab var `varname' "`varlabel_new'"		
 	}
 	*/
-	gen school_name_trim = school_name
-	lab var school_name_trim "school name in lower case wihtout spaces"
-	replace school_name_trim = ustrtrim(school_name_trim)
-	replace school_name_trim = lower(school_name_trim)
-	replace school_name_trim = subinstr(school_name_trim, " ", "",.)
-	replace school_name_trim = subinstr(school_name_trim, ".", "",.)
 
+	replace school_name = itrim(trim(school_name))
+	generate str name_string = school_name
+	replace school_name = ""
+	compress school_name
+	replace school_name = name_string
+	drop name_string
+	describe school_name
+	
+	replace school_name = ustrltrim(school_name)
+	replace school_name = lower(school_name)
+	replace school_name = subinstr(school_name, " ", "",.)
+	replace school_name = subinstr(school_name, ".", "",.)
 
+	
 tempfile MELQO_endline
-save `MELQO_endline', replace
+save `MELQO_endline', replace	
+	
+				/////////////////// 
+		import excel "$user/$drive/$folder/School name correction files - CERP/MELQO_Endline.xlsx", firstrow clear	
+		rename general_details_sectionschool_n school_name
+		gen type = "Experimental" if treatment == 1
+		replace type = "Controlled" if treatment == 2
+		replace type = "Controlled" if treatment == .
+		duplicates drop
+		drop treatment
+		rename ttype treatment_type
+		tempfile MELQO_Endline_correct
+		save `MELQO_Endline_correct', replace
+			///////////////////
 
-	merge m:1 school_name_trim using `schoolcorrection_ASER', gen(m1)
+	use `MELQO_endline', clear
+	merge m:1 school_name using `MELQO_Endline_correct', gen(m1)
 		/*
 
     Result                           # of obs.
     -----------------------------------------
-    not matched                         1,523
-        from master                     1,406  (m1==1)
-        from using                        117  (m1==2)
+    not matched                         1,664
+        from master                     1,552  (m1==1)
+        from using                        112  (m1==2)
 
-    matched                             2,822  (m1==3)
+    matched                             2,676  (m1==3)
     -----------------------------------------
+		*/
 
-	*/
-	drop if m1 == 2
-	tab school_name_trim if corrected_school == "" // no observations
-	replace corrected_school = school_name_trim if corrected_school == ""
-	drop school_name_trim
-	rename corrected_school school_name_trim
+	drop school_name
+	rename corrected_school school_name
 	drop m1
-	
-	merge m:1 school_name_trim using `schoolcorrection_2', gen(m1)
-	drop if m1 == 2 // these schools are not present
-	replace corrected_school = school_name_trim if corrected_school == "" // school names which are already correct
-	drop school_name_trim
-	rename corrected_school school_name_trim
-	drop m1
-	
-	merge m:1 school_name_trim using `MELQO_baseline_school_var', gen(m1)
-	/*
 
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                         2,263
-        from master                     2,258  (m1==1)
-        from using                          5  (m1==2)
-
-    matched                             1,970  (m1==3)
-    -----------------------------------------
-
-	*/
-	drop if m1 == 2
-	drop m1
-	
 tempfile MELQO_endline
 save `MELQO_endline', replace
 
