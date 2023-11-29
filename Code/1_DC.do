@@ -138,19 +138,19 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	lab def eng_cat 0 "Nothing" 1 "Capital letters" 2 "Small letters" 3 "Word" 4 "Sentence"
 	lab val aser_b_english eng_cat
 	lab var aser_b_english "english score - categorical"
-	
-	gen aser_b_maths = 5 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_10_99,4,5) & inrange(aser_b_maths_100_200,0,3)
+
+	// aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" No such observations
+	gen aser_b_maths = 5 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_100_200,4,5) 
 	replace aser_b_maths = 4 if aser_b_maths_minus_2digit == "corect" & aser_b_maths_minus_3digit == "correct" & aser_b_maths_division == "correct"
 	replace aser_b_maths = 3 if aser_b_maths_minus_2digit == "corect" & aser_b_maths_minus_3digit == "correct" & aser_b_maths_division == "incorrect"
-	replace aser_b_maths = 2 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_100_200,4,5) 
+	replace aser_b_maths = 2 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_100_200,0,3) & inrange(aser_b_maths_10_99,4,5)
 	replace aser_b_maths = 1 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_10_99,0,3) & inrange(aser_b_maths_1_9,4,5) & inrange(aser_b_maths_100_200,0,3) 
-	replace aser_b_maths = 0 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_10_99,0,3) & inrange(aser_b_maths_1_9,0,3) & inrange(aser_b_maths_100_200,0,3)
+	replace aser_b_maths = 0 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_10_99,0,3) & inrange(aser_b_maths_1_9,0,3) & inrange(aser_b_maths_100_200,0,3) 
 	
-	
-	lab def math_cat 0 "Nothing" 1 "Recognise numbers 1 - 9" 2 "Recognise 100 - 200" 3 "subtraction" 4 "division" 5 "recognise numbers 11 - 99" 
+	lab def math_cat 0 "Nothing" 1 "Recognise numbers 1 - 9" 2 "Recognise 10 - 99" 3 "subtraction" 4 "division" 5 "recognise numbers 100 - 200" 
 	lab val aser_b_maths maths_cat
 	lab var aser_b_maths "maths score - categorical"
-	
+
 	gen aser_b_urdu = 6 if aser_b_urdu_read_sentences == 4
 	replace aser_b_urdu = 5 if aser_b_urdu_read_sentences != 4 & inrange(aser_b_urdu_words,4,5)
 	replace aser_b_urdu = 4 if aser_b_urdu_read_sentences == 4 & aser_b_urdu_story_fluency == 5
@@ -161,6 +161,14 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	lab def urdu_cat 1 "beginner" 2 "can read letters" 3 "paragraph" 4 "story" 5 "words" 6 "sentence"
 	lab val aser_b_urdu urdu_cat
 	lab var aser_b_urdu "urdu score - categorical"
+	
+	tab aser_b_english, gen(aser_b_english_cat)
+	rename (aser_b_english_cat1 - aser_b_english_cat5) (aser_b_english_Nothing aser_b_english_Capital aser_b_english_Small aser_b_english_Word aser_b_english_Sentence) 
+	
+	//tab aser_b_maths, gen(aser_b_maths_cat)
+	
+	tab aser_b_urdu, gen(aser_b_urdu_cat)
+	rename (aser_b_urdu_cat1 - aser_b_urdu_cat5) (aser_b_urdu_Nothing aser_b_urdu_Letters aser_b_urdu_Paragraph aser_b_urdu_Story aser_b_urdu_Words) 
 		
 tempfile ASER_1_3_baseline
 save `ASER_1_3_baseline', replace
@@ -368,10 +376,19 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	replace aser_b_maths_4_5 = 4 if aser_b_maths_minus_4digit == "correct" & aser_b_maths_minus_5digit == "correct" & aser_b_maths_division == "correct"
 	
 	lab def math_cat_45 0 "Nothing" 1 "Number Recognition" 2 "Subtraction-2/3" 3 "Subtraction-4/5" 4 "Division" 
-	lab val aser_b_maths_4_5 maths_cat_45
+	lab val aser_b_maths_4_5 math_cat_45
 	lab var aser_b_maths_4_5 "maths score grades 4-5 - categorical"
 	
+	rename aser_b_english_4_5 aser_b_eng_4_5
+	tab aser_b_eng_4_5, gen(aser_b_eng_4_5_cat)
+	rename (aser_b_eng_4_5_cat1 - aser_b_eng_4_5_cat7) (aser_b_eng_Nothing aser_b_eng_Capital aser_b_eng_Small aser_b_eng_Word aser_b_eng_G2Sentence aser_b_english_G5Sentence aser_b_eng_G5Story) 
 	
+	tab aser_b_maths_4_5, gen(aser_b_maths_4_5_cat)
+	rename (aser_b_maths_4_5_cat1 - aser_b_maths_4_5_cat4) (aser_b_maths_4_5_Nothing aser_b_maths_4_5_NumberRecog aser_b_maths_4_5_Subtract45 aser_b_maths_4_5_Division)
+	
+	tab aser_b_urdu_4_5, gen(aser_b_urdu_4_5_cat)
+	rename (aser_b_urdu_4_5_cat1 - aser_b_urdu_4_5_cat6) (aser_b_urdu_4_5_Nothing aser_b_urdu_4_5_Letters aser_b_urdu_4_5_Words aser_b_urdu_4_5_G2Sentence aser_b_urdu_4_5_G2Story aser_b_urdu_4_5_G5Story) 
+
 tempfile ASER_4_5_baseline
 save `ASER_4_5_baseline', replace
 
@@ -658,14 +675,14 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_1
 	lab val aser_e_english eng_cat
 	lab var aser_e_english "english score - categorical"
 	
-	gen aser_e_maths = 5 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_10_99,4,5) & inrange(aser_e_maths_100_200,0,3)
+	gen aser_e_maths = 5 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_100_200,4,5) 
 	replace aser_e_maths = 4 if aser_e_maths_minus_2digit == "corect" & aser_e_maths_minus_3digit == "correct" & aser_e_maths_division == "correct"
 	replace aser_e_maths = 3 if aser_e_maths_minus_2digit == "corect" & aser_e_maths_minus_3digit == "correct" & aser_e_maths_division == "incorrect"
-	replace aser_e_maths = 2 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_100_200,4,5) 
+	replace aser_e_maths = 2 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_100_200,0,3) & inrange(aser_e_maths_10_99,4,5)
 	replace aser_e_maths = 1 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_10_99,0,3) & inrange(aser_e_maths_1_9,4,5) & inrange(aser_e_maths_100_200,0,3) 
-	replace aser_e_maths = 0 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_10_99,0,3) & inrange(aser_e_maths_1_9,0,3) & inrange(aser_e_maths_100_200,0,3)
+	replace aser_e_maths = 0 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_10_99,0,3) & inrange(aser_e_maths_1_9,0,3) & inrange(aser_e_maths_100_200,0,3) 
 	
-	lab def math_cat 0 "Nothing" 1 "Recognise numbers 1 - 9" 2 "Recognise 100 - 200" 3 "subtraction" 4 "division" 5 "recognise numbers 11 - 99" 
+	lab def math_cat 0 "Nothing" 1 "Recognise numbers 1 - 9" 2 "Recognise 10 - 99" 3 "subtraction" 4 "division" 5 "recognise numbers 100 - 200" 
 	lab val aser_e_maths maths_cat
 	lab var aser_e_maths "maths score - categorical"
 
@@ -680,6 +697,14 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_1
 	lab val aser_e_urdu urdu_cat
 	lab var aser_e_urdu "urdu score - categorical"	
 	
+	tab aser_e_english, gen(aser_e_english_cat)
+	rename (aser_e_english_cat1 - aser_e_english_cat5) (aser_e_english_Nothing aser_e_english_Capital aser_e_english_Small aser_e_english_Word aser_e_english_Sentence) 
+	
+	//tab aser_e_maths, gen(aser_b_maths_cat)
+	
+	tab aser_e_urdu, gen(aser_e_urdu_cat)
+	rename (aser_e_urdu_cat1 - aser_e_urdu_cat5) (aser_e_urdu_Nothing aser_e_urdu_Letters aser_e_urdu_Paragraph aser_e_urdu_Story aser_e_urdu_Words) 
+
 	replace school_name = ustrltrim(school_name)
 	replace school_name = lower(school_name)
 	replace school_name = subinstr(school_name, " ", "",.)
@@ -865,10 +890,19 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_4
 	replace aser_e_maths_4_5 = 4 if aser_e_maths_minus_4digit == "correct" & aser_e_maths_minus_5digit == "correct" & aser_e_maths_division == "correct"
 	
 	lab def math_cat_45 0 "Nothing" 1 "Number Recognition" 2 "Subtraction-2/3" 3 "Subtraction-4/5" 4 "Division" 
-	lab val aser_e_maths_4_5 maths_cat_45
+	lab val aser_e_maths_4_5 math_cat_45
 	lab var aser_e_maths_4_5 "maths score grades 4-5 - categorical"
 	
+	rename aser_e_english_4_5 aser_e_eng_4_5
+	tab aser_e_eng_4_5, gen(aser_e_eng_4_5_cat)
+	rename (aser_e_eng_4_5_cat1 - aser_e_eng_4_5_cat6) (aser_e_eng_Nothing aser_e_eng_Small aser_e_eng_Word aser_e_eng_G2Sentence aser_e_english_G5Sentence aser_e_eng_G5Story) 
 	
+	tab aser_e_maths_4_5, gen(aser_e_maths_4_5_cat)
+	rename (aser_e_maths_4_5_cat1 - aser_e_maths_4_5_cat4) (aser_e_maths_4_5_Nothing aser_e_maths_4_5_NumberRecog aser_e_maths_4_5_Subtract45 aser_e_maths_4_5_Division)
+	
+	tab aser_e_urdu_4_5, gen(aser_e_urdu_4_5_cat)
+	rename (aser_e_urdu_4_5_cat1 - aser_e_urdu_4_5_cat6) (aser_e_urdu_4_5_Nothing aser_e_urdu_4_5_Letters aser_e_urdu_4_5_Words aser_e_urdu_4_5_G2Sentence aser_e_urdu_4_5_G2Story aser_e_urdu_4_5_G5Story) 
+
 	unab varlist2: *per
 	forval i = 1/`n' {
 			

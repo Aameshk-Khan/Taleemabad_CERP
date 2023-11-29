@@ -39,7 +39,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Baseline_Cleaned", clear
 	foreach var of varlist age_b aser_b_e_capital_per - aser_b_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age_b aser_b_e_capital_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_capital_per - sd_aser_b_gk_pic_3_per, by(school_name)
+	collapse (mean) age_b aser_b_e_capital_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_capital_per - sd_aser_b_gk_pic_3_per (sum) aser_b_english_Nothing - aser_b_urdu_Words, by(school_name)
 	tempfile ASER_1_3_Baseline_School_level
 	save `ASER_1_3_Baseline_School_level', replace
 	
@@ -52,7 +52,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Endline_Cleaned", clear
 	foreach var of varlist age_e aser_e_e_capital_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age_e aser_e_e_capital_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_capital_per - sd_aser_e_gk_pic_3_per, by(school_name)
+	collapse (mean) age_e aser_e_e_capital_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_capital_per - sd_aser_e_gk_pic_3_per (sum) aser_e_english_Nothing - aser_e_urdu_Words, by(school_name)
 	tempfile ASER_1_3_Endline_School_level
 	save `ASER_1_3_Endline_School_level', replace
 	
@@ -92,7 +92,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Baseline_Cleaned", clear
 	foreach var of varlist age_b aser_b_e_sent_per - aser_b_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age_b aser_b_e_sent_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_sent_per - sd_aser_b_gk_pic_3_per, by(school_name)
+	collapse (mean) age_b aser_b_e_sent_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_sent_per - sd_aser_b_gk_pic_3_per (sum) aser_b_eng_Nothing - aser_b_urdu_4_5_G5Story, by(school_name)
 	tempfile ASER_4_5_Baseline_School_level
 	save `ASER_4_5_Baseline_School_level', replace
 	
@@ -105,7 +105,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned", clear
 	foreach var of varlist age_e aser_e_e_sent_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}	
-	collapse (mean) age_e aser_e_e_sent_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per, by(school_name)
+	collapse (mean) age_e aser_e_e_sent_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per (sum) aser_e_eng_Nothing - aser_e_urdu_4_5_G5Story, by(school_name)
 	tempfile ASER_4_5_Endline_School_level
 	save `ASER_4_5_Endline_School_level', replace
 	
@@ -219,12 +219,12 @@ restore
 use "$user/$drive/$folder/Output/Stata/ASER_1_3_Baseline_Cleaned", clear
 tostring grade, replace
 * Generating a school-level and grade level dataset
-	gen treatment = 1 if type == "Experimental"
-	replace treatment = 0 if type == "Controlled"
-	foreach var of varlist age aser_b_e_capital_per - aser_b_gk_pic_3_per {
+	gen b_treatment = 1 if type == "Experimental"
+	replace b_treatment = 0 if type == "Controlled"
+	foreach var of varlist age_b aser_b_e_capital_per - aser_b_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age aser_b_e_capital_per - aser_b_gk_pic_3_per treatment (sd) sd_age sd_aser_b_e_capital_per - sd_aser_b_gk_pic_3_per, by(school_name_trim grade)
+	collapse (mean) age_b aser_b_e_capital_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_capital_per - sd_aser_b_gk_pic_3_per, by(school_name grade)
 	tempfile ASER_1_3_B_SchoolGrade_level
 	save `ASER_1_3_B_SchoolGrade_level', replace
 	
@@ -233,18 +233,18 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Endline_Cleaned", clear
 tostring grade, replace
 
 * Generating a school-level dataset
-	gen treatment = 1 if type == "Experimental"
-	replace treatment = 0 if type == "Controlled"
-	foreach var of varlist age aser_e_e_capital_per - aser_e_gk_pic_3_per {
+	gen e_treatment = 1 if type == "Experimental"
+	replace e_treatment = 0 if type == "Controlled"
+	foreach var of varlist age_e aser_e_e_capital_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age aser_e_e_capital_per - aser_e_gk_pic_3_per treatment (sd) sd_age sd_aser_e_e_capital_per - sd_aser_e_gk_pic_3_per, by(school_name_trim grade)
+	collapse (mean) age_e aser_e_e_capital_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_capital_per - sd_aser_e_gk_pic_3_per, by(school_name grade)
 	tempfile ASER_1_3_E_SchoolGrade_level
 	save `ASER_1_3_E_SchoolGrade_level', replace
 	
 * Merging ASER 1-3 
 	use `ASER_1_3_B_SchoolGrade_level', clear
-	merge 1:1 school_name_trim grade using `ASER_1_3_E_SchoolGrade_level', gen(m1) 
+	merge 1:1 school_name grade using `ASER_1_3_E_SchoolGrade_level', gen(m1) 
 	/*
 	    Result                           # of obs.
     -----------------------------------------
@@ -263,7 +263,7 @@ tostring grade, replace
 	drop m1
 
 	tab matching, m
-	order school_name_trim grade treatment matching
+	order school_name grade b_treatment e_treatment matching
 	tempfile ASER_1_3_SchoolGrade_level
 	save `ASER_1_3_SchoolGrade_level', replace
 	}
@@ -273,12 +273,12 @@ tostring grade, replace
 use "$user/$drive/$folder/Output/Stata/ASER_4_5_Baseline_Cleaned", clear
 tostring grade, replace
 * Generating a school-level dataset
-	gen treatment = 1 if type == "Experimental"
-	replace treatment = 0 if type == "Controlled"
-	foreach var of varlist age aser_b_e_sent_per - aser_b_gk_pic_3_per {
+	gen b_treatment = 1 if type == "Experimental"
+	replace b_treatment = 0 if type == "Controlled"
+	foreach var of varlist age_b aser_b_e_sent_per - aser_b_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age aser_b_e_sent_per - aser_b_gk_pic_3_per treatment (sd) sd_age sd_aser_b_e_sent_per - sd_aser_b_gk_pic_3_per, by(school_name_trim grade)
+	collapse (mean) age_b aser_b_e_sent_per - aser_b_gk_pic_3_per treatment (sd) sd_age_b sd_aser_b_e_sent_per - sd_aser_b_gk_pic_3_per, by(school_name_trim grade)
 	tempfile ASER_4_5_B_SchoolGrade_level
 	save `ASER_4_5_B_SchoolGrade_level', replace
 	
@@ -286,18 +286,18 @@ tostring grade, replace
 use "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned", clear
 tostring grade, replace
 * Generating a school-level dataset
-	gen treatment = 1 if type == "Experimental"
-	replace treatment = 0 if type == "Controlled"
-	foreach var of varlist age aser_e_e_sent_per - aser_e_gk_pic_3_per {
+	gen e_treatment = 1 if type == "Experimental"
+	replace e_treatment = 0 if type == "Controlled"
+	foreach var of varlist age_e aser_e_e_sent_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}	
-	collapse (mean) age aser_e_e_sent_per - aser_e_gk_pic_3_per treatment (sd) sd_age sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per, by(school_name_trim grade)
+	collapse (mean) age_e aser_e_e_sent_per - aser_e_gk_pic_3_per treatment (sd) sd_age_e sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per, by(school_name_trim grade)
 	tempfile ASER_4_5_E_SchoolGrade_level
 	save `ASER_4_5_E_SchoolGrade_level', replace
 	
 * Merging ASER 4-5 
 	use `ASER_4_5_B_SchoolGrade_level', clear
-	merge 1:1 school_name_trim grade using `ASER_4_5_E_SchoolGrade_level', gen(m1)
+	merge 1:1 school_name grade using `ASER_4_5_E_SchoolGrade_level', gen(m1)
 	/*
 	    Result                           # of obs.
     -----------------------------------------
@@ -316,12 +316,13 @@ tostring grade, replace
 	drop m1
 
 	tab matching, m
-	order school_name_trim treatment matching
+	order school_name b_treatment e_treatment matching
 	tempfile ASER_4_5_SchoolGrade_level
 	save `ASER_4_5_SchoolGrade_level', replace
 }
 ********************************************************************************
 { // MELQO
+/*
 * MELQO - BASELINE Cleaned:
 use "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned", clear
 
@@ -373,25 +374,25 @@ use "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned", clear
 	destring grade, replace
 	tempfile MELQO_SchoolGrade_level
 	save `MELQO_SchoolGrade_level', replace
+	*/
 }
 // Grade wise Master Datasets
 use `ASER_1_3_SchoolGrade_level', clear
 foreach var of varlist age_b - sd_aser_e_gk_pic_3_per {
 	rename `var' a13_`var'
 }
-merge 1:1 school_name_trim grade using `ASER_4_5_SchoolGrade_level', gen(m1)
+merge 1:1 school_name grade using `ASER_4_5_SchoolGrade_level', gen(m1)
 drop m1
-merge 1:1 school_name_trim grade using `MELQO_SchoolGrade_level', gen(m1)
+//merge 1:1 school_name grade using `MELQO_SchoolGrade_level', gen(m1)
 
 tempfile MasterDataset_SchoolGradeLevel
 save `MasterDataset_SchoolGradeLevel', replace
 
 use  `MasterDataset_SchoolLevel', clear
-keep school_name_trim school_id
-merge 1:m school_name_trim using `MasterDataset_SchoolGradeLevel'
+keep school_name school_id
+merge 1:m school_name using `MasterDataset_SchoolGradeLevel'
 
-sort school_name_trim grade
-lab var treatment "treatment"
+sort school_name grade
 
 export excel "$user/$drive/$folder/Output/Excel/MasterDataset_SchoolGradeLevel.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolGradeLevel.dta", replace
