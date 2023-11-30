@@ -139,16 +139,15 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	lab val aser_b_english eng_cat
 	lab var aser_b_english "english score - categorical"
 
-	// aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" No such observations
-	gen aser_b_maths = 5 if aser_b_maths_minus_2digit == "incorect" | aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_100_200,4,5) 
-	replace aser_b_maths = 4 if aser_b_maths_minus_2digit == "corect" & aser_b_maths_minus_3digit == "correct" & aser_b_maths_division == "correct"
-	replace aser_b_maths = 3 if aser_b_maths_minus_2digit == "corect" & aser_b_maths_minus_3digit == "correct" & aser_b_maths_division == "incorrect"
-	replace aser_b_maths = 2 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_100_200,0,3) & inrange(aser_b_maths_10_99,4,5)
-	replace aser_b_maths = 1 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_10_99,0,3) & inrange(aser_b_maths_1_9,4,5) & inrange(aser_b_maths_100_200,0,3) 
-	replace aser_b_maths = 0 if aser_b_maths_minus_2digit == "incorect" & aser_b_maths_minus_3digit == "incorrect" & inrange(aser_b_maths_10_99,0,3) & inrange(aser_b_maths_1_9,0,3) & inrange(aser_b_maths_100_200,0,3) 
+	gen aser_b_maths = 5 if (aser_b_maths_minus_2digit == "incorect" | aser_b_maths_minus_3digit == "incorrect") & inrange(aser_b_maths_100_200,4,5) 
+	replace aser_b_maths = 4 if (aser_b_maths_minus_2digit == "corect" | aser_b_maths_minus_3digit == "correct") & aser_b_maths_division == "correct"
+	replace aser_b_maths = 3 if (aser_b_maths_minus_2digit == "corect" | aser_b_maths_minus_3digit == "correct") & aser_b_maths_division == "incorrect"
+	replace aser_b_maths = 2 if (aser_b_maths_minus_2digit == "incorect" | aser_b_maths_minus_3digit == "incorrect") & inrange(aser_b_maths_100_200,0,3) & inrange(aser_b_maths_10_99,4,5)
+	replace aser_b_maths = 1 if (aser_b_maths_minus_2digit == "incorect" | aser_b_maths_minus_3digit == "incorrect") & inrange(aser_b_maths_10_99,0,3) & inrange(aser_b_maths_1_9,4,5) & inrange(aser_b_maths_100_200,0,3) 
+	replace aser_b_maths = 0 if (aser_b_maths_minus_2digit == "incorect" | aser_b_maths_minus_3digit == "incorrect") & inrange(aser_b_maths_10_99,0,3) & inrange(aser_b_maths_1_9,0,3) & inrange(aser_b_maths_100_200,0,3) 
 	
-	lab def math_cat 0 "Nothing" 1 "Recognise numbers 1 - 9" 2 "Recognise 10 - 99" 3 "subtraction" 4 "division" 5 "recognise numbers 100 - 200" 
-	lab val aser_b_maths maths_cat
+	lab def math_cat 0 "Nothing" 1 "Recognise numbers 1 - 9" 2 "Recognise numbers 10 - 99" 3 "subtraction" 4 "division" 5 "Recognise numbers 100 - 200" 
+	lab val aser_b_maths math_cat
 	lab var aser_b_maths "maths score - categorical"
 
 	gen aser_b_urdu = 6 if aser_b_urdu_read_sentences == 4
@@ -165,7 +164,8 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	tab aser_b_english, gen(aser_b_english_cat)
 	rename (aser_b_english_cat1 - aser_b_english_cat5) (aser_b_english_Nothing aser_b_english_Capital aser_b_english_Small aser_b_english_Word aser_b_english_Sentence) 
 	
-	//tab aser_b_maths, gen(aser_b_maths_cat)
+	tab aser_b_maths, gen(aser_b_maths_cat)
+	rename (aser_b_maths_cat1 - aser_b_maths_cat6) (aser_b_math_Nothing aser_b_math_NumRecog1_9 aser_b_math_NumRecog10_99 aser_b_math_Subtract aser_b_math_Division aser_b_math_NumRecog100_200)
 	
 	tab aser_b_urdu, gen(aser_b_urdu_cat)
 	rename (aser_b_urdu_cat1 - aser_b_urdu_cat5) (aser_b_urdu_Nothing aser_b_urdu_Letters aser_b_urdu_Paragraph aser_b_urdu_Story aser_b_urdu_Words) 
@@ -384,7 +384,7 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	
 	rename aser_b_english_4_5 aser_b_eng_4_5
 	tab aser_b_eng_4_5, gen(aser_b_eng_4_5_cat)
-	rename (aser_b_eng_4_5_cat1 - aser_b_eng_4_5_cat7) (aser_b_eng_Nothing aser_b_eng_Capital aser_b_eng_Small aser_b_eng_Word aser_b_eng_G2Sentence aser_b_english_G5Sentence aser_b_eng_G5Story) 
+	rename (aser_b_eng_4_5_cat1 - aser_b_eng_4_5_cat7) (aser_b_eng_4_5_Nothing aser_b_eng_4_5_Capital aser_b_eng_4_5_Small aser_b_eng_4_5_Word aser_b_eng_4_5_G2Sentence aser_b_eng_4_5_G5Sentence aser_b_eng_4_5_G5Story) 
 	
 	tab aser_b_maths_4_5, gen(aser_b_maths_4_5_cat)
 	rename (aser_b_maths_4_5_cat1 - aser_b_maths_4_5_cat4) (aser_b_maths_4_5_Nothing aser_b_maths_4_5_NumberRecog aser_b_maths_4_5_Subtract45 aser_b_maths_4_5_Division)
@@ -689,15 +689,15 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_1
 	lab val aser_e_english eng_cat
 	lab var aser_e_english "english score - categorical"
 	
-	gen aser_e_maths = 5 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_100_200,4,5) 
-	replace aser_e_maths = 4 if aser_e_maths_minus_2digit == "corect" & aser_e_maths_minus_3digit == "correct" & aser_e_maths_division == "correct"
-	replace aser_e_maths = 3 if aser_e_maths_minus_2digit == "corect" & aser_e_maths_minus_3digit == "correct" & aser_e_maths_division == "incorrect"
-	replace aser_e_maths = 2 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_100_200,0,3) & inrange(aser_e_maths_10_99,4,5)
-	replace aser_e_maths = 1 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_10_99,0,3) & inrange(aser_e_maths_1_9,4,5) & inrange(aser_e_maths_100_200,0,3) 
-	replace aser_e_maths = 0 if aser_e_maths_minus_2digit == "incorect" & aser_e_maths_minus_3digit == "incorrect" & inrange(aser_e_maths_10_99,0,3) & inrange(aser_e_maths_1_9,0,3) & inrange(aser_e_maths_100_200,0,3) 
+	gen aser_e_maths = 5 if (aser_e_maths_minus_2digit == "incorect" | aser_e_maths_minus_3digit == "incorrect") & inrange(aser_e_maths_100_200,4,5) 
+	replace aser_e_maths = 4 if (aser_e_maths_minus_2digit == "corect" | aser_e_maths_minus_3digit == "correct") & aser_e_maths_division == "correct"
+	replace aser_e_maths = 3 if (aser_e_maths_minus_2digit == "corect" | aser_e_maths_minus_3digit == "correct") & aser_e_maths_division == "incorrect"
+	replace aser_e_maths = 2 if (aser_e_maths_minus_2digit == "incorect" | aser_e_maths_minus_3digit == "incorrect") & inrange(aser_e_maths_100_200,0,3) & inrange(aser_e_maths_10_99,4,5)
+	replace aser_e_maths = 1 if (aser_e_maths_minus_2digit == "incorect" | aser_e_maths_minus_3digit == "incorrect") & inrange(aser_e_maths_10_99,0,3) & inrange(aser_e_maths_1_9,4,5) & inrange(aser_e_maths_100_200,0,3) 
+	replace aser_e_maths = 0 if (aser_e_maths_minus_2digit == "incorect" | aser_e_maths_minus_3digit == "incorrect") & inrange(aser_e_maths_10_99,0,3) & inrange(aser_e_maths_1_9,0,3) & inrange(aser_e_maths_100_200,0,3) 
 	
-	lab def math_cat 0 "Nothing" 1 "Recognise numbers 1 - 9" 2 "Recognise 10 - 99" 3 "subtraction" 4 "division" 5 "recognise numbers 100 - 200" 
-	lab val aser_e_maths maths_cat
+	lab def math_cat 0 "Nothing" 1 "Recognise numbers 1 - 9" 2 "Recognise numbers 10 - 99" 3 "subtraction" 4 "division" 5 "Recognise numbers 100 - 200" 
+	lab val aser_e_maths math_cat
 	lab var aser_e_maths "maths score - categorical"
 
 	gen aser_e_urdu = 6 if aser_e_urdu_read_sentences == 4
@@ -714,8 +714,9 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_1
 	tab aser_e_english, gen(aser_e_english_cat)
 	rename (aser_e_english_cat1 - aser_e_english_cat5) (aser_e_english_Nothing aser_e_english_Capital aser_e_english_Small aser_e_english_Word aser_e_english_Sentence) 
 	
-	//tab aser_e_maths, gen(aser_b_maths_cat)
-	
+	tab aser_e_maths, gen(aser_e_maths_cat)
+	rename (aser_e_maths_cat1 - aser_e_maths_cat6) (aser_e_math_Nothing aser_e_math_NumRecog1_9 aser_e_math_NumRecog10_99 aser_e_math_Subtract aser_e_math_Division aser_e_math_NumRecog100_200)
+
 	tab aser_e_urdu, gen(aser_e_urdu_cat)
 	rename (aser_e_urdu_cat1 - aser_e_urdu_cat5) (aser_e_urdu_Nothing aser_e_urdu_Letters aser_e_urdu_Paragraph aser_e_urdu_Story aser_e_urdu_Words) 
 
@@ -909,7 +910,7 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_4
 	
 	rename aser_e_english_4_5 aser_e_eng_4_5
 	tab aser_e_eng_4_5, gen(aser_e_eng_4_5_cat)
-	rename (aser_e_eng_4_5_cat1 - aser_e_eng_4_5_cat6) (aser_e_eng_Nothing aser_e_eng_Small aser_e_eng_Word aser_e_eng_G2Sentence aser_e_english_G5Sentence aser_e_eng_G5Story) 
+	rename (aser_e_eng_4_5_cat1 - aser_e_eng_4_5_cat6) (aser_e_eng_4_5_Nothing aser_e_eng_4_5_Small aser_e_eng_4_5_Word aser_e_eng_4_5_G2Sentence aser_e_eng_4_5_G5Sentence aser_e_eng_4_5_G5Story) 
 	
 	tab aser_e_maths_4_5, gen(aser_e_maths_4_5_cat)
 	rename (aser_e_maths_4_5_cat1 - aser_e_maths_4_5_cat4) (aser_e_maths_4_5_Nothing aser_e_maths_4_5_NumberRecog aser_e_maths_4_5_Subtract45 aser_e_maths_4_5_Division)

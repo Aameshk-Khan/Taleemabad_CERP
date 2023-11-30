@@ -22,12 +22,7 @@ set more off
 		global drive = "Library/CloudStorage/GoogleDrive-aameshk.khan@cerp.org.pk/.shortcut-targets-by-id/1MDY68dfsRcWNPsIU7o-9I2kR2msO-7bk"
 		global folder = "[Internal] CERP - Taleemabad  "
 		  }
-		  
-		  // Note: There are schools which were not part of Taleemabad at endline but still did the endline instruments i.e. treatment status changed from treatment to control from baseline to endline. 
-		  // Hence, I have created 2 variables for treatment.
-		  // b_treatment - status at baseline
-		  // e_treatment - status at endline	
-		  
+		    
 ********************************************************************************
 { // ASER (1-3)
 * ASER - BASELINE (1-3) Cleaned:
@@ -39,7 +34,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Baseline_Cleaned", clear
 	foreach var of varlist age_b aser_b_e_capital_per - aser_b_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age_b aser_b_e_capital_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_capital_per - sd_aser_b_gk_pic_3_per (sum) aser_b_english_Nothing - aser_b_urdu_Words, by(school_name)
+	collapse (mean) age_b aser_b_e_capital_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_capital_per - sd_aser_b_gk_pic_3_per (mean) aser_b_english_Nothing - aser_b_urdu_Words, by(school_name)
 	tempfile ASER_1_3_Baseline_School_level
 	save `ASER_1_3_Baseline_School_level', replace
 	
@@ -52,7 +47,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Endline_Cleaned", clear
 	foreach var of varlist age_e aser_e_e_capital_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age_e aser_e_e_capital_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_capital_per - sd_aser_e_gk_pic_3_per (sum) aser_e_english_Nothing - aser_e_urdu_Words, by(school_name)
+	collapse (mean) age_e aser_e_e_capital_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_capital_per - sd_aser_e_gk_pic_3_per (mean) aser_e_english_Nothing - aser_e_urdu_Words, by(school_name)
 	tempfile ASER_1_3_Endline_School_level
 	save `ASER_1_3_Endline_School_level', replace
 	
@@ -60,13 +55,14 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Endline_Cleaned", clear
 	use `ASER_1_3_Baseline_School_level', clear
 	merge 1:1 school_name using `ASER_1_3_Endline_School_level', gen(m1) 
 	/*
-	    Result                           # of obs.
-    -----------------------------------------
-    not matched                            84
-        from master                        32  (m1==1) "schools in baseline that were not in endline period"
-        from using                         52  (m1==2) "schools in endline that were not in baseline period"
 
-    matched                                19  (m1==3) "schools in endline and baseline period"
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                            43
+        from master                        11  (m1==1)
+        from using                         32  (m1==2)
+
+    matched                                39  (m1==3)
     -----------------------------------------
 	*/
 	gen matching = 1 if m1 == 1
@@ -75,6 +71,11 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Endline_Cleaned", clear
 	lab def match 1 "Attrition" 2 "Replacement" 3 "Consistent"
 	lab val matching match
 	drop m1
+	
+	* converting the dummy categorical tp percentages
+	foreach var of varlist aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words {
+		replace `var' = `var' * 100
+	}
 
 	tab matching, m
 	order school_name b_treatment e_treatment matching
@@ -92,7 +93,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Baseline_Cleaned", clear
 	foreach var of varlist age_b aser_b_e_sent_per - aser_b_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) age_b aser_b_e_sent_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_sent_per - sd_aser_b_gk_pic_3_per (sum) aser_b_eng_Nothing - aser_b_urdu_4_5_G5Story, by(school_name)
+	collapse (mean) age_b aser_b_e_sent_per - aser_b_gk_pic_3_per b_treatment (sd) sd_age_b sd_aser_b_e_sent_per - sd_aser_b_gk_pic_3_per (mean) aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story, by(school_name)
 	tempfile ASER_4_5_Baseline_School_level
 	save `ASER_4_5_Baseline_School_level', replace
 	
@@ -105,7 +106,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned", clear
 	foreach var of varlist age_e aser_e_e_sent_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}	
-	collapse (mean) age_e aser_e_e_sent_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per (sum) aser_e_eng_Nothing - aser_e_urdu_4_5_G5Story, by(school_name)
+	collapse (mean) age_e aser_e_e_sent_per - aser_e_gk_pic_3_per e_treatment (sd) sd_age_e sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per (mean) aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story, by(school_name)
 	tempfile ASER_4_5_Endline_School_level
 	save `ASER_4_5_Endline_School_level', replace
 	
@@ -115,12 +116,65 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned", clear
 	/*
 	    Result                           # of obs.
     -----------------------------------------
-    not matched                            79
-        from master                        28  (m1==1) "schools in baseline that were not in endline period"
-        from using                         51  (m1==2) "schools in endline that were not in baseline period"
+    not matched                            39
+        from master                         9  (m1==1) "schools in baseline that were not in endline period"
+        from using                         30  (m1==2) "schools in endline that were not in baseline period"
 
-    matched                                19  (m1==3) "schools in endline and baseline period"
+    matched                                37  (m1==3) "schools in endline and baseline period"
     -----------------------------------------
+	*/
+	gen matching = 1 if m1 == 1
+	replace matching = 2 if m1 == 2
+	replace matching = 3 if m1 == 3
+	lab def match 1 "Attrition" 2 "Replacement" 3 "Consistent"
+	lab val matching match
+	drop m1
+	
+	* converting the dummy categorical tp percentages
+	foreach var of varlist aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story {
+		replace `var' = `var' * 100
+	}
+
+	tab matching, m
+	order school_name b_treatment e_treatment matching
+	tempfile ASER_4_5_School_level
+	save `ASER_4_5_School_level', replace
+}
+********************************************************************************
+{ // MELQO
+
+* MELQO - BASELINE Cleaned:
+use "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned", clear
+
+* Generating a school-level dataset
+	gen b_treatment = 1 if type == "Taleemabad school"
+	replace b_treatment = 0 if type == "Non Taleemabad School"
+	foreach var of varlist age_b melqo_b_ev_edible_num_per - melqo_b_ms_shape3_per {
+		gen sd_`var' = `var'
+	}
+	collapse (mean) age_b melqo_b_ev_edible_num_per - melqo_b_ms_shape3_per b_treatment (sd) sd_age_b sd_melqo_b_ev_edible_num_per - sd_melqo_b_ms_shape3_per, by(school_name)
+	tempfile MELQO_Baseline_School_level
+	save `MELQO_Baseline_School_level', replace
+	
+* MELQO - ENDLINE Cleaned:
+use "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned", clear
+
+* Generating a school-level dataset
+	gen e_treatment = 1 if type == "Taleemabad school"
+	replace e_treatment = 0 if type == "Non Taleemabad School"
+	foreach var of varlist age_e melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per {
+		gen sd_`var' = `var'
+	}
+	collapse (mean) age_e melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per e_treatment (sd) sd_age_e sd_melqo_e_ev_edible_num_per - sd_melqo_e_ms_shape3_per, by(school_name)
+	tempfile MELQO_Endline_School_level
+	save `MELQO_Endline_School_level', replace
+	
+* Merging MELQO 
+	use `MELQO_Baseline_School_level', clear
+	merge 1:1 school_name using `MELQO_Endline_School_level', gen(m1)
+	/*
+
+
 	*/
 	gen matching = 1 if m1 == 1
 	replace matching = 2 if m1 == 2
@@ -131,62 +185,8 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned", clear
 
 	tab matching, m
 	order school_name b_treatment e_treatment matching
-	tempfile ASER_4_5_School_level
-	save `ASER_4_5_School_level', replace
-}
-********************************************************************************
-{ // MELQO
-/*
-* MELQO - BASELINE Cleaned:
-use "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned", clear
-
-* Generating a school-level dataset
-	gen treatment = 1 if type == "Taleemabad school"
-	replace treatment = 0 if type == "Non Taleemabad School"
-	foreach var of varlist age_b melqo_b_ev_edible_num_per - melqo_b_ms_shape3_per {
-		gen sd_`var' = `var'
-	}
-	collapse (mean) age_b melqo_b_ev_edible_num_per - melqo_b_ms_shape3_per treatment (sd) sd_age_b sd_melqo_b_ev_edible_num_per - sd_melqo_b_ms_shape3_per, by(school_name_trim)
-	tempfile MELQO_Baseline_School_level
-	save `MELQO_Baseline_School_level', replace
-	
-* MELQO - ENDLINE Cleaned:
-use "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned", clear
-
-* Generating a school-level dataset
-	gen treatment = 1 if type == "Taleemabad school"
-	replace treatment = 0 if type == "Non Taleemabad School"
-	foreach var of varlist age_e melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per {
-		gen sd_`var' = `var'
-	}
-	collapse (mean) age_e melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per treatment (sd) sd_age_e sd_melqo_e_ev_edible_num_per - sd_melqo_e_ms_shape3_per, by(school_name_trim)
-	tempfile MELQO_Endline_School_level
-	save `MELQO_Endline_School_level', replace
-	
-* Merging MELQO 
-	use `MELQO_Baseline_School_level', clear
-	merge 1:1 school_name_trim using `MELQO_Endline_School_level', gen(m1)
-	/*
-	    Result                           # of obs.
-    -----------------------------------------
-    not matched                           214
-        from master                         7  (m1==1) "schools in baseline that were not in endline period"
-        from using                        207  (m1==2) "schools in endline that were not in baseline period"
-
-    matched                                46  (m1==3) "schools in endline and baseline period"
-    -----------------------------------------
-	*/
-	gen matching = 1 if m1 == 1
-	replace matching = 2 if m1 == 2
-	replace matching = 3 if m1 == 3
-	lab def match 1 "Attrition" 2 "Replacement" 3 "Consistent"
-	lab val matching match
-	drop m1
-
-	tab matching, m
-	order school_name_trim treatment matching
 	tempfile MELQO_School_level
-	save `MELQO_School_level', replace*/
+	save `MELQO_School_level', replace
 }
 ********************************************************************************
 // School Level Master Dataset
@@ -196,7 +196,7 @@ foreach var of varlist age_b - sd_aser_e_gk_pic_3_per {
 }
 merge 1:1 school_name using `ASER_4_5_School_level', gen(m1)
 drop m1
-//merge 1:1 school_name_trim using `MELQO_School_level', gen(m1)
+merge 1:1 school_name using `MELQO_School_level', gen(m1)
 
 sort school_name
 encode school_name, gen(school_id)
