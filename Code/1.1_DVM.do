@@ -200,6 +200,35 @@ merge 1:1 school_name using `MELQO_School_level', gen(m1)
 
 sort school_name
 encode school_name, gen(school_id)
+
+* Treatment variable
+/*
+1.	Treatment variable in master dataset: categorical variable with value labels
+	a.	Consistent
+		i.	Treatment in both endline and baseline
+		ii.	Control in both endline and baseline
+		iii.Treatment in baseline and control in endline
+		iv.	Treatment in endline and control in baseline
+	b.	Attrition
+		i.	Treatment in baseline
+		ii.	Control in baseline
+	c.	Replacement
+		i.	Treatment in endline
+		ii.	Control in endline
+*/
+
+	gen treatment = 1 if b_treatment == 1 & e_treatment == 1 
+	replace treatment = 2 if b_treatment == 0 & e_treatment == 0
+	replace treatment = 3 if b_treatment == 1 & e_treatment == 0
+	replace treatment = 4 if b_treatment == 0 & e_treatment == 1
+	replace treatment = 5 if b_treatment == 1 & e_treatment == .
+	replace treatment = 6 if b_treatment == 0 & e_treatment == .
+	replace treatment = 7 if b_treatment == . & e_treatment == 1
+	replace treatment = 8 if b_treatment == . & e_treatment == 0
+	
+	lab def treatment_ 1 "Treatment in both endline and baseline" 2 "Control in both endline and baseline" 3 "Treatment in baseline and control in endline" 4 "Treatment in endline and control in baseline" 5 "Attrition: Treatment in baseline" 6 "Attrition: Control in baseline" 7 "Replacement: Treatment in endline" 8 "Replacement: Control in endline"
+	lab val treatment treatment_
+
 tempfile MasterDataset_SchoolLevel
 save `MasterDataset_SchoolLevel', replace
 
@@ -207,7 +236,7 @@ export excel "$user/$drive/$folder/Output/Excel/MasterDataset_SchoolLevel.xlsx",
 save "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", replace
 
 preserve
-keep school_name b_treatment e_treatment matching school_id
+keep school_name b_treatment e_treatment treatment matching school_id
 export excel "$user/$drive/$folder/Output/Excel/MasterDataset_SchoolLevel_variables.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", replace
 restore

@@ -205,10 +205,10 @@ use `ASER_1_3_baseline', clear
 
 /* This chunk checks whether the data is unqiue on school id and child id. 
 * Generating School_id 
-	sort school_name_trim
-	encode school_name_trim, gen(school_id)
+	sort school_name
+	encode school_name, gen(school_id)
 	lab var school_id "School ID"
-	bysort school_name_trim: gen child_id = _n
+	bysort school_name: gen child_id = _n
 	lab var child_id "Child ID"
 	isid school_id child_id
 */ 
@@ -419,10 +419,10 @@ use `ASER_4_5_baseline', clear
 
 /*	
 * Generating School_id 
-	sort school_name_trim
-	encode school_name_trim, gen(school_id)
+	sort school_name
+	encode school_name, gen(school_id)
 	lab var school_id "School ID"
-	bysort school_name_trim: gen child_id = _n
+	bysort school_name: gen child_id = _n
 	lab var child_id "Child ID"
 	isid school_id child_id
 */
@@ -551,7 +551,7 @@ save `MELQO_baseline', replace
 
 	drop if m1 == 2  
 	drop school_name
-	rename corrected_school school_name_trim
+	rename corrected_school school_name
 	drop m1
 	
 	tab type
@@ -562,10 +562,10 @@ save `MELQO_baseline', replace
 
 /*
 * Generating School_id 
-	sort school_name_trim
-	encode school_name_trim, gen(school_id)
+	sort school_name
+	encode school_name, gen(school_id)
 	lab var school_id "School ID"
-	bysort school_name_trim: gen child_id = _n
+	bysort school_name: gen child_id = _n
 	lab var child_id "Child ID"
 	isid school_id child_id
 */
