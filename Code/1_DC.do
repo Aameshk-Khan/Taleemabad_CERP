@@ -177,7 +177,7 @@ save `ASER_1_3_baseline', replace
 			/////////////////// 
 		import excel "$user/$drive/$folder/Shared by Taleemabad/Schools/ASER_Churn_Baseline.xlsx", firstrow clear	
 		rename general_details_sectionschool_n school_name
-		drop FinalNotesGrades1345 - Z
+		drop corrected_school_old - AB
 		duplicates drop
 		tempfile ASER_Churn_Baseline
 		save `ASER_Churn_Baseline', replace
@@ -188,9 +188,9 @@ use `ASER_1_3_baseline', clear
 		/*
     Result                           # of obs.
     -----------------------------------------
-    not matched                            53
+    not matched                            56
         from master                         0  (m1==1)
-        from using                         53  (m1==2) 
+        from using                         56  (m1==2) 
 
     matched                             1,898  (m1==3)
     -----------------------------------------
@@ -199,6 +199,9 @@ use `ASER_1_3_baseline', clear
 	drop school_name
 	rename corrected_school school_name
 	drop m1 		
+	
+	tab type if strpos(school_name,"muslimhandsschoolofexcellencebhera")
+	replace type = "Experimental" if strpos(school_name,"muslimhandsschoolofexcellencebhera")
 
 /* This chunk checks whether the data is unqiue on school id and child id. 
 * Generating School_id 
@@ -410,6 +413,9 @@ use `ASER_4_5_baseline', clear
 	drop school_name
 	rename corrected_school school_name
 	drop m1 		
+
+	tab type if strpos(school_name,"muslimhandsschoolofexcellencebhera")
+	replace type = "Experimental" if strpos(school_name,"muslimhandsschoolofexcellencebhera")
 
 /*	
 * Generating School_id 
@@ -1044,7 +1050,8 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 	
 tempfile MELQO_endline
 save `MELQO_endline', replace	
-	
+
+	****** will need to be corrected when Ahwaz shares correct names
 				/////////////////// 
 		import excel "$user/$drive/$folder/School name correction files - CERP/MELQO_Endline.xlsx", firstrow clear	
 		rename general_details_sectionschool_n school_name
@@ -1060,28 +1067,30 @@ save `MELQO_endline', replace
 
 	use `MELQO_endline', clear
 	merge m:1 school_name using `MELQO_Endline_correct', gen(m1)
+	
 		/*
-
     Result                           # of obs.
     -----------------------------------------
-    not matched                         1,664
-        from master                     1,552  (m1==1)
+    not matched                           112
+        from master                         0  (m1==1)
         from using                        112  (m1==2)
 
-    matched                             2,676  (m1==3)
+    matched                             4,228  (m1==3)
     -----------------------------------------
 		*/
-
-	drop school_name
+	drop if m1 == 2
+	tab school_name if corrected_school == ""
+	drop school_name 
 	rename corrected_school school_name
 	drop m1
-
+	****** will need to be corrected when Ahwaz shares correct names
+	
 tempfile MELQO_endline
 save `MELQO_endline', replace
 
 export excel "$user/$drive/$folder/Output/Excel/MELQO_Endline_Cleaned.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned.dta", replace
-*/
+
 }
 ********************************************************************************
 
