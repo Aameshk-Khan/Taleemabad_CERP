@@ -114,7 +114,7 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	gen aser_b_gk_pic_3_per = 100 if aser_b_gk_picture_3 == "correct" 
 	replace aser_b_gk_pic_3_per = 100 if aser_b_gk_picture_3 == "incorrect" 
 	
-	
+* Assigning variable labels to test score variables (percentages)	
 	unab varlist2: *per
 	forval i = 1/`n' {
 			
@@ -127,7 +127,7 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	}	
 	}
 
-* Creating categorical variables , based on ASER’s ranking methodology 	
+* Creating categorical variables, based on ASER’s ranking methodology 	
 
 	gen aser_b_english = 0 if inrange(aser_b_eng_capital,0,3)
 	replace aser_b_english = 1 if inrange(aser_b_eng_capital,4,5) & inrange(aser_b_eng_small,0,3)
@@ -160,6 +160,8 @@ import delimited "$user/$drive/$folder//Shared by Taleemabad/Data/Baseline/Copy 
 	lab def urdu_cat 1 "beginner" 2 "can read letters" 3 "paragraph" 4 "story" 5 "words" 6 "sentence"
 	lab val aser_b_urdu urdu_cat
 	lab var aser_b_urdu "urdu score - categorical"
+	
+* Creating dummy variables for each category
 	
 	tab aser_b_english, gen(aser_b_english_cat)
 	rename (aser_b_english_cat1 - aser_b_english_cat5) (aser_b_english_Nothing aser_b_english_Capital aser_b_english_Small aser_b_english_Word aser_b_english_Sentence) 
@@ -195,15 +197,17 @@ use `ASER_1_3_baseline', clear
     matched                             1,898  (m1==3)
     -----------------------------------------
 	*/
-	drop if m1 == 2 
+	drop if m1 == 2 // school_name in the correction file but not present in the raw data
 	drop school_name
 	rename corrected_school school_name
 	drop m1 		
 	
+* Changing the treatment status according to Ahwaz's response
 	tab type if strpos(school_name,"muslimhandsschoolofexcellencebhera")
 	replace type = "Experimental" if strpos(school_name,"muslimhandsschoolofexcellencebhera")
 
-/* This chunk checks whether the data is unqiue on school id and child id. 
+*This chunk checks whether the data is unqiue on school id and child id. Commented out since unique school id are generated in the master dataset.	
+/*  
 * Generating School_id 
 	sort school_name
 	encode school_name, gen(school_id)
@@ -217,13 +221,6 @@ save `ASER_1_3_baseline', replace
 
 export excel "$user/$drive/$folder/Output/Excel/ASER_1_3_Baseline_Cleaned.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/ASER_1_3_Baseline_Cleaned.dta",replace
-	sort school_name
-	egen tag = tag(school_name)
-	keep if tag
-	keep school_name type 
-* School level dataset with (type (treatment status) and school_name 
-tempfile ASER_1_3_baseline_school_var
-save `ASER_1_3_baseline_school_var', replace
 }
 ********************************************************************************
 { //* ASER - BASELINE (4-5):
@@ -332,7 +329,8 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	
 	gen aser_b_gk_pic_3_per = 100 if aser_b_gk_picture_3 == "correct" 
 	replace aser_b_gk_pic_3_per = 100 if aser_b_gk_picture_3 == "incorrect" 
-	
+
+* Assigning variable labels to test score variables (percentages)		
 	unab varlist2: *per
 	forval i = 1/`n' {
 			
@@ -382,6 +380,7 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	lab val aser_b_maths_4_5 math_cat_45
 	lab var aser_b_maths_4_5 "maths score grades 4-5 - categorical"
 	
+* Creating dummy variables for each category	
 	rename aser_b_english_4_5 aser_b_eng_4_5
 	tab aser_b_eng_4_5, gen(aser_b_eng_4_5_cat)
 	rename (aser_b_eng_4_5_cat1 - aser_b_eng_4_5_cat7) (aser_b_eng_4_5_Nothing aser_b_eng_4_5_Capital aser_b_eng_4_5_Small aser_b_eng_4_5_Word aser_b_eng_4_5_G2Sentence aser_b_eng_4_5_G5Sentence aser_b_eng_4_5_G5Story) 
@@ -409,14 +408,16 @@ use `ASER_4_5_baseline', clear
     matched                               993  (m1==3)
     -----------------------------------------
 	*/
-	drop if m1 == 2 
+	drop if m1 == 2 // school_name in the correction file but not present in the raw data
 	drop school_name
 	rename corrected_school school_name
 	drop m1 		
 
+* Changing the treatment status according to Ahwaz's response	
 	tab type if strpos(school_name,"muslimhandsschoolofexcellencebhera")
 	replace type = "Experimental" if strpos(school_name,"muslimhandsschoolofexcellencebhera")
 
+*This chunk checks whether the data is unqiue on school id and child id. Commented out since unique school id are generated in the master dataset.		
 /*	
 * Generating School_id 
 	sort school_name
@@ -431,14 +432,6 @@ save `ASER_4_5_baseline', replace
 	
 export excel "$user/$drive/$folder/Output/Excel/ASER_4_5_Baseline_Cleaned.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/ASER_4_5_Baseline_Cleaned.dta", replace
-
-
-	egen tag = tag(school_name)
-	keep if tag
-	keep school_name type
-* School level dataset with (type (treatment status),  and school_name 
-tempfile ASER_4_5_baseline_school_var
-save `ASER_4_5_baseline_school_var', replace
 }
 ********************************************************************************
 { //* MELQO - BASELINE:
@@ -473,10 +466,10 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	rename (pre_numeracy_sectionverbal_count pre_numeracy_sectionnumber_ident) (melqo_b_prenum_verbal_count melqo_b_prenum_number_identify)
  		
 	lab var type "Treatment status"
-	/*
-	unab varlist: melqo_b*
+	
+	unab varlist: melqo_b_expvocab_edibles_number melqo_b_expvocab_animals_numbe melqo_b_prelit_letter_identify melqo_b_prelit_letter_sound melqo_b_listening_comp_story melqo_b_name_writing melqo_b_prenum_verbal_count melqo_b_prenum_number_identify melqo_b_motorskills_shape1 melqo_b_motorskills_shape2 melqo_b_motorskills_shape3
 	local n= wordcount("`varlist'")
-	*/
+	
 * Creating test score variables	
 	gen melqo_b_ev_edible_num_per = melqo_b_expvocab_edibles_number / 10 * 100
 	gen melqo_b_ev_animal_num_per = melqo_b_expvocab_animals_numbe / 10 * 100
@@ -503,19 +496,19 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	replace melqo_b_ms_shape3_per = 50 if melqo_b_motorskills_shape3 == "missing_one_criteria"
 	replace melqo_b_ms_shape3_per = 0 if melqo_b_motorskills_shape3 == "missing_more_than_one_criteria"
 	
-	/*
+* Assigning variable labels to test score variables (percentages)			
 	unab varlist2: *per
 	forval i = 1/`n' {
 			
 			local varname: word `i' of `varlist'
 			local varlabel_old: var lab `varname'
-			local varlabel_new = "`varlabel_old'per"
+			local varlabel_new = "`varlabel_old'"
 
 			local varname: word `i' of `varlist2'
 			lab var `varname' "`varlabel_new'"		
 	}
-	*/
-
+	
+* Cleaning the school_name variable and changing its type from strL to str
 	replace school_name = itrim(trim(school_name))
 	generate str name_string = school_name
 	replace school_name = ""
@@ -526,6 +519,8 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	
 tempfile MELQO_baseline
 save `MELQO_baseline', replace	
+	
+* Adjusting school names using the corrected school names provided by taleemabad. 
 	
 				/////////////////// 
 		import excel "$user/$drive/$folder/School name correction files - CERP/MELQO_Baseline.xlsx", firstrow clear	
@@ -554,12 +549,14 @@ save `MELQO_baseline', replace
 	rename corrected_school school_name
 	drop m1
 	
+* to match how treatment and control are labelled in ASER datasets	
 	tab type
 	gen treatment = "Experimental" if type == "Taleemabad school"
 	replace treatment = "Controlled" if type == "Non Taleemabad School"
 	drop type
 	rename treatment type
 
+*This chunk checks whether the data is unqiue on school id and child id. Commented out since unique school id are generated in the master dataset.			
 /*
 * Generating School_id 
 	sort school_name
@@ -573,14 +570,6 @@ tempfile MELQO_baseline
 save `MELQO_baseline', replace	
 export excel "$user/$drive/$folder/Output/Excel/MELQO_Baseline_Cleaned.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned.dta", replace
-
-	egen tag = tag(school_name)
-	keep if tag
-	keep school_name type
-* School level dataset with (type (treatment status) and school_name variables	
-tempfile MELQO_baseline_school_var
-save `MELQO_baseline_school_var', replace	
-
 }
 ********************************************************************************
 { //* ASER - ENDLINE (1-3):
@@ -664,7 +653,7 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_1
 	gen aser_e_gk_pic_3_per = 100 if aser_e_gk_picture_3 == "correct" 
 	replace aser_e_gk_pic_3_per = 100 if aser_e_gk_picture_3 == "incorrect" 
 
-	
+* Assigning variable labels to test score variables (percentages)		
 	unab varlist2: *per
 	forval i = 1/`n' {
 			
@@ -711,6 +700,7 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_1
 	lab val aser_e_urdu urdu_cat
 	lab var aser_e_urdu "urdu score - categorical"	
 	
+* Creating dummy variables for each category	
 	tab aser_e_english, gen(aser_e_english_cat)
 	rename (aser_e_english_cat1 - aser_e_english_cat5) (aser_e_english_Nothing aser_e_english_Capital aser_e_english_Small aser_e_english_Word aser_e_english_Sentence) 
 	
@@ -870,6 +860,18 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_4
 	
 	gen aser_e_gk_pic_3_per = 100 if aser_e_gk_picture_3 == "correct" 
 	replace aser_e_gk_pic_3_per = 100 if aser_e_gk_picture_3 == "incorrect" 
+	
+* Assigning variable labels to test score variables (percentages)		
+	unab varlist2: *per
+	forval i = 1/`n' {
+			
+			local varname: word `i' of `varlist'
+			local varlabel_old: var lab `varname'
+			local varlabel_new = "`varlabel_old'_percentage_score"
+
+			local varname: word `i' of `varlist2'
+			lab var `varname' "`varlabel_new'"		
+	}	
 
 * Creating categorical variables , based on ASER’s ranking methodology 	
 
@@ -908,6 +910,7 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_4
 	lab val aser_e_maths_4_5 math_cat_45
 	lab var aser_e_maths_4_5 "maths score grades 4-5 - categorical"
 	
+* Creating dummy variables for each category	
 	rename aser_e_english_4_5 aser_e_eng_4_5
 	tab aser_e_eng_4_5, gen(aser_e_eng_4_5_cat)
 	rename (aser_e_eng_4_5_cat1 - aser_e_eng_4_5_cat6) (aser_e_eng_4_5_Nothing aser_e_eng_4_5_Small aser_e_eng_4_5_Word aser_e_eng_4_5_G2Sentence aser_e_eng_4_5_G5Sentence aser_e_eng_4_5_G5Story) 
@@ -918,17 +921,7 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_4
 	tab aser_e_urdu_4_5, gen(aser_e_urdu_4_5_cat)
 	rename (aser_e_urdu_4_5_cat1 - aser_e_urdu_4_5_cat6) (aser_e_urdu_4_5_Nothing aser_e_urdu_4_5_Letters aser_e_urdu_4_5_Words aser_e_urdu_4_5_G2Sentence aser_e_urdu_4_5_G2Story aser_e_urdu_4_5_G5Story) 
 
-	unab varlist2: *per
-	forval i = 1/`n' {
-			
-			local varname: word `i' of `varlist'
-			local varlabel_old: var lab `varname'
-			local varlabel_new = "`varlabel_old'_percentage_score"
-
-			local varname: word `i' of `varlist2'
-			lab var `varname' "`varlabel_new'"		
-	}	
-	
+* Adjusting school names using the corrected school names provided by taleemabad. 	
 	replace school_name = ustrltrim(school_name)
 	replace school_name = lower(school_name)
 	replace school_name = subinstr(school_name, " ", "",.)
@@ -990,10 +983,10 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 	
 	rename (pre_numeracy_sectionverbal_coun pre_numeracy_sectionnumber_iden) (melqo_e_prenum_verbal_count melqo_e_prenum_number_identify)
 	
-	/*
-	unab varlist: melqo_b*
+	
+	unab varlist: melqo_e_expvocab_edibles_number melqo_e_expvocab_animals_numbe  melqo_e_prelit_letter_identify melqo_e_prelit_letter_sound melqo_e_listening_comp_story melqo_e_name_writing melqo_e_prenum_verbal_count melqo_e_prenum_number_identify melqo_e_motorskills_shape1 melqo_e_motorskills_shape2 melqo_e_motorskills_shape3
 	local n= wordcount("`varlist'")
-	*/
+	
 	
 * Creating test score variables	
 	gen melqo_e_ev_edible_num_per = melqo_e_expvocab_edibles_number / 10 * 100
@@ -1021,20 +1014,19 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 	replace melqo_e_ms_shape3_per = 50 if melqo_e_motorskills_shape3 == "missing_one_criteria"
 	replace melqo_e_ms_shape3_per = 0 if melqo_e_motorskills_shape3 == "missing_more_than_one_criteria"
 	
-	
-	/*
+* Assigning variable labels to test score variables (percentages)			
 	unab varlist2: *per
 	forval i = 1/`n' {
 			
 			local varname: word `i' of `varlist'
 			local varlabel_old: var lab `varname'
-			local varlabel_new = "`varlabel_old'per"
+			local varlabel_new = "`varlabel_old'"
 
 			local varname: word `i' of `varlist2'
 			lab var `varname' "`varlabel_new'"		
 	}
-	*/
 
+* Cleaning the school_name variable and changing its type from strL to str	
 	replace school_name = itrim(trim(school_name))
 	generate str name_string = school_name
 	replace school_name = ""
@@ -1043,6 +1035,7 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 	drop name_string
 	describe school_name
 	
+* Adjusting school names using the corrected school names provided by taleemabad. 	
 	replace school_name = ustrltrim(school_name)
 	replace school_name = lower(school_name)
 	replace school_name = subinstr(school_name, " ", "",.)
