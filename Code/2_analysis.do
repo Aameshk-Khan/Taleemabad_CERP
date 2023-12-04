@@ -1,40 +1,40 @@
 <<dd_version: 2>>
-####  Taleemabad Evaluation by CERP Analytics
+##  Taleemabad Evaluation by CERP Analytics
 
-1.Basic Introduction
+### 1.Basic Introduction
 
-2.Summary of results produced by Taleemabad.
+### 2.Summary of results produced by Taleemabad.
 
-Grades 1-3: 
+#### *Grades 1-3:* 
 50.7% of all Taleemabad students meet the criteria for all 3 subjects compared to 29.4% of control students at endline. This represents a difference of 0.46 standard deviations compared to the control group (1.58 LAYS).
 
 During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -13.6% between Taleemabad and control.
 
 At the endline, the difference between Taleemabad and control schools rises to 22.9% for English and 14.6% for Urdu (both significant at 5% level). For Mathematics, however, the difference is -2.9% (i.e. in favor of control schools, significant at 5% level). 
 
-Grades 4-5:
+#### *Grades 4-5:*
 7.2% of all Taleemabad students meet the criteria for all 3 subjects compared to 6.2% of control students at endline. This represents a difference of 0.05 standard deviations compared to the control group (0.4 LAYS).
 
 During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -8.7% between Taleemabad and control, meaning that control schools were at a higher level than intervention schools. 
 
 At the endline, the difference between Taleemabad and control schools rises to 3.6% for English, 1.5% for Mathematics and 2.2% for Urdu (all significant at 5% level). 
 
-MELQO:
+#### *MELQO:*
 At baseline, Taleemabad schools outperformed control schools by ~6 percent of overall score in pre-numeracy but lagged behind control schools in pre-literacy and motor skills by 0.35% and 1.58% respectively. 
 
 At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. 
 
-3.Analytics by CERP: 
+### 3.Analytics by CERP: 
 
-4.Sampling Methodology: Power and standard errors:
+### 4.Sampling Methodology: Power and standard errors:
 
-5.Balance Tests (ASER, TEACH MELQO):
+### 5.Balance Tests (ASER, TEACH MELQO):
 - Attrition: Table
 - Balance Test(s): Tables:  1 for learning outcome vars and other relevant variables
 
-6.Results replications (diff-in-diff) regression at school level to measure treatment effect. (ASER, TEACH MELQO)
+### 6.Results replications (diff-in-diff) regression at school level to measure treatment effect. (ASER, TEACH MELQO)
 
-7.Other analysis avenues/data visualization(s) to be explored: 
+### 7.Other analysis avenues/data visualization(s) to be explored: 
 
 
 ~~~~
@@ -80,6 +80,7 @@ set more off
 
 ~~~~
 <<dd_do: nocomm>>
+/*
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
 	orth_out a13_age_b - a13_aser_b_gk_pic_3_per, by(treatment) test
 	orth_out a13_age_e - a13_aser_e_gk_pic_3_per, by(treatment) test
@@ -89,6 +90,6 @@ set more off
 	
 	orth_out age_b - aser_b_m_g1_3_minus_2dig_per aser_b_m_5digit_nums_per - aser_b_gk_pic_3_per, by(treatment) test
 	orth_out age_e - aser_e_e_g1_3_small_per aser_e_u_story_flue_per - aser_e_m_g1_3_minus_2dig_per aser_e_m_5digit_nums_per - aser_e_gk_pic_3_per, by(treatment) test
-	
+*/	
 <</dd_do>>
 ~~~~
