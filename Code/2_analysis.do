@@ -1,9 +1,9 @@
 <<dd_version: 2>>
 ##  Taleemabad Evaluation by CERP Analytics
 
-### 1.Basic Introduction
+### 1. Basic Introduction
 
-### 2.Summary of results produced by Taleemabad.
+### 2. Summary of results produced by Taleemabad.
 
 #### *Grades 1-3:* 
 50.7% of all Taleemabad students meet the criteria for all 3 subjects compared to 29.4% of control students at endline. This represents a difference of 0.46 standard deviations compared to the control group (1.58 LAYS).
@@ -24,17 +24,17 @@ At baseline, Taleemabad schools outperformed control schools by ~6 percent of ov
 
 At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. 
 
-### 3.Analytics by CERP: 
+### 3. Analytics by CERP: 
 
-### 4.Sampling Methodology: Power and standard errors:
+### 4. Sampling Methodology: Power and standard errors:
 
-### 5.Balance Tests (ASER, TEACH MELQO):
-- Attrition: Table
-- Balance Test(s): Tables:  1 for learning outcome vars and other relevant variables
+### 5. Balance Tests (ASER, TEACH MELQO):
+* 5.1. Attrition: Table
+* 5.2. Balance Test(s): Tables:  1 for learning outcome vars and other relevant variables
 
-### 6.Results replications (diff-in-diff) regression at school level to measure treatment effect. (ASER, TEACH MELQO)
+### 6. Results replications (diff-in-diff) regression at school level to measure treatment effect. (ASER, TEACH MELQO)
 
-### 7.Other analysis avenues/data visualization(s) to be explored: 
+### 7. Other analysis avenues/data visualization(s) to be explored: 
 
 
 ~~~~
@@ -72,7 +72,7 @@ set more off
 
 ~~~~
 <<dd_do: nocomm>>
-	tab matching treatment, m
+	tab treatment matching, m
 <</dd_do>>
 ~~~~
 
@@ -80,16 +80,13 @@ set more off
 
 ~~~~
 <<dd_do: nocomm>>
-/*
+
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
-	orth_out a13_age_b - a13_aser_b_gk_pic_3_per, by(treatment) test
-	orth_out a13_age_e - a13_aser_e_gk_pic_3_per, by(treatment) test
+	orth_out aser_b_english_Nothing - aser_b_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story, by(b_treatment)
+	orth_out aser_e_english_Nothing - aser_e_urdu_Words aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story, by(e_treatment)
 	
-	orth_out melqo_b_ev_edible_num_per - melqo_b_ms_shape3_per, by(treatment) test
-	orth_out melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per, by(treatment) test
+	orth_out melqo_b_ev_edible_num_per - sd_melqo_b_ms_shape3_per, by(b_treatment)
+	orth_out melqo_e_ev_edible_num_per - sd_melqo_e_ms_shape3_per, by(e_treatment)
 	
-	orth_out age_b - aser_b_m_g1_3_minus_2dig_per aser_b_m_5digit_nums_per - aser_b_gk_pic_3_per, by(treatment) test
-	orth_out age_e - aser_e_e_g1_3_small_per aser_e_u_story_flue_per - aser_e_m_g1_3_minus_2dig_per aser_e_m_5digit_nums_per - aser_e_gk_pic_3_per, by(treatment) test
-*/	
 <</dd_do>>
 ~~~~
