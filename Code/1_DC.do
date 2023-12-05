@@ -1048,6 +1048,7 @@ save `MELQO_endline', replace
 	****** will need to be corrected when Ahwaz shares correct names
 				/////////////////// 
 		import excel "$user/$drive/$folder/School name correction files - CERP/MELQO_Endline.xlsx", firstrow clear	
+		keep general_details_sectionschool_n corrected_school treatment ttype
 		rename general_details_sectionschool_n school_name
 		gen type = "Experimental" if treatment == 1
 		replace type = "Controlled" if treatment == 2

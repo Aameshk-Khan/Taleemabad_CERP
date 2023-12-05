@@ -196,8 +196,29 @@ foreach var of varlist *per {
 	rename `var' a13_`var'
 }
 merge 1:1 school_name using `ASER_4_5_School_level', gen(m1)
+/*
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                            12
+        from master                         9  (m1==1)
+        from using                          3  (m1==2)
+
+    matched                                73  (m1==3)
+    -----------------------------------------
+*/
 drop m1
 merge 1:1 school_name using `MELQO_School_level', gen(m1)
+/*
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                            20
+        from master                        14  (m1==1)
+        from using                          6  (m1==2)
+
+    matched                                71  (m1==3)
+    -----------------------------------------
+*/
 drop m1
 
 sort school_name
