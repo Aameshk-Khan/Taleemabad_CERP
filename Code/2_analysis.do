@@ -70,55 +70,14 @@ set more off
 
 **3.1. School level Master Dataset and Variables (Cleaning raw datasets, Raw datasets to one master dataset at School level, Treatment Variable, Matching variable)** 
 
-**3.2. Balance Test (Orth_out at baseline and Control) - Results and Graphs**  
-
-**3.3. Results (with graphs)**  
-
-**3.3.1. ASER Grades 1 - 3**  
-
-**3.3.2. ASER Grades 4 - 5**  
-
-**3.3.3. MELQO**  
-
-**4. Conclusion**  
-
-~~~~
-<<dd_do: quietly>>
-clear all
-set more off
-
-********************************************************************************
-
-* Set file paths:
-
-	    * Ahmed Raza
-		else if c(username) == "ahmed" { 
-		global user = "/Users/ahmed"
-		global drive = "Library/CloudStorage/GoogleDrive-ahmed.raza@barcelonagse.eu/.shortcut-targets-by-id/1MDY68dfsRcWNPsIU7o-9I2kR2msO-7bk"
-		global folder = "[Internal] CERP - Taleemabad  "
-		}
-		  
-		* Aameshk Khan  
-		else if c(username) == "aameshkkhan" { 
-		global user = "/Users/aameshkkhan"
-		global drive = "Library/CloudStorage/GoogleDrive-aameshk.khan@cerp.org.pk/.shortcut-targets-by-id/1MDY68dfsRcWNPsIU7o-9I2kR2msO-7bk"
-		global folder = "[Internal] CERP - Taleemabad  "
-		  }
-<</dd_do>>
-~~~~
-
 ~~~~
 <<dd_do: nocomm>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", clear
-	tab matching, m
+	tab matching treatment, m
 <</dd_do>>
 ~~~~
 
-~~~~
-<<dd_do: nocomm>>
-	tab treatment matching, m
-<</dd_do>>
-~~~~
+**3.2. Balance Test (Orth_out at baseline and Control) - Results and Graphs**  
 
 ~~~~
 <<dd_do: nocomm>>
@@ -132,3 +91,14 @@ set more off
 	
 <</dd_do>>
 ~~~~
+
+**3.3. Results (with graphs)**  
+
+**3.3.1. ASER Grades 1 - 3**  
+
+**3.3.2. ASER Grades 4 - 5**  
+
+**3.3.3. MELQO**  
+
+**4. Conclusion**  
+
