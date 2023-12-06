@@ -238,7 +238,7 @@ encode school_name, gen(school_id)
 	c.	Replacement
 		i.	Treatment in endline
 		ii.	Control in endline
-*/
+
 
 * Generating treatment status variable, accouting for the change in treatment status from baseline to endline for some schools
 	gen treatment = 1 if b_treatment == 1 & e_treatment == 1 
@@ -252,6 +252,20 @@ encode school_name, gen(school_id)
 	
 	lab def treatment_ 1 "Treatment in both endline and baseline" 2 "Control in both endline and baseline" 3 "Treatment in baseline and control in endline" 4 "Treatment in endline and control in baseline" 5 "Attrition: Treatment in baseline" 6 "Attrition: Control in baseline" 7 "Replacement: Treatment in endline" 8 "Replacement: Control in endline"
 	lab val treatment treatment_
+*/
+
+** Schools for which the treatment status changes from treatment in baseline to control in endline -- Consider them as control
+
+	count if b_treatment == 1 & e_treatment == 0
+	replace b_treatment = 0 if (b_treatment == 1 & e_treatment == 0)
+	
+* Generating treatment status variable
+	gen treatment = 1 if b_treatment == 1
+	replace treatment = 1 if e_treatment == 1 // for replacement schools
+	replace treatment = 0 if b_treatment == 0
+	replace treatment = 0 if e_treatment == 0 // for replacement schools
+	tab treatment, m
+	tab treatment matching, m
 
 tempfile MasterDataset_SchoolLevel
 save `MasterDataset_SchoolLevel', replace
