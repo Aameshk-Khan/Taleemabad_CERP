@@ -85,12 +85,15 @@ For MELQO, the difference between average scores obtained by treatment and contr
 
 **3.1. School level Master Dataset and Variables (Cleaning raw datasets, Raw datasets to one master dataset at School level, Treatment Variable, Matching variable)** 
 
-
+~~~
 <<dd_do: nocomm>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", clear
-	tab matching treatment, markdown
+	lab var treatment "Treatment"
+	lab def treatment_ 0 "Control" 1 "Taleemabad"
+	lab val treatment treatment_
+	asdoc matching treatment, row col save(tables_for_report.docx)
 <</dd_do>>
-
+~~~
 [mention reason why the number of control schools in endline is high: 1) when replacing control schools for endline, nearby schools were also added. 2) Unknown schools considered as control 3) schools which changed from treatment to control considered as control in both (3 schools). 1 and 2 by taleemabad, 3 by cerp]  
 
 **3.2. Balance Test (Orth_out at baseline and Control) - Results and Graphs**  
@@ -228,7 +231,7 @@ At baseline, the percentage difference between treatment and control schools for
 
 	* Calculate the difference at endline 
 	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
-	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.1)
+	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.001)
 	orth_out `a' `b', by(treatment) compare test
 	}
 <</dd_do>>
@@ -362,7 +365,7 @@ At baseline, the percentage difference between treatment and control schools for
 	
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
+At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
 
 **3.3.3. MELQO**  
 

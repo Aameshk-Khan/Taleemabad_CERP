@@ -300,7 +300,7 @@ save `MasterDataset_SchoolLevel', replace
 			lab var `varname' "`varlabel_new'"	
 	}	
 
-	lab var matching "indicates whether the school existed in endline and/or baseline. Not whether treatment or not the treatment was consistent."
+	lab var matching "Matching"
 export excel "$user/$drive/$folder/Output/Excel/MasterDataset_SchoolLevel.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", replace
 
