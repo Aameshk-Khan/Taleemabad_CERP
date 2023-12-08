@@ -61,7 +61,9 @@ In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initia
 
 The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline. Taleemabad employed a two-step sampling strategy, initially selecting schools randomly in the experimental group and choosing nearby non-Taleemabad subscribing schools as controls.
 
-During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focussed on discerning differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below: [add png here]  
+During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focussed on discerning differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
+<img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
+
 
 **2.3. Summary of Results**
 
@@ -83,21 +85,25 @@ For MELQO, the difference between average scores obtained by treatment and contr
 
 **3. Analytics by CERP:**  
 
-**3.1. School level Master Dataset and Variables (Cleaning raw datasets, Raw datasets to one master dataset at School level, Treatment Variable, Matching variable)** 
-
-~~~
-<<dd_do: nocomm>>
+**3.1. School level Master Dataset and Variables (Cleaning raw datasets, Raw datasets to one master dataset at School level, Treatment Variable, Matching variable)**   
+The refinement of the six child-level raw datasets provided by Taleemabad underwent a series of systematic steps aimed at improving data quality and analytical reliability. Initially, efforts were directed towards ensuring clarity within individual datasets and maintaining consistency across all datasets by revising variable names. Recognizing that the raw dataset contained student marks for each question in the ASER and MELQO instruments, categorical test score variables were created utilizing the ASER ranking methodology and MELQO instrument guides.   
+[mention: cleaning school names using Taleemabads school correction files, creating clean student level datasets, using collapse to get variables at school level, merging student level endline and baseline variables using school names, merging aser 1-3, aser 4-5 and melqo using school name to generate school level master dataset]
+[matching: whether the school was present in baseline and/or endline. explain the three cases]  
+[Treatment status: Treatment: Taleemabad program. Taleemabad means schools which received the treatment. Control are comparable schools]  
+[mention: reason why the number of control schools in endline is high: 1) when replacing control schools for endline, nearby schools were also added. 2) Unknown schools considered as control 3) schools which changed from treatment to control considered as control in both (3 schools). 1 and 2 by taleemabad, 3 by cerp] 
+~~~~
+<<dd_do: quietly>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", clear
-	lab var treatment "Treatment"
+	lab var treatment "Treatment Status"
 	lab def treatment_ 0 "Control" 1 "Taleemabad"
 	lab val treatment treatment_
-	asdoc matching treatment, row col save(tables_for_report.docx)
+	//asdoc tab2 matching treatment, row col save(tables_for_report.doc) replace
 <</dd_do>>
-~~~
-[mention reason why the number of control schools in endline is high: 1) when replacing control schools for endline, nearby schools were also added. 2) Unknown schools considered as control 3) schools which changed from treatment to control considered as control in both (3 schools). 1 and 2 by taleemabad, 3 by cerp]  
+~~~~
+<img src="tab matching treatment.png" alt="tab1" width="320"/>
 
 **3.2. Balance Test (Orth_out at baseline and Control) - Results and Graphs**  
-Treatment and Control Mean at baseline and endline
+[explain: whether treatment and control group are balanced in baseline and endline in terms of outcome variables]
 ~~~~
 <<dd_do: nocomm>>
 
@@ -105,12 +111,11 @@ Treatment and Control Mean at baseline and endline
 	orth_out aser_b_english_Sentence aser_e_english_Sentence aser_b_math_Subtract aser_e_math_Subtract aser_b_urdu_Story aser_e_urdu_Story, by(treatment)
 	
 	orth_out aser_b_eng_4_5_G5Sentence aser_e_eng_4_5_G5Sentence aser_b_maths_4_5_Division aser_e_maths_4_5_Division aser_b_urdu_4_5_G5Story aser_e_urdu_4_5_G5Story, by(treatment)
-	
 <</dd_do>>
 ~~~~
 
 **3.3. Results (with graphs)**  
-difference in treatment and control at baseline and endline, and testing whether diff is statistically significant  
+[explain methodology: mean difference in treatment and control at baseline and endline, and testing whether diff is statistically significant]  
 
 **3.3.1. ASER Grades 1 - 3**  
 
