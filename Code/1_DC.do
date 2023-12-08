@@ -178,8 +178,8 @@ save `ASER_1_3_baseline', replace
 * Adjusting school names using the corrected school names provided by taleemabad. 
 			/////////////////// 
 		import excel "$user/$drive/$folder/Shared by Taleemabad/Schools/ASER_Churn_Baseline.xlsx", firstrow clear	
+		keep general_details_sectionschool_na corrected_school endlinestatus
 		rename general_details_sectionschool_n school_name
-		drop corrected_school_old - AB
 		duplicates drop
 		tempfile ASER_Churn_Baseline
 		save `ASER_Churn_Baseline', replace
@@ -523,9 +523,9 @@ save `MELQO_baseline', replace
 * Adjusting school names using the corrected school names provided by taleemabad. 
 	
 				/////////////////// 
-		import excel "$user/$drive/$folder/School name correction files - CERP/MELQO_Baseline.xlsx", firstrow clear	
+		import excel "$user/$drive/$folder/School name correction files - CERP/MELQO_Baseline.xlsx", firstrow clear
+		keep general_details_sectionschool_na corrected_school endlinestatus
 		rename general_details_sectionschool_n school_name
-		drop D - W
 		duplicates drop
 		tempfile MELQO_Baseline_correct
 		save `MELQO_Baseline_correct', replace
@@ -719,27 +719,32 @@ tempfile ASER_1_3_endline
 save `ASER_1_3_endline', replace	
 
 * Adjusting school names using the corrected school names provided by taleemabad. 
+* In school correction file: treatment=1 means school was treated for both waves. treatment=2 means only for baseline, treatment=3 means only for endline as a replacement.
+* Since this file is used to correct names in the endline raw data, the treatment variable should be adjusted to indicate the treatment status at endline.
+* Hence, treatment = 1 -> type (variable for treatment status in raw data) == experimental
+* treatment = 2  -> type == controlled (control school at endline)
+* treatment = 3 -> type == experimental
+* treatment = . -> type == control
 			/////////////////// 
-		import excel "$user/$drive/$folder/Shared by Taleemabad/Schools/schoolcorrection_ASER_Endline.xlsx", firstrow clear	
+		import excel "$user/$drive/$folder/Shared by Taleemabad/Schools/Endline_School_correction_v2_ASER_MELQO.xlsx", firstrow clear	
 		rename general_details_sectionschool_n school_name
-		gen type = "Experimental" if treatment == 1
-		replace type = "Controlled" if treatment == 2
-		replace type = "Controlled" if treatment == .
+		gen type = "Experimental" if treatment == 1 | treatment == 3
+		replace type = "Controlled" if treatment == . | treatment == 2
 		duplicates drop
 		drop treatment
 		rename ttype treatment_type
-		tempfile schoolcorrection_ASER_Endline
-		save `schoolcorrection_ASER_Endline', replace
+		tempfile schoolcorrection_Endline
+		save `schoolcorrection_Endline', replace
 			///////////////////	
 	use `ASER_1_3_endline', clear
-	merge m:1 school_name using `schoolcorrection_ASER_Endline', gen(m1)
+	merge m:1 school_name using `schoolcorrection_Endline', gen(m1)
 		/*
 
     Result                           # of obs.
     -----------------------------------------
-    not matched                            95
+    not matched                           223
         from master                         0  (m1==1)
-        from using                         95  (m1==2)
+        from using                        223  (m1==2)
 
     matched                             2,436  (m1==3)
     -----------------------------------------
@@ -930,13 +935,13 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/ASER_Test_4
 tempfile ASER_4_5_endline
 save `ASER_4_5_endline', replace	
 	
-	merge m:1 school_name using `schoolcorrection_ASER_Endline', gen(m1)
+	merge m:1 school_name using `schoolcorrection_Endline', gen(m1)
 		/*
     Result                           # of obs.
     -----------------------------------------
-    not matched                           124
+    not matched                           250
         from master                         0  (m1==1)
-        from using                        124  (m1==2)
+        from using                        250  (m1==2)
 
     matched                             1,864  (m1==3)
     -----------------------------------------
@@ -1045,25 +1050,10 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 tempfile MELQO_endline
 save `MELQO_endline', replace	
 
-	****** will need to be corrected when Ahwaz shares correct names
-				/////////////////// 
-		import excel "$user/$drive/$folder/School name correction files - CERP/MELQO_Endline.xlsx", firstrow clear	
-		keep general_details_sectionschool_n corrected_school treatment ttype
-		rename general_details_sectionschool_n school_name
-		gen type = "Experimental" if treatment == 1
-		replace type = "Controlled" if treatment == 2
-		replace type = "Controlled" if treatment == .
-		duplicates drop
-		drop treatment
-		rename ttype treatment_type
-		tempfile MELQO_Endline_correct
-		save `MELQO_Endline_correct', replace
-			///////////////////
-
-	use `MELQO_endline', clear
-	merge m:1 school_name using `MELQO_Endline_correct', gen(m1)
+	merge m:1 school_name using `schoolcorrection_Endline', gen(m1)
 	
 		/*
+
     Result                           # of obs.
     -----------------------------------------
     not matched                           112
@@ -1074,11 +1064,10 @@ save `MELQO_endline', replace
     -----------------------------------------
 		*/
 	drop if m1 == 2
-	tab school_name if corrected_school == ""
+	** drop junk entries?
 	drop school_name 
 	rename corrected_school school_name
 	drop m1
-	****** will need to be corrected when Ahwaz shares correct names
 	
 tempfile MELQO_endline
 save `MELQO_endline', replace

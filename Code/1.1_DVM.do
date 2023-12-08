@@ -173,8 +173,14 @@ use "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned", clear
 	use `MELQO_Baseline_School_level', clear
 	merge 1:1 school_name using `MELQO_Endline_School_level', gen(m1)
 	/*
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                            31
+        from master                         0  (m1==1)
+        from using                         31  (m1==2)
 
-			Add here the merge results when Ahwaz shares the correct school names
+    matched                                53  (m1==3)
+    -----------------------------------------
 	*/
 	gen matching = 1 if m1 == 1
 	replace matching = 2 if m1 == 2
@@ -197,14 +203,13 @@ foreach var of varlist *per {
 }
 merge 1:1 school_name using `ASER_4_5_School_level', gen(m1)
 /*
-
     Result                           # of obs.
     -----------------------------------------
-    not matched                            12
-        from master                         9  (m1==1)
-        from using                          3  (m1==2)
+    not matched                            10
+        from master                         8  (m1==1)
+        from using                          2  (m1==2)
 
-    matched                                73  (m1==3)
+    matched                                74  (m1==3)
     -----------------------------------------
 */
 drop m1
@@ -212,9 +217,9 @@ merge 1:1 school_name using `MELQO_School_level', gen(m1)
 /*
     Result                           # of obs.
     -----------------------------------------
-    not matched                            20
-        from master                        14  (m1==1)
-        from using                          6  (m1==2)
+    not matched                            26
+        from master                        13  (m1==1)
+        from using                         13  (m1==2)
 
     matched                                71  (m1==3)
     -----------------------------------------
@@ -295,6 +300,7 @@ save `MasterDataset_SchoolLevel', replace
 			lab var `varname' "`varlabel_new'"	
 	}	
 
+	lab var matching "indicates whether the school existed in endline and/or baseline. Not whether treatment or not the treatment was consistent."
 export excel "$user/$drive/$folder/Output/Excel/MasterDataset_SchoolLevel.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", replace
 
