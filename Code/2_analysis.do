@@ -19,39 +19,6 @@
 	3.3.2. ASER Grades 4 - 5  
 	3.3.3. MELQO  
 4. Conclusion  
-
-**1. Introduction**  
-
-Taleemabad, an EdTech learning platform, is dedicated to creating educational content aligned with national standards to enhance student outcomes. The platform caters to both students and teachers through a proprietary learning platform that integrates content delivery, student assessment, and engagement with parents and school administration. The Learning Management System (LMS) is offered for licensing to small-scale entrepreneurs who facilitate the enhancement of existing school operations with effective pedagogical methods and administrative tools. The platform's content is accessible through a standalone Android app and is also broadcasted on TV and radio.
-
-**2. Taleemabad's Evaluation**  
-
-The primary objective of Taleemabad evaluation was to evaluate the effectiveness of its offerings. The evaluation was conducted through third-party standardized assessments of student learning outcomes and class observations. The assessment and observation processes extended to both Taleemabad schools and comparable "control" schools. Currently encompassing 140 schools, Taleemabad employs a random sampling method to randomly select schools for these assessments and observations. In contrast, the control schools are deliberately chosen based on their close geographical proximity to the treatment schools.  
-
-**2.1. Instrument and Data Collection**  
-
-Taleemabad utilized established assessment instruments to evaluate learning outcomes across different grade levels. For grades 1-3 and 4-5, the ASER ("Annual Status of Education Report") instrument was employed, which rigorously tests foundational skills in English, local languages (Urdu), and Mathematics. These instruments are widely recognized and validated for their application in low and middle-income countries.  
-
-In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initiative aimed at measuring pupils' development and learning at the commencement of primary school, along with assessing the quality of pre-primary learning environments. MELQO assesses pre-numeracy, pre-literacy (English), and motor skills. Pre-numeracy evaluates a child's understanding of basic mathematical concepts such as counting and number recognition. Pre-literacy (English) assesses foundational reading and writing skills, including letter recognition and sounds. Additionally, fine motor skills are observed through pupils' ability to replicate shapes presented on paper, indicating promising levels of skill development.
-
-**2.2. Sampling and Measurement**  
-
-  
-**2.3. Summary of Results**
-
-**2.3.1. Grades 1-3:**	
-
-50.7% of all Taleemabad students meet the criteria for all 3 subjects compared to 29.4% of control students at endline. This represents a difference of 0.46 standard deviations compared to the control group (1.58 LAYS). During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -13.6% between Taleemabad and control. At the endline, the difference between Taleemabad and control schools rises to 22.9% for English and 14.6% for Urdu (both significant at 5% level). For Mathematics, however, the difference is -2.9% (i.e. in favor of control schools, significant at 5% level). 
-
-**2.3.2. Grades 4-5:**	
-
-7.2% of all Taleemabad students meet the criteria for all 3 subjects compared to 6.2% of control students at endline. This represents a difference of 0.05 standard deviations compared to the control group (0.4 LAYS). During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -8.7% between Taleemabad and control, meaning that control schools were at a higher level than intervention schools. At the endline, the difference between Taleemabad and control schools rises to 3.6% for English, 1.5% for Mathematics and 2.2% for Urdu (all significant at 5% level). 
-
-**2.3.3. MELQO:**	
-
-At baseline, Taleemabad schools outperformed control schools by ~6 percent of overall score in pre-numeracy but lagged behind control schools in pre-literacy and motor skills by 0.35% and 1.58% respectively. At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. 
-
-**3. Analytics by CERP:** 
 ~~~~
 <<dd_do: quietly>>
 clear all
@@ -76,16 +43,56 @@ set more off
 		  }
 <</dd_do>>
 ~~~~
+**1. Introduction**  
+
+Taleemabad, an EdTech learning platform, is dedicated to creating educational content aligned with national standards to enhance student outcomes. The platform caters to both students and teachers through a proprietary learning platform that integrates content delivery, student assessment, and engagement with parents and school administration. The Learning Management System (LMS) is offered for licensing to small-scale entrepreneurs who facilitate the enhancement of existing school operations with effective pedagogical methods and administrative tools. The platform's content is accessible through a standalone Android app and is also broadcasted on TV and radio.
+
+**2. Taleemabad's Evaluation**  
+
+The primary objective of Taleemabad evaluation was to evaluate the effectiveness of its offerings. The evaluation was conducted through third-party standardized assessments of student learning outcomes and class observations. The assessment and observation processes extended to both Taleemabad schools and comparable "control" schools. Currently encompassing 140 schools, Taleemabad employs a random sampling method to randomly select schools for these assessments and observations. In contrast, the control schools are deliberately chosen based on their close geographical proximity to the treatment schools.  
+
+**2.1. Instrument and Data Collection**  
+
+Taleemabad utilized established assessment instruments to evaluate learning outcomes across different grade levels. For grades 1-3 and 4-5, the ASER ("Annual Status of Education Report") instrument was employed, which rigorously tests foundational skills in English, local languages (Urdu), and Mathematics. These instruments are widely recognized and validated for their application in low and middle-income countries.  
+
+In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initiative aimed at measuring pupils' development and learning at the commencement of primary school, along with assessing the quality of pre-primary learning environments. MELQO assesses pre-numeracy, pre-literacy (English), and motor skills. Pre-numeracy evaluates a child's understanding of basic mathematical concepts such as counting and number recognition. Pre-literacy (English) assesses foundational reading and writing skills, including letter recognition and sounds. Additionally, fine motor skills are observed through pupils' ability to replicate shapes presented on paper, indicating promising levels of skill development.
+
+**2.2. Sampling and Measurement**  
+
+The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline. Taleemabad employed a two-step sampling strategy, initially selecting schools randomly in the experimental group and choosing nearby non-Taleemabad subscribing schools as controls.
+
+During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focussed on discerning differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below: [add png here]  
+
+**2.3. Summary of Results**
+
+**2.3.1. Grades 1-3:**	
+
+During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -13.6% between Taleemabad and control. At the endline, the difference between Taleemabad and control schools rises to 22.9% for English and 14.6% for Urdu (both significant at 5% level). For Mathematics, however, the difference is -2.9% (i.e. in favor of control schools, significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.46 of a standard deviation above control schools for English and 0.29 standard deviations for Urdu, whereas the control schools are 0.07 of a standard deviation above Taleemabad schools at the endline.  
+
+For reference, between 2019 and 2021, there was a decline in learning outcomes nationally equivalent to 0.06 standard deviations averaged across subjects for grades 1-3  (~0.03 sd/year). Pre-pandemic (2015 vs 2018) this stood at 0.17 (~0.06 sd/year) respectively although we were starting at a much lower baseline in terms of learning levels.  
+
+**2.3.2. Grades 4-5:**  
+
+During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -8.7% between Taleemabad and control, meaning that control schools were at a higher level than intervention schools. At the endline, the difference between Taleemabad and control schools rises to 3.6% for English, 1.5% for Mathematics and 2.2% for Urdu (all significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.11 of a standard deviation above control schools for English, 0.03 for Mathematics and 0.05 standard deviations for Urdu.  
+
+For reference, between 2019 and 2021, there was a decline in learning outcomes nationally equivalent to 0.07 standard deviations averaged across subjects for grades 4-5 (~0.035 sd/year). Pre-pandemic (2015 vs 2018) this stood as a gain of 0.18 (~0.06 sd/year) although we were starting at a much lower baseline in terms of learning levels.  
+
+**2.3.3. MELQO:**	
+
+For MELQO, the difference between average scores obtained by treatment and control schools for pre-numeracy, pre-literacy and motor skills is calculated. A threshold such as one for ASER is not imposed due to a lack of available guidelines regarding thresholds. At baseline, Taleemabad schools outperformed control schools by ~6 percent of overall score in pre-numeracy but lagged behind control schools in pre-literacy and motor skills by 0.35% and 1.58% respectively. At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. Expressed in standard deviations, the difference between Taleemabad and control schools is 0.16, 0.11 and 0.17 for pre-numeracy, pre-literacy and motor skills respectively  
+
+**3. Analytics by CERP:**  
 
 **3.1. School level Master Dataset and Variables (Cleaning raw datasets, Raw datasets to one master dataset at School level, Treatment Variable, Matching variable)** 
 
-~~~~
+
 <<dd_do: nocomm>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", clear
-	tab matching treatment, m
+	tab matching treatment, markdown
 <</dd_do>>
-~~~~
-[mention reason why the number of control schools in endline is high: 1) when replacing control schools for endline, nearby schools were also added. 2) Unknown schools considered as control 3) schools which changed from treatment to control considered as control in both (3 schools). 1 and 2 by taleemabad, 3 by cerp]
+
+[mention reason why the number of control schools in endline is high: 1) when replacing control schools for endline, nearby schools were also added. 2) Unknown schools considered as control 3) schools which changed from treatment to control considered as control in both (3 schools). 1 and 2 by taleemabad, 3 by cerp]  
+
 **3.2. Balance Test (Orth_out at baseline and Control) - Results and Graphs**  
 Treatment and Control Mean at baseline and endline
 ~~~~
