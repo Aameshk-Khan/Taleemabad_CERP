@@ -1,7 +1,11 @@
 <<dd_version: 2>>
-##  Taleemabad Evaluation by CERP Analytics
+<div style="text-align:justify;">  
 
-### Table of contents
+<div style="text-align: center;">
+   <span style="color: black; font-size: 25px;">Taleemabad Evaluation by CERP Analytics</span> 
+</div>
+
+<span style="color: black; font-size: 20px;">Table of contents</span>  
 
 1. Introduction
 2. Taleemabad's Evaluation  
@@ -12,9 +16,9 @@
 	2.3.2. ASER Grades 4 - 5  
 	2.3.3. MELQO  
 3. Analytics by CERP  
-3.1. School level Master Dataset and Variables (Cleaning raw datasets, Raw datasets to one master dataset at School level, Treatment Variable, Matching variable)  
+3.1. School level Master Dataset and Variables  
 3.2. Balance Test  
-3.3. Results (with graphs)  
+3.3. Results  
 	3.3.1. ASER Grades 1 - 3  
 	3.3.2. ASER Grades 4 - 5  
 	3.3.3. MELQO  
@@ -42,7 +46,8 @@ set more off
 		global folder = "[Internal] CERP - Taleemabad  "
 		  }
 <</dd_do>>
-~~~~
+~~~~   
+
 **1. Introduction**  
 
 Taleemabad, an EdTech learning platform, is dedicated to creating educational content aligned with national standards to enhance student outcomes. The platform caters to both students and teachers through a proprietary learning platform that integrates content delivery, student assessment, and engagement with parents and school administration. The Learning Management System (LMS) is offered for licensing to small-scale entrepreneurs who facilitate the enhancement of existing school operations with effective pedagogical methods and administrative tools. The platform's content is accessible through a standalone Android app and is also broadcasted on TV and radio.
@@ -62,7 +67,9 @@ In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initia
 The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline. Taleemabad employed a two-step sampling strategy, initially selecting schools randomly in the experimental group and choosing nearby non-Taleemabad subscribing schools as controls.
 
 During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focussed on differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
-<img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
+<div style="text-align:center;">
+    <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
+</div> 
 
 
 **2.3. Summary of Results**
@@ -117,10 +124,10 @@ Furthermore, three schools were initially enrolled in the Taleemabad program at 
 
 In the full sample, there are 97 unique school out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools only, contains 21 treatment schools and 21 control schools. 
 
-**3.2. Balance Test (Orth_out at baseline and Control) - Results and Graphs**  
-[explain: whether treatment and control group are balanced in baseline and endline in terms of outcome variables]
+**3.2. Balance Test**  
+
 ~~~~
-<<dd_do: nocomm>>
+<<dd_do: quietly>>
 
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
 	orth_out aser_b_english_Sentence aser_e_english_Sentence aser_b_math_Subtract aser_e_math_Subtract aser_b_urdu_Story aser_e_urdu_Story, by(treatment)
@@ -128,10 +135,19 @@ In the full sample, there are 97 unique school out of which 33 are treatment sch
 	orth_out aser_b_eng_4_5_G5Sentence aser_e_eng_4_5_G5Sentence aser_b_maths_4_5_Division aser_e_maths_4_5_Division aser_b_urdu_4_5_G5Story aser_e_urdu_4_5_G5Story, by(treatment)
 <</dd_do>>
 ~~~~
+<div style="text-align:center;">
+    <img src="Balance Test.png" alt="tab1" width="600"/>
+</div>  
+
+The above table depicts whether the treatment and contol groups are balanced in baseline and endline in terms of the outcome variables.
 
 **3.3. Results**  
 
 This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.  
+
+<div style="text-align:center;">
+    <img src="ASER Result.png" alt="tab1" width="600"/>
+</div> 
 
 **3.3.1. ASER Grades 1 - 3**  
 
@@ -392,3 +408,6 @@ At baseline, the percentage difference between treatment and control schools for
 
 **4. Conclusion**  
 
+
+
+</div>
