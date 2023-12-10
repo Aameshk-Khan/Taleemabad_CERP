@@ -61,19 +61,19 @@ In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initia
 
 The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline. Taleemabad employed a two-step sampling strategy, initially selecting schools randomly in the experimental group and choosing nearby non-Taleemabad subscribing schools as controls.
 
-During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focussed on discerning differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
+During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focussed on differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
 <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
 
 
 **2.3. Summary of Results**
 
-**2.3.1. Grades 1-3:**	
+**2.3.1. ASER Grades 1-3:**	
 
 During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -13.6% between Taleemabad and control. At the endline, the difference between Taleemabad and control schools rises to 22.9% for English and 14.6% for Urdu (both significant at 5% level). For Mathematics, however, the difference is -2.9% (i.e. in favor of control schools, significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.46 of a standard deviation above control schools for English and 0.29 standard deviations for Urdu, whereas the control schools are 0.07 of a standard deviation above Taleemabad schools at the endline.  
 
 For reference, between 2019 and 2021, there was a decline in learning outcomes nationally equivalent to 0.06 standard deviations averaged across subjects for grades 1-3  (~0.03 sd/year). Pre-pandemic (2015 vs 2018) this stood at 0.17 (~0.06 sd/year) respectively although we were starting at a much lower baseline in terms of learning levels.  
 
-**2.3.2. Grades 4-5:**  
+**2.3.2. ASER Grades 4-5:**  
 
 During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -8.7% between Taleemabad and control, meaning that control schools were at a higher level than intervention schools. At the endline, the difference between Taleemabad and control schools rises to 3.6% for English, 1.5% for Mathematics and 2.2% for Urdu (all significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.11 of a standard deviation above control schools for English, 0.03 for Mathematics and 0.05 standard deviations for Urdu.  
 
@@ -85,12 +85,19 @@ For MELQO, the difference between average scores obtained by treatment and contr
 
 **3. Analytics by CERP:**  
 
-**3.1. School level Master Dataset and Variables (Cleaning raw datasets, Raw datasets to one master dataset at School level, Treatment Variable, Matching variable)**   
-The refinement of the six child-level raw datasets provided by Taleemabad underwent a series of systematic steps aimed at improving data quality and analytical reliability. Initially, efforts were directed towards ensuring clarity within individual datasets and maintaining consistency across all datasets by revising variable names. Recognizing that the raw dataset contained student marks for each question in the ASER and MELQO instruments, categorical test score variables were created utilizing the ASER ranking methodology and MELQO instrument guides.   
-[mention: cleaning school names using Taleemabads school correction files, creating clean student level datasets, using collapse to get variables at school level, merging student level endline and baseline variables using school names, merging aser 1-3, aser 4-5 and melqo using school name to generate school level master dataset]
-[matching: whether the school was present in baseline and/or endline. explain the three cases]  
-[Treatment status: Treatment: Taleemabad program. Taleemabad means schools which received the treatment. Control are comparable schools]  
-[mention: reason why the number of control schools in endline is high: 1) when replacing control schools for endline, nearby schools were also added. 2) Unknown schools considered as control 3) schools which changed from treatment to control considered as control in both (3 schools). 1 and 2 by taleemabad, 3 by cerp] 
+**3.1. School level Master Dataset and Variables**  
+ 
+The cleaning process for the six child-level raw datasets provided by Taleemabad involved a series of systematic steps to enhance data quality and analytical reliability. The first crucial step involved a thorough revision of variable names to ensure clarity and maintain consistency across all six datasets, including baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO. This meticulous effort aimed to make the data more understandable and user-friendly for subsequent analysis. 
+ 
+Additionally, the school name variable in the raw datasets underwent a comprehensive cleaning process, utilizing the school name correction files provided by Taleemabad. This step was pivotal, as it aimed to standardize and match school names consistently across all six datasets. The correction files, instrumental in this process, contained columns outlining various spellings or discrepancies in school names across the datasets and identifying the correct names. The overarching goal was to create a master school-level dataset that incorporated information from all baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO.  
+
+Furthermore, the raw child-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level.  
+
+[add about melqo]  
+  
+Following the cleaning of endline and baseline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school names to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicated the proportion of students in each school belonging to specific proficiency levels. The baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on school names, and then a school level master dataset was created merging the three on school names.  
+
+As mentioned earlier, not all schools present during the baseline assessment were retained in the endline, and new schools were introduced as replacements. To categorize this dynamic, a matching variable was created which identified whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent." Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement."  
 ~~~~
 <<dd_do: quietly>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", clear
@@ -100,7 +107,15 @@ The refinement of the six child-level raw datasets provided by Taleemabad underw
 	//asdoc tab2 matching treatment, row col save(tables_for_report.doc) replace
 <</dd_do>>
 ~~~~
-<img src="tab matching treatment.png" alt="tab1" width="320"/>
+<div style="text-align:center;">
+    <img src="tab matching treatment.png" alt="tab1" width="320"/>
+</div>  
+
+The table provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has row percentages and third row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements. Six treatment schools were added in the endline assessment to replace an equivalent number that were dropped. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, certain school names in the endline datasets were ambiguous and could not be corrected. These schools were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
+
+Furthermore, three schools were initially enrolled in the Taleemabad program at baseline but withdrew from the program but agreed to undergo the endline assessment. Hence, their treatment status changed from treatment in baseline to control in endline. Specifically, these schools have been regarded as control schools in both baseline and endline.  
+
+In the full sample, there are 97 unique school out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools only, contains 21 treatment schools and 21 control schools. 
 
 **3.2. Balance Test (Orth_out at baseline and Control) - Results and Graphs**  
 [explain: whether treatment and control group are balanced in baseline and endline in terms of outcome variables]
@@ -114,8 +129,9 @@ The refinement of the six child-level raw datasets provided by Taleemabad underw
 <</dd_do>>
 ~~~~
 
-**3.3. Results (with graphs)**  
-[explain methodology: mean difference in treatment and control at baseline and endline, and testing whether diff is statistically significant]  
+**3.3. Results**  
+
+This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.  
 
 **3.3.1. ASER Grades 1 - 3**  
 
@@ -154,7 +170,7 @@ The refinement of the six child-level raw datasets provided by Taleemabad underw
 	* Calculate the difference at endline 
 	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'),0.001)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
-	orth_out `a' `b', by(treatment) compare test
+	orth_out `a' `b', by(treatment) compare test count
 	}
 <</dd_do>>
 ~~~~
@@ -196,7 +212,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
 	local diff_endline_std = -1 * `diff_endline_std'
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
-	orth_out `a' `b', by(treatment) compare test
+	orth_out `a' `b', by(treatment) compare test count
 	}
 <</dd_do>>
 ~~~~
@@ -237,7 +253,7 @@ At baseline, the percentage difference between treatment and control schools for
 	* Calculate the difference at endline 
 	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.001)
-	orth_out `a' `b', by(treatment) compare test
+	orth_out `a' `b', by(treatment) compare test count
 	}
 <</dd_do>>
 ~~~~
@@ -281,7 +297,7 @@ At baseline, the percentage difference between treatment and control schools for
 	* Calculate the difference at endline 
 	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
-	orth_out `a' `b', by(treatment) compare test
+	orth_out `a' `b', by(treatment) compare test count
 	}
 	
 <</dd_do>>
@@ -323,7 +339,7 @@ At baseline, the percentage difference between treatment and control schools for
 	* Calculate the difference at endline 
 	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
-	orth_out `a' `b', by(treatment) compare test
+	orth_out `a' `b', by(treatment) compare test count
 	}
 <</dd_do>>
 ~~~~
@@ -365,7 +381,7 @@ At baseline, the percentage difference between treatment and control schools for
 	* Calculate the difference at endline 
 	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
-	orth_out `a' `b', by(treatment) compare test
+	orth_out `a' `b', by(treatment) compare test count
 	}
 	
 <</dd_do>>
