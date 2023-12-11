@@ -467,22 +467,23 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
  		
 	lab var type "Treatment status"
 	
-	unab varlist: melqo_b_expvocab_edibles_number melqo_b_expvocab_animals_numbe melqo_b_prelit_letter_identify melqo_b_prelit_letter_sound melqo_b_listening_comp_story melqo_b_name_writing melqo_b_prenum_verbal_count melqo_b_prenum_number_identify melqo_b_motorskills_shape1 melqo_b_motorskills_shape2 melqo_b_motorskills_shape3
+	unab varlist:  melqo_b_prelit_letter_identify melqo_b_prelit_letter_sound melqo_b_prenum_verbal_count melqo_b_prenum_number_identify melqo_b_motorskills_shape1 melqo_b_motorskills_shape2 melqo_b_motorskills_shape3
 	local n= wordcount("`varlist'")
 	
 * Creating test score variables	
-	gen melqo_b_ev_edible_num_per = melqo_b_expvocab_edibles_number / 10 * 100
-	gen melqo_b_ev_animal_num_per = melqo_b_expvocab_animals_numbe / 10 * 100
+	//gen melqo_b_ev_edible_num_per = melqo_b_expvocab_edibles_number / 10 * 100
+	//gen melqo_b_ev_animal_num_per = melqo_b_expvocab_animals_numbe / 10 * 100
+	//gen melqo_b_listcomp_story_per = melqo_b_listening_comp_story / 5 * 100
+	//gen melqo_b_name_writing_per = 100 if melqo_b_name_writing == "correct"
+	//replace melqo_b_name_writing_per = 0 if melqo_b_name_writing == "incorrect"
 	
 	gen melqo_b_pl_let_identify_per = melqo_b_prelit_letter_identify / 8 * 100
 	gen melqo_b_pl_let_sound_per = melqo_b_prelit_letter_sound / 8 * 100
-	gen melqo_b_listcomp_story_per = melqo_b_listening_comp_story / 5 * 100
-	
-	gen melqo_b_name_writing_per = 100 if melqo_b_name_writing == "correct"
-	replace melqo_b_name_writing_per = 0 if melqo_b_name_writing == "incorrect"
+	gen melqo_b_pre_literacy = (melqo_b_prelit_letter_identify + melqo_b_prelit_letter_sound) / 16 * 100
 	
 	gen melqo_b_pn_verbal_count_per = melqo_b_prenum_verbal_count / 30 * 100
 	gen melqo_b_pn_num_identify_per = melqo_b_prenum_number_identify/ 10 * 100
+	gen melqo_b_pre_numeracy = (melqo_b_prenum_verbal_count + melqo_b_prenum_number_identify) / 40 * 100
 	
 	gen melqo_b_ms_shape1_per = 100 if melqo_b_motorskills_shape1 == "all_criteria_met"
 	replace melqo_b_ms_shape1_per = 50 if melqo_b_motorskills_shape1 == "missing_one_criteria"
@@ -496,6 +497,8 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 	replace melqo_b_ms_shape3_per = 50 if melqo_b_motorskills_shape3 == "missing_one_criteria"
 	replace melqo_b_ms_shape3_per = 0 if melqo_b_motorskills_shape3 == "missing_more_than_one_criteria"
 	
+	gen melqo_b_motor_skills = (melqo_b_ms_shape1_per + melqo_b_ms_shape2_per + melqo_b_ms_shape3_per) / 3
+	
 * Assigning variable labels to test score variables (percentages)			
 	unab varlist2: *per
 	forval i = 1/`n' {
@@ -507,6 +510,10 @@ import delimited "$user/$drive/$folder/Shared by Taleemabad/Data/Baseline/Copy o
 			local varname: word `i' of `varlist2'
 			lab var `varname' "`varlabel_new'"		
 	}
+	
+	lab var melqo_b_motor_skills "MELQO motor skills baseline (%)"
+	lab var melqo_b_pre_numeracy "MELQO pre numeracy baseline (%)"
+	lab var melqo_b_pre_literacy "MELQO pre literacy baseline (%)"
 	
 * Cleaning the school_name variable and changing its type from strL to str
 	replace school_name = itrim(trim(school_name))
@@ -989,23 +996,24 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 	rename (pre_numeracy_sectionverbal_coun pre_numeracy_sectionnumber_iden) (melqo_e_prenum_verbal_count melqo_e_prenum_number_identify)
 	
 	
-	unab varlist: melqo_e_expvocab_edibles_number melqo_e_expvocab_animals_numbe  melqo_e_prelit_letter_identify melqo_e_prelit_letter_sound melqo_e_listening_comp_story melqo_e_name_writing melqo_e_prenum_verbal_count melqo_e_prenum_number_identify melqo_e_motorskills_shape1 melqo_e_motorskills_shape2 melqo_e_motorskills_shape3
+	unab varlist: melqo_e_prelit_letter_identify melqo_e_prelit_letter_sound melqo_e_prenum_verbal_count melqo_e_prenum_number_identify melqo_e_motorskills_shape1 melqo_e_motorskills_shape2 melqo_e_motorskills_shape3
 	local n= wordcount("`varlist'")
 	
 	
 * Creating test score variables	
-	gen melqo_e_ev_edible_num_per = melqo_e_expvocab_edibles_number / 10 * 100
-	gen melqo_e_ev_animal_num_per = melqo_e_expvocab_animals_numbe / 10 * 100
-
+	//gen melqo_e_ev_edible_num_per = melqo_e_expvocab_edibles_number / 10 * 100
+	//gen melqo_e_ev_animal_num_per = melqo_e_expvocab_animals_numbe / 10 * 100
+	//gen melqo_e_listcomp_story_per = melqo_e_listening_comp_story / 5 * 100
+	//gen melqo_e_name_writing_per = 100 if melqo_e_name_writing == "correct"
+	//replace melqo_e_name_writing_per = 0 if melqo_e_name_writing == "incorrect"
+	
 	gen melqo_e_pl_let_identify_per = melqo_e_prelit_letter_identify / 8 * 100
 	gen melqo_e_pl_let_sound_per = melqo_e_prelit_letter_sound / 8 * 100
-	gen melqo_e_listcomp_story_per = melqo_e_listening_comp_story / 5 * 100
-	
-	gen melqo_e_name_writing_per = 100 if melqo_e_name_writing == "correct"
-	replace melqo_e_name_writing_per = 0 if melqo_e_name_writing == "incorrect"
-	
+	gen melqo_e_pre_literacy = (melqo_e_prelit_letter_identify + melqo_e_prelit_letter_sound) / 16 * 100
+		
 	gen melqo_e_pn_verbal_count_per = melqo_e_prenum_verbal_count / 30 * 100
 	gen melqo_e_pn_num_identify_per = melqo_e_prenum_number_identify/ 10 * 100
+	gen melqo_e_pre_numeracy = (melqo_e_prenum_verbal_count + melqo_e_prenum_number_identify) / 40 * 100
 	
 	gen melqo_e_ms_shape1_per = 100 if melqo_e_motorskills_shape1 == "all_criteria_met"
 	replace melqo_e_ms_shape1_per = 50 if melqo_e_motorskills_shape1 == "missing_one_criteria"
@@ -1019,6 +1027,8 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 	replace melqo_e_ms_shape3_per = 50 if melqo_e_motorskills_shape3 == "missing_one_criteria"
 	replace melqo_e_ms_shape3_per = 0 if melqo_e_motorskills_shape3 == "missing_more_than_one_criteria"
 	
+	gen melqo_e_motor_skills = (melqo_e_ms_shape1_per + melqo_e_ms_shape2_per + melqo_e_ms_shape3_per) / 3
+
 * Assigning variable labels to test score variables (percentages)			
 	unab varlist2: *per
 	forval i = 1/`n' {
@@ -1031,6 +1041,10 @@ import excel "$user/$drive/$folder/Shared by Taleemabad/Data/Endline/MELQO_V1_20
 			lab var `varname' "`varlabel_new'"		
 	}
 
+	lab var melqo_e_motor_skills "MELQO motor skills endline (%)"
+	lab var melqo_e_pre_numeracy "MELQO pre numeracy endline (%)"
+	lab var melqo_e_pre_literacy "MELQO pre literacy endline (%)"
+	
 * Cleaning the school_name variable and changing its type from strL to str	
 	replace school_name = itrim(trim(school_name))
 	generate str name_string = school_name

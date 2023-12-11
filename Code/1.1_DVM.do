@@ -149,10 +149,10 @@ use "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned", clear
 * Generating a school-level dataset
 	gen b_treatment = 1 if type == "Experimental"
 	replace b_treatment = 0 if type == "Controlled"
-	foreach var of varlist melqo_b_ev_edible_num_per - melqo_b_ms_shape3_per {
+	foreach var of varlist melqo_b_motor_skills melqo_b_pre_numeracy melqo_b_pre_literacy {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) melqo_b_ev_edible_num_per - melqo_b_ms_shape3_per b_treatment (sd) sd_melqo_b_ev_edible_num_per - sd_melqo_b_ms_shape3_per, by(school_name)
+	collapse (mean) melqo_b_motor_skills melqo_b_pre_numeracy melqo_b_pre_literacy b_treatment (sd) sd_melqo_b_motor_skills sd_melqo_b_pre_numeracy sd_melqo_b_pre_literacy, by(school_name)
 	tempfile MELQO_Baseline_School_level
 	save `MELQO_Baseline_School_level', replace
 	
@@ -162,10 +162,10 @@ use "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned", clear
 * Generating a school-level dataset
 	gen e_treatment = 1 if type == "Experimental"
 	replace e_treatment = 0 if type == "Controlled"
-	foreach var of varlist melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per {
+	foreach var of varlist melqo_e_motor_skills melqo_e_pre_numeracy melqo_e_pre_literacy {
 		gen sd_`var' = `var'
 	}
-	collapse (mean)  melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per e_treatment (sd) sd_melqo_e_ev_edible_num_per - sd_melqo_e_ms_shape3_per, by(school_name)
+	collapse (mean)  melqo_e_motor_skills melqo_e_pre_numeracy melqo_e_pre_literacy e_treatment (sd) sd_melqo_e_motor_skills sd_melqo_e_pre_numeracy sd_melqo_e_pre_literacy, by(school_name)
 	tempfile MELQO_Endline_School_level
 	save `MELQO_Endline_School_level', replace
 	
@@ -275,11 +275,11 @@ encode school_name, gen(school_id)
 tempfile MasterDataset_SchoolLevel
 save `MasterDataset_SchoolLevel', replace
 
-	order school_name school_id treatment b_treatment e_treatment matching aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_ev_edible_num_per - sd_melqo_e_ms_shape3_per
+	order school_name school_id treatment b_treatment e_treatment matching aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_motor_skills - sd_melqo_e_pre_literacy
 	
 * Correcting variable labels in master dataset
 *******************************************************************************
-	unab varlist: b_treatment e_treatment matching aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_ev_edible_num_per - sd_melqo_e_ms_shape3_per
+	unab varlist: b_treatment e_treatment matching aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_motor_skills - sd_melqo_e_pre_literacy
 	local n= wordcount("`varlist'")
 
 	forval i = 1/`n' {
@@ -437,10 +437,10 @@ use "$user/$drive/$folder/Output/Stata/MELQO_Baseline_Cleaned", clear
 * Generating a school-level dataset
 	gen b_treatment = 1 if type == "Experimental"
 	replace b_treatment = 0 if type == "Controlled"
-	foreach var of varlist melqo_b_ev_edible_num_per - melqo_b_ms_shape3_per {
+	foreach var of varlist melqo_b_motor_skills melqo_b_pre_numeracy melqo_b_pre_literacy {
 		gen sd_`var' = `var'
 	}
-	collapse (mean) melqo_b_ev_edible_num_per melqo_b_ms_shape3_per b_treatment (sd) sd_melqo_b_ev_edible_num_per - sd_melqo_b_ms_shape3_per, by(school_name grade)
+	collapse (mean) melqo_b_motor_skills melqo_b_pre_numeracy melqo_b_pre_literacy b_treatment (sd) sd_melqo_b_motor_skills sd_melqo_b_pre_numeracy sd_melqo_b_pre_literacy, by(school_name grade)
 	tempfile MELQO_B_SchoolGrade_level
 	save `MELQO_B_SchoolGrade_level', replace
 	
@@ -450,10 +450,10 @@ use "$user/$drive/$folder/Output/Stata/MELQO_Endline_Cleaned", clear
 * Generating a school-level dataset
 	gen e_treatment = 1 if type == "Experimental"
 	replace e_treatment = 0 if type == "Controlled"
-	foreach var of varlist melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per {
+	foreach var of varlist melqo_e_motor_skills melqo_e_pre_numeracy melqo_e_pre_literacy {
 		gen sd_`var' = `var'
 	}
-	collapse (mean)  melqo_e_ev_edible_num_per - melqo_e_ms_shape3_per e_treatment (sd) sd_melqo_e_ev_edible_num_per - sd_melqo_e_ms_shape3_per, by(school_name grade)
+	collapse (mean)  melqo_e_motor_skills melqo_e_pre_numeracy melqo_e_pre_literacy e_treatment (sd) sd_melqo_e_motor_skills sd_melqo_e_pre_numeracy sd_melqo_e_pre_literacy, by(school_name grade)
 	tempfile MELQO_E_SchoolGrade_level
 	save `MELQO_E_SchoolGrade_level', replace
 	
@@ -514,11 +514,11 @@ sort school_name grade
 	lab def treatment_l 1 "Treatment in both endline and baseline" 2 "Control in both endline and baseline" 3 "Treatment in baseline and control in endline" 4 "Treatment in endline and control in baseline" 5 "Attrition: Treatment in baseline" 6 "Attrition: Control in baseline" 7 "Replacement: Treatment in endline" 8 "Replacement: Control in endline"
 	lab val treatment treatment_l
 	
-	order school_name school_id grade treatment b_treatment e_treatment matching aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_ev_edible_num_per - sd_melqo_e_ms_shape3_per
+	order school_name school_id grade treatment b_treatment e_treatment matching aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_motor_skills - sd_melqo_e_pre_literacy
 
 * Correcting variable labels in master dataset
 *******************************************************************************
-	unab varlist: b_treatment e_treatment aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_ev_edible_num_per - sd_melqo_e_ms_shape3_per
+	unab varlist: b_treatment e_treatment aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_motor_skills - sd_melqo_e_pre_literacy
 	local n= wordcount("`varlist'")
 
 	forval i = 1/`n' {
