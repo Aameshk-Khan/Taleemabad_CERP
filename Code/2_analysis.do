@@ -2,12 +2,13 @@
 <div style="text-align:justify;">  
 
 <div style="text-align: center;">
-   <span style="color: black; font-size: 25px;">Taleemabad Evaluation by CERP Analytics</span> 
-</div>
+   <span style="color: black; font-size: 25px; font-weight: bold;">Taleemabad Evaluation by CERP Analytics</span> 
+</div>  
+
 
 <span style="color: black; font-size: 20px;">Table of contents</span>  
-
-1. Introduction
+<div style="page-break-after: always;">
+   <span style="color: black;">1. Introduction  
 2. Taleemabad's Evaluation  
 2.1. Instrument and Data Collection  
 2.2. Sampling and Measurement  
@@ -22,7 +23,9 @@
 	3.3.1. ASER Grades 1 - 3  
 	3.3.2. ASER Grades 4 - 5  
 	3.3.3. MELQO  
-4. Conclusion  
+4. Conclusion </span> 
+</div>  
+
 ~~~~
 <<dd_do: quietly>>
 clear all
@@ -88,7 +91,7 @@ For reference, between 2019 and 2021, there was a decline in learning outcomes n
 
 **2.3.3. MELQO:**	
 
-For MELQO, the difference between average scores obtained by treatment and control schools for pre-numeracy, pre-literacy and motor skills is calculated. A threshold such as one for ASER is not imposed due to a lack of available guidelines regarding thresholds. At baseline, Taleemabad schools outperformed control schools by ~6 percent of overall score in pre-numeracy but lagged behind control schools in pre-literacy and motor skills by 0.35% and 1.58% respectively. At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. Expressed in standard deviations, the difference between Taleemabad and control schools is 0.16, 0.11 and 0.17 for pre-numeracy, pre-literacy and motor skills respectively  
+For MELQO, the difference between average scores obtained by treatment and control schools for pre-numeracy, pre-literacy and motor skills is calculated. A Threshold such as one for ASER is not imposed due to a lack of available guidelines. At baseline, Taleemabad schools outperformed control schools by ~6 percent of overall score in pre-numeracy but lagged behind control schools in pre-literacy and motor skills by 0.35% and 1.58% respectively. At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. Expressed in standard deviations, the difference between Taleemabad and control schools is 0.16, 0.11 and 0.17 for pre-numeracy, pre-literacy and motor skills respectively  
 
 **3. Analytics by CERP:**  
 
@@ -98,18 +101,16 @@ The cleaning process for the six child-level raw datasets provided by Taleemabad
  
 Additionally, the school name variable in the raw datasets underwent a comprehensive cleaning process, utilizing the school name correction files provided by Taleemabad. This step was pivotal, as it aimed to standardize and match school names consistently across all six datasets. The correction files, instrumental in this process, contained columns outlining various spellings or discrepancies in school names across the datasets and identifying the correct names. The overarching goal was to create a master school-level dataset that incorporated information from all baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO.  
 
-Furthermore, the raw child-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level.  
-
-[add about melqo]  
+Furthermore, the raw child-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Considering the lack of guidelines regarding thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy and motor skills is calculated. 
   
-Following the cleaning of endline and baseline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school names to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicated the proportion of students in each school belonging to specific proficiency levels. The baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on school names, and then a school level master dataset was created merging the three on school names.  
+Following the cleaning of endline and baseline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school names to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicated the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy and motor skills indicators now represented average percentage scores at school level. The baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on school names, and then a school level master dataset was created merging the three on school names.  
 
 As mentioned earlier, not all schools present during the baseline assessment were retained in the endline, and new schools were introduced as replacements. To categorize this dynamic, a matching variable was created which identified whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent." Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement."  
 ~~~~
 <<dd_do: quietly>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", clear
 	lab var treatment "Treatment Status"
-	lab def treatment_ 0 "Control" 1 "Taleemabad"
+	lab def treatment_ 0 "Control" 1 "Treatment"
 	lab val treatment treatment_
 	//asdoc tab2 matching treatment, row col save(tables_for_report.doc) replace
 <</dd_do>>
@@ -133,13 +134,15 @@ In the full sample, there are 97 unique school out of which 33 are treatment sch
 	orth_out aser_b_english_Sentence aser_e_english_Sentence aser_b_math_Subtract aser_e_math_Subtract aser_b_urdu_Story aser_e_urdu_Story, by(treatment)
 	
 	orth_out aser_b_eng_4_5_G5Sentence aser_e_eng_4_5_G5Sentence aser_b_maths_4_5_Division aser_e_maths_4_5_Division aser_b_urdu_4_5_G5Story aser_e_urdu_4_5_G5Story, by(treatment)
+	
+	orth_out melqo_b_motor_skills melqo_b_pre_numeracy melqo_b_pre_literacy melqo_e_motor_skills melqo_e_pre_numeracy melqo_e_pre_literacy, by(treatment)
 <</dd_do>>
 ~~~~
 <div style="text-align:center;">
     <img src="Balance Test.png" alt="tab1" width="600"/>
 </div>  
 
-The above table depicts whether the treatment and contol groups are balanced in baseline and endline in terms of the outcome variables.
+The above table depicts whether the treatment and control groups are balanced in baseline and endline in terms of the outcome variables.
 
 **3.3. Results**  
 
@@ -407,7 +410,5 @@ At baseline, the percentage difference between treatment and control schools for
 **3.3.3. MELQO**  
 
 **4. Conclusion**  
-
-
 
 </div>
