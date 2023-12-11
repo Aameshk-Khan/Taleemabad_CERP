@@ -148,7 +148,7 @@ The above table depicts whether the treatment and control groups are balanced in
 
 **3.3. Results**  
 
-This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.  
+This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.  
 
 <div style="text-align:center;">
     <img src="ASER Result.png" alt="tab1" width="600"/>
@@ -281,7 +281,8 @@ At baseline, the percentage difference between treatment and control schools for
 At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
 
 
-**3.3.2. ASER Grades 4 - 5**  
+**3.3.2. ASER Grades 4 - 5**   
+
 ~~~~
 <<dd_do: quietly>>
 
@@ -407,10 +408,147 @@ At baseline, the percentage difference between treatment and control schools for
 	
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
+At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline.  
 
 **3.3.3. MELQO**  
+
+<div style="text-align:center;">
+    <img src="MELQO Result.png" alt="tab1" width="600"/>
+</div>  
+ 
+~~~~
+<<dd_do: quietly>>
+
+	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
+	
+	local var_b "melqo_b_pre_literacy"
+	local var_e "melqo_e_pre_literacy"
+	local n : word count `var_b'
+
+	forvalues i = 1/`n' {
+		
+	local a : word `i' of `var_b'
+	local b : word `i' of `var_e'	
+	
+	qui summarize `a' if treatment == 0, detail
+	local mean_control_baseline = r(mean)
+	local sd_control_baseline = r(sd)
+
+	qui summarize `a' if treatment == 1, detail
+	local mean_treat_baseline = r(mean)
+
+	* Calculate the difference at baseline
+	local diff_baseline_std = ( `mean_treat_baseline' - `mean_control_baseline' ) / `sd_control_baseline'
+	local diff_baseline = round(( `mean_treat_baseline' - `mean_control_baseline' ),0.01)
+	
+	* Endline calculations
+	qui summarize `b' if treatment == 0, detail
+	local mean_control_endline = r(mean)
+	local sd_control_endline = r(sd)
+	
+	qui summarize `b' if treatment == 1, detail
+	local mean_treat_endline = r(mean)
+
+	* Calculate the difference at endline 
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	di "`diff_endline_std'"
+	local diff_endline_std = -1 * `diff_endline_std'
+	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.05)
+	di "`diff_endline'"
+	orth_out `a' `b', by(treatment) compare test count
+	}
+<</dd_do>>
+~~~~
+At baseline, the percentage difference between treatment and control schools for pre-literacy is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-literacy is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations below control schools for pre-literacy at endline.  
+
+~~~~
+<<dd_do: quietly>>
+
+	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
+	
+	local var_b "melqo_b_pre_numeracy"
+	local var_e "melqo_e_pre_numeracy"
+	local n : word count `var_b'
+
+	forvalues i = 1/`n' {
+		
+	local a : word `i' of `var_b'
+	local b : word `i' of `var_e'	
+	
+	qui summarize `a' if treatment == 0, detail
+	local mean_control_baseline = r(mean)
+	local sd_control_baseline = r(sd)
+
+	qui summarize `a' if treatment == 1, detail
+	local mean_treat_baseline = r(mean)
+
+	* Calculate the difference at baseline
+	local diff_baseline_std = ( `mean_treat_baseline' - `mean_control_baseline' ) / `sd_control_baseline'
+	local diff_baseline = round(( `mean_treat_baseline' - `mean_control_baseline' ),0.01)
+	
+	* Endline calculations
+	qui summarize `b' if treatment == 0, detail
+	local mean_control_endline = r(mean)
+	local sd_control_endline = r(sd)
+	
+	qui summarize `b' if treatment == 1, detail
+	local mean_treat_endline = r(mean)
+
+	* Calculate the difference at endline 
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	di "`diff_endline_std'"
+	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
+	orth_out `a' `b', by(treatment) compare test count
+	}
+<</dd_do>>
+~~~~
+At baseline, the percentage difference between treatment and control schools for pre-numeracy is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-numeracy is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
+
+~~~~
+<<dd_do: quietly>>
+
+	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
+	
+	local var_b "melqo_b_motor_skills"
+	local var_e "melqo_e_motor_skills"
+	local n : word count `var_b'
+
+	forvalues i = 1/`n' {
+		
+	local a : word `i' of `var_b'
+	local b : word `i' of `var_e'	
+	
+	qui summarize `a' if treatment == 0, detail
+	local mean_control_baseline = r(mean)
+	local sd_control_baseline = r(sd)
+
+	qui summarize `a' if treatment == 1, detail
+	local mean_treat_baseline = r(mean)
+
+	* Calculate the difference at baseline
+	local diff_baseline_std = ( `mean_treat_baseline' - `mean_control_baseline' ) / `sd_control_baseline'
+	local diff_baseline = round(( `mean_treat_baseline' - `mean_control_baseline' ),0.01)
+	
+	* Endline calculations
+	qui summarize `b' if treatment == 0, detail
+	local mean_control_endline = r(mean)
+	local sd_control_endline = r(sd)
+	
+	qui summarize `b' if treatment == 1, detail
+	local mean_treat_endline = r(mean)
+
+	* Calculate the difference at endline 
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	di "`diff_endline_std'"
+	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
+	orth_out `a' `b', by(treatment) compare test count
+	}
+<</dd_do>>
+~~~~
+At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
 
 **4. Conclusion**  
 
 </div>
+
+
