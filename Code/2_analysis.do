@@ -8,7 +8,8 @@
 
 <span style="color: black; font-size: 20px;">Table of contents</span>  
 <div style="page-break-after: always;">
-   <span style="color: black;">1. Introduction  
+
+1. Introduction    
 2. Taleemabad's Evaluation  
 2.1. Instrument and Data Collection  
 2.2. Sampling and Measurement  
@@ -23,7 +24,7 @@
 	3.3.1. ASER Grades 1 - 3  
 	3.3.2. ASER Grades 4 - 5  
 	3.3.3. MELQO  
-4. Conclusion </span> 
+4. Conclusion  
 </div>  
 
 ~~~~
@@ -548,6 +549,7 @@ At baseline, the percentage difference between treatment and control schools for
 At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
 
 **4. Conclusion**  
+
 
 </div>
 
