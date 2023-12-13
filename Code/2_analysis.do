@@ -5,10 +5,12 @@
    <span style="color: black; font-size: 25px; font-weight: bold;">Taleemabad Evaluation by CERP Analytics</span> 
 </div>  
 
-
+<br>
+    
 <span style="color: black; font-size: 20px;">Table of contents</span>  
 <div style="page-break-after: always;">
-   <span style="color: black;">1. Introduction  
+
+1. Introduction    
 2. Taleemabad's Evaluation  
 2.1. Instrument and Data Collection  
 2.2. Sampling and Measurement  
@@ -23,8 +25,26 @@
 	3.3.1. ASER Grades 1 - 3  
 	3.3.2. ASER Grades 4 - 5  
 	3.3.3. MELQO  
-4. Conclusion </span> 
+4. Conclusion  
 </div>  
+
+<style>
+  figure {
+    text-align: center; /* Center-align the figure */
+    margin: 20px 0; /* Add margin for spacing */
+  }
+
+  img {
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Remove any extra space below the image */
+    margin: 0 auto; /* Center-align the image within the figure */
+  }
+
+  figcaption {
+    margin-top: 1px; /* Add space between the image and the caption */
+  }
+</style>
 
 ~~~~
 <<dd_do: quietly>>
@@ -72,10 +92,10 @@ In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initia
 The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline. Taleemabad employed a two-step sampling strategy, initially selecting schools randomly in the experimental group and choosing nearby non-Taleemabad subscribing schools as controls.
 
 During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focused on differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
-<div style="text-align:center;">
-    <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
-</div> 
-
+<figure>
+   <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
+  <figcaption>Table 1: Metric used for analysing ASER Grades 1 - 3 and ASER Grades 4 - 5</figcaption>
+</figure>
 
 **2.3. Summary of Results**
 
@@ -97,17 +117,29 @@ For MELQO, the difference between average scores obtained by treatment and contr
 
 **3. Analytics by CERP:**  
 
-**3.1. School level Master Dataset and Variables**  
+**3.1. Data Management**  
  
-The cleaning process for the six child-level raw datasets provided by Taleemabad involved a series of systematic steps to enhance data quality and analytical reliability. The first crucial step involved a thorough revision of variable names to ensure clarity and maintain consistency across all six datasets, including baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO. This meticulous effort aimed to make the data more understandable and user-friendly for subsequent analysis. 
- 
-Additionally, the school name variable in the raw datasets underwent a comprehensive cleaning process, utilizing the school name correction files provided by Taleemabad. This step was pivotal, as it aimed to standardize and match school names consistently across all six datasets. The correction files, instrumental in this process, contained columns outlining various spellings or discrepancies in school names across the datasets and identifying the correct names. The overarching goal was to create a master school-level dataset that incorporated information from all baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO.  
+Taleemabad provided six student-level raw datasets which included data collected at baseline and endline for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO. The data cleaning process of these datasets involved a series of systematic steps to enhance data quality and analytical reliability.  
+<style>
+  .list-item {
+    margin-bottom: 10px; /* Adjust the value as needed for the desired spacing */
+  }
+</style>
+<ol type = "I">
+<div class="list-item">
+<li>The first crucial step involved a thorough revision of variable names for bringing clarity and consistency across all six datasets. This meticulous effort significantly enhanced the usability of the data for subsequent analysis.</li>  
+ </div>
+<div class="list-item"> 
+<li>Additionally, the school names needed a rigorous cleaning to standardize them across all six datasets. The correction files provided to Taleemabad mapped various spellings and discrepancies in the school names. Once consistent correct names were created, schools were assigned a unique id which was used to create a master school-level dataset that incorporated information from all baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO.</li>   
+ </div>
+<div class="list-item">  
+<li>Furthermore, the raw student-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology for the respective grade levels. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Due to the lack of guidelines regarding thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy and motor skills are calculated.</li>   
+ </div>
+</ol>
+Following the cleaning of endline and baseline data for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicate the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy and motor skills indicators now represented average percentage scores at school level. The baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on the basis of schools to create a school level master dataset.  
 
-Furthermore, the raw child-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Considering the lack of guidelines regarding thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy and motor skills is calculated. 
+Sine not all schools during the baseline assessment were included in the endline, and new schools were introduced as replacements, a matching variable was created to categorize whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent". Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement."  
   
-Following the cleaning of endline and baseline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school names to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicated the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy and motor skills indicators now represented average percentage scores at school level. The baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on school names, and then a school level master dataset was created merging the three on school names.  
-
-As mentioned earlier, not all schools present during the baseline assessment were retained in the endline, and new schools were introduced as replacements. To categorize this dynamic, a matching variable was created which identified whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent." Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement."  
 ~~~~
 <<dd_do: quietly>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", clear
@@ -117,16 +149,17 @@ As mentioned earlier, not all schools present during the baseline assessment wer
 	//asdoc tab2 matching treatment, row col save(tables_for_report.doc) replace
 <</dd_do>>
 ~~~~
-<div style="text-align:center;">
+<figure>
     <img src="tab matching treatment.png" alt="tab1" width="320"/>
-</div>  
+  <figcaption>Table 2: Categories of schools by Treatment status</figcaption>
+</figure> 
 
-The table provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has row percentages and third row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements. Six treatment schools were added in the endline assessment to replace an equivalent number that were dropped. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, certain school names in the endline datasets were ambiguous and could not be corrected. These schools were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
+The table provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has row percentages and third row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements at the endline stage. Out of 44 replacement schools, six schools were added to replace that the schools that were dropped after baseline. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, ambiguous school names in the endline datasets which could not be corrected were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
 
 Furthermore, three schools were initially enrolled in the Taleemabad program at baseline but withdrew from the program but agreed to undergo the endline assessment. Hence, their treatment status changed from treatment in baseline to control in endline. Specifically, these schools have been regarded as control schools in both baseline and endline.  
 
-In the full sample, there are 97 unique school out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools only, contains 21 treatment schools and 21 control schools. 
-
+In the full sample, there are 97 unique school out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools only, contains 21 treatment schools and 21 control schools.  
+ 
 **3.2. Balance Test**  
 
 ~~~~
@@ -140,19 +173,21 @@ In the full sample, there are 97 unique school out of which 33 are treatment sch
 	orth_out melqo_b_motor_skills melqo_b_pre_numeracy melqo_b_pre_literacy melqo_e_motor_skills melqo_e_pre_numeracy melqo_e_pre_literacy, by(treatment)
 <</dd_do>>
 ~~~~
-<div style="text-align:center;">
+<figure>
     <img src="Balance Test.png" alt="tab1" width="600"/>
-</div>  
+  <figcaption>Table 3: Balance Test</figcaption>
+</figure> 
 
-The above table depicts whether the treatment and control groups are balanced in baseline and endline in terms of the outcome variables.
+The above table depicts whether the treatment and control groups are balanced at baseline and endline in terms of the outcome variables.  
 
 **3.3. Results**  
 
-This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.  
+This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.  
 
-<div style="text-align:center;">
+<figure>
     <img src="ASER Result.png" alt="tab1" width="600"/>
-</div> 
+  <figcaption>Figure 1: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Instruments</figcaption>
+</figure> 
 
 **3.3.1. ASER Grades 1 - 3**  
 
@@ -281,7 +316,8 @@ At baseline, the percentage difference between treatment and control schools for
 At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
 
 
-**3.3.2. ASER Grades 4 - 5**  
+**3.3.2. ASER Grades 4 - 5**   
+
 ~~~~
 <<dd_do: quietly>>
 
@@ -407,10 +443,151 @@ At baseline, the percentage difference between treatment and control schools for
 	
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
+At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline.  
 
 **3.3.3. MELQO**  
 
+<figure>
+    <img src="MELQO Result.png" alt="tab1" width="600"/>
+  <figcaption>Figure 2: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
+</figure>  
+ 
+~~~~
+<<dd_do: quietly>>
+
+	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
+	
+	local var_b "melqo_b_pre_literacy"
+	local var_e "melqo_e_pre_literacy"
+	local n : word count `var_b'
+
+	forvalues i = 1/`n' {
+		
+	local a : word `i' of `var_b'
+	local b : word `i' of `var_e'	
+	
+	qui summarize `a' if treatment == 0, detail
+	local mean_control_baseline = r(mean)
+	local sd_control_baseline = r(sd)
+
+	qui summarize `a' if treatment == 1, detail
+	local mean_treat_baseline = r(mean)
+
+	* Calculate the difference at baseline
+	local diff_baseline_std = ( `mean_treat_baseline' - `mean_control_baseline' ) / `sd_control_baseline'
+	local diff_baseline = round(( `mean_treat_baseline' - `mean_control_baseline' ),0.01)
+	
+	* Endline calculations
+	qui summarize `b' if treatment == 0, detail
+	local mean_control_endline = r(mean)
+	local sd_control_endline = r(sd)
+	
+	qui summarize `b' if treatment == 1, detail
+	local mean_treat_endline = r(mean)
+
+	* Calculate the difference at endline 
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	di "`diff_endline_std'"
+	local diff_endline_std = -1 * `diff_endline_std'
+	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.05)
+	di "`diff_endline'"
+	orth_out `a' `b', by(treatment) compare test count
+	}
+<</dd_do>>
+~~~~
+At baseline, the percentage difference between treatment and control schools for pre-literacy is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-literacy is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations below control schools for pre-literacy at endline.  
+
+~~~~
+<<dd_do: quietly>>
+
+	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
+	
+	local var_b "melqo_b_pre_numeracy"
+	local var_e "melqo_e_pre_numeracy"
+	local n : word count `var_b'
+
+	forvalues i = 1/`n' {
+		
+	local a : word `i' of `var_b'
+	local b : word `i' of `var_e'	
+	
+	qui summarize `a' if treatment == 0, detail
+	local mean_control_baseline = r(mean)
+	local sd_control_baseline = r(sd)
+
+	qui summarize `a' if treatment == 1, detail
+	local mean_treat_baseline = r(mean)
+
+	* Calculate the difference at baseline
+	local diff_baseline_std = ( `mean_treat_baseline' - `mean_control_baseline' ) / `sd_control_baseline'
+	local diff_baseline = round(( `mean_treat_baseline' - `mean_control_baseline' ),0.01)
+	
+	* Endline calculations
+	qui summarize `b' if treatment == 0, detail
+	local mean_control_endline = r(mean)
+	local sd_control_endline = r(sd)
+	
+	qui summarize `b' if treatment == 1, detail
+	local mean_treat_endline = r(mean)
+
+	* Calculate the difference at endline 
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	di "`diff_endline_std'"
+	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
+	orth_out `a' `b', by(treatment) compare test count
+	}
+<</dd_do>>
+~~~~
+At baseline, the percentage difference between treatment and control schools for pre-numeracy is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-numeracy is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
+
+~~~~
+<<dd_do: quietly>>
+
+	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
+	
+	local var_b "melqo_b_motor_skills"
+	local var_e "melqo_e_motor_skills"
+	local n : word count `var_b'
+
+	forvalues i = 1/`n' {
+		
+	local a : word `i' of `var_b'
+	local b : word `i' of `var_e'	
+	
+	qui summarize `a' if treatment == 0, detail
+	local mean_control_baseline = r(mean)
+	local sd_control_baseline = r(sd)
+
+	qui summarize `a' if treatment == 1, detail
+	local mean_treat_baseline = r(mean)
+
+	* Calculate the difference at baseline
+	local diff_baseline_std = ( `mean_treat_baseline' - `mean_control_baseline' ) / `sd_control_baseline'
+	local diff_baseline = round(( `mean_treat_baseline' - `mean_control_baseline' ),0.01)
+	
+	* Endline calculations
+	qui summarize `b' if treatment == 0, detail
+	local mean_control_endline = r(mean)
+	local sd_control_endline = r(sd)
+	
+	qui summarize `b' if treatment == 1, detail
+	local mean_treat_endline = r(mean)
+
+	* Calculate the difference at endline 
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	di "`diff_endline_std'"
+	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
+	orth_out `a' `b', by(treatment) compare test count
+	}
+<</dd_do>>
+~~~~
+At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
+
 **4. Conclusion**  
 
+
+
+
 </div>
+
+
