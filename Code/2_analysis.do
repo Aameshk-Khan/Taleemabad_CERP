@@ -5,7 +5,8 @@
    <span style="color: black; font-size: 25px; font-weight: bold;">Taleemabad Evaluation by CERP Analytics</span> 
 </div>  
 
-
+<br>
+    
 <span style="color: black; font-size: 20px;">Table of contents</span>  
 <div style="page-break-after: always;">
 
@@ -26,6 +27,24 @@
 	3.3.3. MELQO  
 4. Conclusion  
 </div>  
+
+<style>
+  figure {
+    text-align: center; /* Center-align the figure */
+    margin: 20px 0; /* Add margin for spacing */
+  }
+
+  img {
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Remove any extra space below the image */
+    margin: 0 auto; /* Center-align the image within the figure */
+  }
+
+  figcaption {
+    margin-top: 1px; /* Add space between the image and the caption */
+  }
+</style>
 
 ~~~~
 <<dd_do: quietly>>
@@ -73,10 +92,10 @@ In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initia
 The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline. Taleemabad employed a two-step sampling strategy, initially selecting schools randomly in the experimental group and choosing nearby non-Taleemabad subscribing schools as controls.
 
 During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focused on differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
-<div style="text-align:center;">
-    <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
-</div> 
-
+<figure>
+   <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
+  <figcaption>Table 1: Metric used for analysing ASER Grades 1 - 3 and ASER Grades 4 - 5</figcaption>
+</figure>
 
 **2.3. Summary of Results**
 
@@ -118,9 +137,10 @@ As mentioned earlier, not all schools present during the baseline assessment wer
 	//asdoc tab2 matching treatment, row col save(tables_for_report.doc) replace
 <</dd_do>>
 ~~~~
-<div style="text-align:center;">
+<figure>
     <img src="tab matching treatment.png" alt="tab1" width="320"/>
-</div>  
+  <figcaption>Table 2: Categories of schools by Treatment status</figcaption>
+</figure> 
 
 The table provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has row percentages and third row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements. Six treatment schools were added in the endline assessment to replace an equivalent number that were dropped. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, certain school names in the endline datasets were ambiguous and could not be corrected. These schools were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
 
@@ -141,9 +161,10 @@ In the full sample, there are 97 unique school out of which 33 are treatment sch
 	orth_out melqo_b_motor_skills melqo_b_pre_numeracy melqo_b_pre_literacy melqo_e_motor_skills melqo_e_pre_numeracy melqo_e_pre_literacy, by(treatment)
 <</dd_do>>
 ~~~~
-<div style="text-align:center;">
+<figure>
     <img src="Balance Test.png" alt="tab1" width="600"/>
-</div>  
+  <figcaption>Table 3: Balance Test</figcaption>
+</figure> 
 
 The above table depicts whether the treatment and control groups are balanced in baseline and endline in terms of the outcome variables.
 
@@ -151,9 +172,10 @@ The above table depicts whether the treatment and control groups are balanced in
 
 This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.  
 
-<div style="text-align:center;">
+<figure>
     <img src="ASER Result.png" alt="tab1" width="600"/>
-</div> 
+  <figcaption>Table 4: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Instruments</figcaption>
+</figure> 
 
 **3.3.1. ASER Grades 1 - 3**  
 
@@ -413,9 +435,10 @@ At baseline, the percentage difference between treatment and control schools for
 
 **3.3.3. MELQO**  
 
-<div style="text-align:center;">
+<figure>
     <img src="MELQO Result.png" alt="tab1" width="600"/>
-</div>  
+  <figcaption>Table 5: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
+</figure>  
  
 ~~~~
 <<dd_do: quietly>>
@@ -549,6 +572,8 @@ At baseline, the percentage difference between treatment and control schools for
 At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
 
 **4. Conclusion**  
+
+
 
 
 </div>

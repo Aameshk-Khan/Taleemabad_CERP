@@ -2,6 +2,7 @@
 <div style="text-align: center;">
    <span style="color: black; font-size: 25px; font-weight: bold;">Taleemabad Evaluation by CERP Analytics</span> 
 </div>  
+<p><br></p>
 <p><span style="color: black; font-size: 20px;">Table of contents</span><br />
 <div style="page-break-after: always;"></p>
 <ol>
@@ -23,6 +24,23 @@
 <li>Conclusion</li>
 </ol>
 </div>  
+<style>
+  figure {
+    text-align: center; /* Center-align the figure */
+    margin: 20px 0; /* Add margin for spacing */
+  }
+
+  img {
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Remove any extra space below the image */
+    margin: 0 auto; /* Center-align the image within the figure */
+  }
+
+  figcaption {
+    margin-top: 1px; /* Add space between the image and the caption */
+  }
+</style>
 <pre><code></code></pre>
 <p><strong>1. Introduction</strong></p>
 <p>Taleemabad, an EdTech learning platform, is dedicated to creating educational content aligned with national standards to enhance student outcomes. The platform caters to both students and teachers through a proprietary learning platform that integrates content delivery, student assessment, and engagement with parents and school administration. The Learning Management System (LMS) is offered for licensing to small-scale entrepreneurs who facilitate the enhancement of existing school operations with effective pedagogical methods and administrative tools. The platform&rsquo;s content is accessible through a standalone Android app and is also broadcasted on TV and radio.</p>
@@ -35,8 +53,9 @@
 <p><strong>2.2. Sampling and Measurement</strong></p>
 <p>The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline. Taleemabad employed a two-step sampling strategy, initially selecting schools randomly in the experimental group and choosing nearby non-Taleemabad subscribing schools as controls.</p>
 <p>During baseline, approximately 30 experimental schools were randomly chosen, but not all of them participated in the endline data collection due to exits from the Taleemabad program. These schools were replaced by comparable ones for the endline assessment. Consequently, the evaluation focused on differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group, and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:<br />
-<div style="text-align:center;"> <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/></p>
-</div> 
+<figure> <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/></p>
+  <figcaption>Table 1: Metric used for analysing ASER Grades 1 - 3 and ASER Grades 4 - 5</figcaption>
+</figure>
 <p><strong>2.3. Summary of Results</strong></p>
 <p><strong>2.3.1. ASER Grades 1-3:</strong></p>
 <p>During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -13.6% between Taleemabad and control. At the endline, the difference between Taleemabad and control schools rises to 22.9% for English and 14.6% for Urdu (both significant at 5% level). For Mathematics, however, the difference is -2.9% (i.e. in favor of control schools, significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.46 of a standard deviation above control schools for English and 0.29 standard deviations for Urdu, whereas the control schools are 0.07 of a standard deviation above Taleemabad schools at the endline.</p>
@@ -54,23 +73,26 @@
 <p>Following the cleaning of endline and baseline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school names to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicated the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy and motor skills indicators now represented average percentage scores at school level. The baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on school names, and then a school level master dataset was created merging the three on school names.</p>
 <p>As mentioned earlier, not all schools present during the baseline assessment were retained in the endline, and new schools were introduced as replacements. To categorize this dynamic, a matching variable was created which identified whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as &ldquo;Consistent.&rdquo; Those exclusively present in the baseline were labeled as &ldquo;Attrition,&rdquo; signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as &ldquo;Replacement.&rdquo;</p>
 <pre><code></code></pre>
-<div style="text-align:center;">
+<figure>
     <img src="tab matching treatment.png" alt="tab1" width="320"/>
-</div>  
+  <figcaption>Table 2: Categories of schools by Treatment status</figcaption>
+</figure> 
 <p>The table provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has row percentages and third row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements. Six treatment schools were added in the endline assessment to replace an equivalent number that were dropped. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, certain school names in the endline datasets were ambiguous and could not be corrected. These schools were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.</p>
 <p>Furthermore, three schools were initially enrolled in the Taleemabad program at baseline but withdrew from the program but agreed to undergo the endline assessment. Hence, their treatment status changed from treatment in baseline to control in endline. Specifically, these schools have been regarded as control schools in both baseline and endline.</p>
 <p>In the full sample, there are 97 unique school out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools only, contains 21 treatment schools and 21 control schools.</p>
 <p><strong>3.2. Balance Test</strong></p>
 <pre><code></code></pre>
-<div style="text-align:center;">
+<figure>
     <img src="Balance Test.png" alt="tab1" width="600"/>
-</div>  
+  <figcaption>Table 3: Balance Test</figcaption>
+</figure> 
 <p>The above table depicts whether the treatment and control groups are balanced in baseline and endline in terms of the outcome variables.</p>
 <p><strong>3.3. Results</strong></p>
 <p>This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.</p>
-<div style="text-align:center;">
+<figure>
     <img src="ASER Result.png" alt="tab1" width="600"/>
-</div> 
+  <figcaption>Table 4: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Instruments</figcaption>
+</figure> 
 <p><strong>3.3.1. ASER Grades 1 - 3</strong></p>
 <pre><code></code></pre>
 <p>At baseline, the percentage difference between treatment and control schools for English is 27.65% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for English is 17.25% which is statistically significant at 5%. Expressed in standard deviations, treatment schools are 1.073 standard deviations above control schools for English at endline.</p>
@@ -86,9 +108,10 @@
 <pre><code></code></pre>
 <p>At baseline, the percentage difference between treatment and control schools for Urdu is 10.76% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is 13.48% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .376 standard deviations above control schools for Urdu at endline.</p>
 <p><strong>3.3.3. MELQO</strong></p>
-<div style="text-align:center;">
+<figure>
     <img src="MELQO Result.png" alt="tab1" width="600"/>
-</div>  
+  <figcaption>Table 5: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
+</figure>  
 <pre><code></code></pre>
 <p>At baseline, the percentage difference between treatment and control schools for pre-literacy is 5.81% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-literacy is -.55% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .038 standard deviations below control schools for pre-literacy at endline.</p>
 <pre><code></code></pre>
