@@ -174,7 +174,7 @@ This study evaluates the impact of the Taleemabad program on the student learnin
 
 <figure>
     <img src="ASER Result.png" alt="tab1" width="600"/>
-  <figcaption>Table 4: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Instruments</figcaption>
+  <figcaption>Figure 1: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Instruments</figcaption>
 </figure> 
 
 **3.3.1. ASER Grades 1 - 3**  
@@ -437,7 +437,7 @@ At baseline, the percentage difference between treatment and control schools for
 
 <figure>
     <img src="MELQO Result.png" alt="tab1" width="600"/>
-  <figcaption>Table 5: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
+  <figcaption>Figure 2: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
 </figure>  
  
 ~~~~
