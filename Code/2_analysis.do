@@ -117,17 +117,29 @@ For MELQO, the difference between average scores obtained by treatment and contr
 
 **3. Analytics by CERP:**  
 
-**3.1. School level Master Dataset and Variables**  
+**3.1. Data Management**  
  
-The cleaning process for the six child-level raw datasets provided by Taleemabad involved a series of systematic steps to enhance data quality and analytical reliability. The first crucial step involved a thorough revision of variable names to ensure clarity and maintain consistency across all six datasets, including baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO. This meticulous effort aimed to make the data more understandable and user-friendly for subsequent analysis. 
- 
-Additionally, the school name variable in the raw datasets underwent a comprehensive cleaning process, utilizing the school name correction files provided by Taleemabad. This step was pivotal, as it aimed to standardize and match school names consistently across all six datasets. The correction files, instrumental in this process, contained columns outlining various spellings or discrepancies in school names across the datasets and identifying the correct names. The overarching goal was to create a master school-level dataset that incorporated information from all baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO.  
+Taleemabad provided six student-level raw datasets which included data collected at baseline and endline for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO. The data cleaning process of these datasets involved a series of systematic steps to enhance data quality and analytical reliability.  
+<style>
+  .list-item {
+    margin-bottom: 10px; /* Adjust the value as needed for the desired spacing */
+  }
+</style>
+<ol type = "I">
+<div class="list-item">
+<li>The first crucial step involved a thorough revision of variable names for bringing clarity and consistency across all six datasets. This meticulous effort significantly enhanced the usability of the data for subsequent analysis.</li>  
+ </div>
+<div class="list-item"> 
+<li>Additionally, the school names needed a rigorous cleaning to standardize them across all six datasets. The correction files provided to Taleemabad mapped various spellings and discrepancies in the school names. Once consistent correct names were created, schools were assigned a unique id which was used to create a master school-level dataset that incorporated information from all baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO.</li>   
+ </div>
+<div class="list-item">  
+<li>Furthermore, the raw student-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology for the respective grade levels. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Due to the lack of guidelines regarding thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy and motor skills are calculated.</li>   
+ </div>
+</ol>
+Following the cleaning of endline and baseline data for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicate the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy and motor skills indicators now represented average percentage scores at school level. The baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on the basis of schools to create a school level master dataset.  
 
-Furthermore, the raw child-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Considering the lack of guidelines regarding thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy and motor skills is calculated. 
+Sine not all schools during the baseline assessment were included in the endline, and new schools were introduced as replacements, a matching variable was created to categorize whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent". Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement."  
   
-Following the cleaning of endline and baseline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school names to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicated the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy and motor skills indicators now represented average percentage scores at school level. The baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on school names, and then a school level master dataset was created merging the three on school names.  
-
-As mentioned earlier, not all schools present during the baseline assessment were retained in the endline, and new schools were introduced as replacements. To categorize this dynamic, a matching variable was created which identified whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent." Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement."  
 ~~~~
 <<dd_do: quietly>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", clear
@@ -142,12 +154,12 @@ As mentioned earlier, not all schools present during the baseline assessment wer
   <figcaption>Table 2: Categories of schools by Treatment status</figcaption>
 </figure> 
 
-The table provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has row percentages and third row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements. Six treatment schools were added in the endline assessment to replace an equivalent number that were dropped. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, certain school names in the endline datasets were ambiguous and could not be corrected. These schools were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
+The table provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has row percentages and third row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements at the endline stage. Out of 44 replacement schools, six schools were added to replace that the schools that were dropped after baseline. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, ambiguous school names in the endline datasets which could not be corrected were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
 
 Furthermore, three schools were initially enrolled in the Taleemabad program at baseline but withdrew from the program but agreed to undergo the endline assessment. Hence, their treatment status changed from treatment in baseline to control in endline. Specifically, these schools have been regarded as control schools in both baseline and endline.  
 
-In the full sample, there are 97 unique school out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools only, contains 21 treatment schools and 21 control schools. 
-
+In the full sample, there are 97 unique school out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools only, contains 21 treatment schools and 21 control schools.  
+ 
 **3.2. Balance Test**  
 
 ~~~~
