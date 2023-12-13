@@ -166,7 +166,7 @@ In the full sample, there are 97 unique school out of which 33 are treatment sch
   <figcaption>Table 3: Balance Test</figcaption>
 </figure> 
 
-The above table depicts whether the treatment and control groups are balanced in baseline and endline in terms of the outcome variables.
+The above table depicts whether the treatment and control groups are balanced at baseline and endline in terms of the outcome variables.  
 
 **3.3. Results**  
 
