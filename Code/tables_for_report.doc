@@ -38,16 +38,6 @@
 \clbrdrr\brdrw10\brdrs \cellx1342
 \fs20\pard\intbl\ql {}\cell
 \cellx2342
-\fs20\pard\intbl\qr {45.45}\cell
-\cellx3342
-\fs20\pard\intbl\qr {54.55}\cell
-\cellx4342
-\fs20\pard\intbl\qr {100.00}\cell
-\row}
-{\trowd\trgaph108\trleft-108
-\clbrdrr\brdrw10\brdrs \cellx1342
-\fs20\pard\intbl\ql {}\cell
-\cellx2342
 \fs20\pard\intbl\qr {7.81}\cell
 \cellx3342
 \fs20\pard\intbl\qr {18.18}\cell
@@ -63,16 +53,6 @@
 \fs20\pard\intbl\qr {6}\cell
 \cellx4342
 \fs20\pard\intbl\qr {44}\cell
-\row}
-{\trowd\trgaph108\trleft-108
-\clbrdrr\brdrw10\brdrs \cellx1342
-\fs20\pard\intbl\ql {}\cell
-\cellx2342
-\fs20\pard\intbl\qr {86.36}\cell
-\cellx3342
-\fs20\pard\intbl\qr {13.64}\cell
-\cellx4342
-\fs20\pard\intbl\qr {100.00}\cell
 \row}
 {\trowd\trgaph108\trleft-108
 \clbrdrr\brdrw10\brdrs \cellx1342
@@ -98,16 +78,6 @@
 \clbrdrr\brdrw10\brdrs \cellx1342
 \fs20\pard\intbl\ql {}\cell
 \cellx2342
-\fs20\pard\intbl\qr {50.00}\cell
-\cellx3342
-\fs20\pard\intbl\qr {50.00}\cell
-\cellx4342
-\fs20\pard\intbl\qr {100.00}\cell
-\row}
-{\trowd\trgaph108\trleft-108
-\clbrdrr\brdrw10\brdrs \cellx1342
-\fs20\pard\intbl\ql {}\cell
-\cellx2342
 \fs20\pard\intbl\qr {32.81}\cell
 \cellx3342
 \fs20\pard\intbl\qr {63.64}\cell
@@ -128,16 +98,6 @@
 \clbrdrr\brdrw10\brdrs \cellx1342
 \fs20\pard\intbl\ql {}\cell
 \cellx2342
-\fs20\pard\intbl\qr {65.98}\cell
-\cellx3342
-\fs20\pard\intbl\qr {34.02}\cell
-\cellx4342
-\fs20\pard\intbl\qr {100.00}\cell
-\row}
-{\trowd\trgaph108\trleft-108
-\clbrdrr\brdrw10\brdrs \cellx1342
-\fs20\pard\intbl\ql {}\cell
-\cellx2342
 \fs20\pard\intbl\qr {100.00}\cell
 \cellx3342
 \fs20\pard\intbl\qr {100.00}\cell
@@ -148,7 +108,7 @@
 \clbrdrt\brdrw25\brdrs\cellx4342
 \fs20\pard\intbl\ql {}\cell
 \row}
-First row has {\i frequencies}; second row has {\i row percentages} and third row has {\i column percentages}{\par}
+First row has {\i frequencies} and second row has {\i column percentages}{\par}
 
 
 \writepositionforappend

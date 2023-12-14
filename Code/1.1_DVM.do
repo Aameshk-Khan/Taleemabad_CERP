@@ -44,10 +44,14 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Endline_Cleaned", clear
 * Generating a school-level dataset
 	gen e_treatment = 1 if type == "Experimental"
 	replace e_treatment = 0 if type == "Controlled"
+	
+	gen aser_e_1_3_overall = 1 if aser_e_english_Sentence == 1 & aser_e_math_Subtract == 1 &  aser_e_urdu_Story ==1 
+	replace aser_e_1_3_overall = 0 if aser_e_1_3_overall == .
+	
 	foreach var of varlist aser_e_e_capital_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}
-	collapse (mean)  aser_e_e_capital_per - aser_e_gk_pic_3_per e_treatment (sd)  sd_aser_e_e_capital_per - sd_aser_e_gk_pic_3_per (mean) aser_e_english_Nothing - aser_e_urdu_Words, by(school_name)
+	collapse (mean)  aser_e_e_capital_per - aser_e_gk_pic_3_per e_treatment aser_e_1_3_overall  (sd)  sd_aser_e_e_capital_per - sd_aser_e_gk_pic_3_per (mean) aser_e_english_Nothing - aser_e_urdu_Words, by(school_name)
 	tempfile ASER_1_3_Endline_School_level
 	save `ASER_1_3_Endline_School_level', replace
 	
@@ -73,7 +77,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_1_3_Endline_Cleaned", clear
 	drop m1
 	
 * Converting the dummy categorical variables to percentages
-	foreach var of varlist aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words {
+	foreach var of varlist aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_e_1_3_overall{
 		replace `var' = `var' * 100
 	}
 
@@ -103,10 +107,14 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned", clear
 * Generating a school-level dataset
 	gen e_treatment = 1 if type == "Experimental"
 	replace e_treatment = 0 if type == "Controlled"
+	
+	gen aser_e_4_5_overall = 1 if aser_e_eng_4_5_G5Sentence ==1 & aser_e_maths_4_5_Division == 1 & aser_e_urdu_4_5_G5Story == 1
+	replace aser_e_4_5_overall = 0 if aser_e_4_5_overall == .
+	
 	foreach var of varlist  aser_e_e_sent_per - aser_e_gk_pic_3_per {
 		gen sd_`var' = `var'
 	}	
-	collapse (mean) aser_e_e_sent_per - aser_e_gk_pic_3_per e_treatment (sd) sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per (mean) aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story, by(school_name)
+	collapse (mean) aser_e_e_sent_per - aser_e_gk_pic_3_per e_treatment aser_e_4_5_overall (sd) sd_aser_e_e_sent_per - sd_aser_e_gk_pic_3_per (mean) aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story, by(school_name)
 	tempfile ASER_4_5_Endline_School_level
 	save `ASER_4_5_Endline_School_level', replace
 	
@@ -131,7 +139,7 @@ use "$user/$drive/$folder/Output/Stata/ASER_4_5_Endline_Cleaned", clear
 	drop m1
 	
 * Converting the dummy categorical variables to percentages
-	foreach var of varlist aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story {
+	foreach var of varlist aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story aser_e_4_5_overall{
 		replace `var' = `var' * 100
 	}
 
@@ -275,11 +283,11 @@ encode school_name, gen(school_id)
 tempfile MasterDataset_SchoolLevel
 save `MasterDataset_SchoolLevel', replace
 
-	order school_name school_id treatment b_treatment e_treatment matching aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_motor_skills - sd_melqo_e_pre_literacy
+	order school_name school_id treatment b_treatment e_treatment matching aser_e_1_3_overall aser_e_4_5_overall aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_motor_skills - sd_melqo_e_pre_literacy
 	
 * Correcting variable labels in master dataset
 *******************************************************************************
-	unab varlist: b_treatment e_treatment matching aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_motor_skills - sd_melqo_e_pre_literacy
+	unab varlist: b_treatment e_treatment matching aser_e_1_3_overall aser_e_4_5_overall aser_b_english_Nothing - aser_b_urdu_Words aser_e_english_Nothing - aser_e_urdu_Words aser_b_eng_4_5_Nothing - aser_b_urdu_4_5_G5Story aser_e_eng_4_5_Nothing - aser_e_urdu_4_5_G5Story melqo_b_motor_skills - sd_melqo_e_pre_literacy
 	local n= wordcount("`varlist'")
 
 	forval i = 1/`n' {
@@ -309,7 +317,7 @@ keep school_name b_treatment e_treatment treatment matching school_id
 export excel "$user/$drive/$folder/Output/Excel/MasterDataset_SchoolLevel_variables.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel_variables.dta", replace
 restore
-
+/*
 * Grade level
 ********************************************************************************
 { // ASER (1-3)
@@ -596,5 +604,5 @@ keep if grade == "PG"
 export excel "$user/$drive/$folder/Output/Excel/GradePG.xlsx", firstrow(variable) replace
 save "$user/$drive/$folder/Output/Stata/GradePG.dta", replace
 restore
-
+*/
 exit 
