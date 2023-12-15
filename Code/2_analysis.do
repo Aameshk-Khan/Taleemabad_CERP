@@ -151,7 +151,7 @@ Sine not all schools during the baseline assessment were included in the endline
 	lab var treatment "Treatment Status"
 	lab def treatment_ 0 "Control" 1 "Treatment"
 	lab val treatment treatment_
-	asdoc tab2 matching treatment, col save(tables_for_report.doc) replace
+	//asdoc tab2 matching treatment, col save(tables_for_report.doc) replace
 <</dd_do>>
 ~~~~
 <figure>
@@ -179,20 +179,25 @@ In the full sample, there are 97 unique school out of which 33 are treatment sch
 <</dd_do>>
 ~~~~
 <figure>
-    <img src="Balance Test.png" alt="tab1" width="620"/>
-  <figcaption>Table 3: Balance Test</figcaption>
+    <img src="Balance test_outcomes.png" alt="tab1" width="620"/>
+  <figcaption>Table 3.1: Balance Test using outcome variables</figcaption>
 </figure> 
 
-Table 3 indicates a lack of balance between treatment and control groups at baseline. Notably, differences in the number of students, proportion of male students, and outcome variables are evident. This imbalance is attributed to the non-random selection of control schools, based on proximity to treatment schools.  
+<figure>
+    <img src="Balance test_2.png" alt="tab1" width="620"/>
+  <figcaption>Table 3.2: Balance Test using the number of students and proportion of male students</figcaption>
+</figure> 
+
+Table 3.3 and Table 3.2 indicate a lack of balance between treatment and control groups at baseline. Notably, differences in the number of students, proportion of male students, and outcome variables are evident. This imbalance is attributed to the non-random selection of control schools, based on proximity to treatment schools.  
 
 **3.3. Results**  
 
-This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools.  
+This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools, and compare results by Taleemabad and CERP Analytics  
 
 **3.3.1. ASER Grades 1 - 3**  
 <figure>
     <img src="ASER Result_1_3.png" alt="tab1" width="600"/>
-  <figcaption>Figure 1: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument, comparing results by Taleemabad and CERP Analytics</figcaption>
+  <figcaption>Figure 1: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
 </figure>
 
 ~~~~
@@ -353,7 +358,7 @@ At baseline, the percentage difference between treatment and control schools for
 **3.3.2. ASER Grades 4 - 5**   
 <figure>
     <img src="ASER Result_4_5.png" alt="tab1" width="600"/>
-  <figcaption>Figure 2: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument, comparing results by Taleemabad and CERP Analytics</figcaption>
+  <figcaption>Figure 2: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
 </figure>
 
 
@@ -518,7 +523,7 @@ At baseline, the percentage difference between treatment and control schools for
 
 <figure>
     <img src="MELQO Result.png" alt="tab1" width="600"/>
-  <figcaption>Figure 3: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO, comparing results by Taleemabad and CERP Analytics</figcaption>
+  <figcaption>Figure 3: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
 </figure>  
  
 ~~~~
