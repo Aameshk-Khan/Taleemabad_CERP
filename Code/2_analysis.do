@@ -135,15 +135,16 @@ Taleemabad provided six student-level raw datasets which included data collected
 <li>The first crucial step involved a thorough revision of variable names for bringing clarity and consistency across all six datasets. This meticulous effort significantly enhanced the usability of the data for subsequent analysis.</li>  
  </div>
 <div class="list-item"> 
-<li>Additionally, the school names needed a rigorous cleaning to standardize them across all six datasets. The correction files provided by Taleemabad mapped various spellings and discrepancies in the school names. Once consistent correct names were created, schools were assigned a unique id which was used to create a master school-level dataset that incorporated information from all baseline and endline datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO.</li>   
+<li>Additionally, the school names needed a rigorous cleaning to standardize them across all six datasets. The correction files provided to Taleemabad mapped various spellings and discrepancies in the school names. Once consistent correct names were provided by Taleemabad, schools were assigned unique ids to help create a master school-level dataset for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO that would consolidate information from each respective baseline and endline datasets.</li>   
  </div>
 <div class="list-item">  
 <li>Furthermore, the raw student-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology for the respective grade levels. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Due to the lack of guidelines regarding thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy and motor skills are calculated.</li>   
  </div>
-</ol>
-Following the cleaning of endline and baseline data for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicate the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy and motor skills indicators now represented average percentage scores at school level. The baseline and endline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on the basis of schools to create a school level master dataset.  
-
-Sine not all schools during the baseline assessment were included in the endline, and new schools were introduced as replacements, a matching variable was created to categorize whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent". Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement."  
+<div class="list-item">  
+<li>IV.	Following the cleaning of endline and baseline data for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO, the individual datasets were collapsed on school to create school level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicate the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy and motor skills indicators now represented average percentage scores at school level. The baseline and endline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5 and MELQO were merged on the basis of schools to create a school level master dataset.  
+ </div>
+</ol>  
+Since not all schools during the baseline assessment were included in the endline, and new schools were introduced as replacements at endline, a matching variable was created to categorize whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent". Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement."  
   
 ~~~~
 <<dd_do: quietly>>
@@ -159,11 +160,9 @@ Sine not all schools during the baseline assessment were included in the endline
   <figcaption>Table 2: Categories of schools by Treatment status</figcaption>
 </figure> 
 
-Table 2 provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements at the endline stage. Out of 44 replacement schools, six schools were added to replace that the schools that were dropped after baseline. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, ambiguous school names in the endline datasets which could not be corrected were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
+Table 2 provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement, across treatment and control groups. The first row is the number of schools whereas the respective column percentage is shown in parenthesis in the second row. There are 97 unique schools, out of which 11 schools dropped after baseline while 44 schools were added as replacements at the endline. Out of 44 replacement schools, six schools were added to replace the schools that were dropped after baseline. However, due to guidelines provided by Taleemabad, the number of replacement control schools were observed to be higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, ambiguous school names in the endline datasets which could not be corrected were consequently renamed as "unknown" and added to the control group. Furthermore, three schools initially enrolled in the treatment group withdrew from the Taleemabad program after baseline but agreed to undergo the endline assessment. Hence, during analysis by the CERP team, their treatment status was changed to "control" for both baseline and endline.  
 
-Furthermore, three schools were initially enrolled in the Taleemabad program at baseline but withdrew from the program but agreed to undergo the endline assessment. Hence, their treatment status changed from treatment in baseline to control in endline. Specifically, these schools have been regarded as control schools in both baseline and endline.  
-
-In the full sample, there are 97 unique school out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools only, contains 21 treatment schools and 21 control schools.  
+In the full sample, there are 97 unique schools, out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of Consistent schools (i.e. schools present at both baseline and endline) only, contains 21 treatment schools and 21 control schools.    
  
 **3.2. Balance Test**  
 
@@ -185,19 +184,19 @@ In the full sample, there are 97 unique school out of which 33 are treatment sch
 
 <figure>
     <img src="Balance test_2.png" alt="tab1" width="620"/>
-  <figcaption>Table 3.2: Balance Test using the number of students and proportion of male students</figcaption>
+  <figcaption>Table 3.2: Balance Test using student demographics</figcaption>
 </figure> 
 
 Table 3.3 and Table 3.2 indicate a lack of balance between treatment and control groups at baseline. Notably, differences in the number of students, proportion of male students, and outcome variables are evident. This imbalance is attributed to the non-random selection of control schools, based on proximity to treatment schools.  
 
 **3.3. Results**  
 
-This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools, and compare results by Taleemabad and CERP Analytics  
+This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control groups at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools. The figures plot results by Taleemabad and CERP Analytics for comparison.  
 
 **3.3.1. ASER Grades 1 - 3**  
 <figure>
     <img src="ASER Result_1_3.png" alt="tab1" width="600"/>
-  <figcaption>Figure 1: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
+  <figcaption>Figure 1: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
 </figure>
 
 ~~~~
@@ -358,7 +357,7 @@ At baseline, the percentage difference between treatment and control schools for
 **3.3.2. ASER Grades 4 - 5**   
 <figure>
     <img src="ASER Result_4_5.png" alt="tab1" width="600"/>
-  <figcaption>Figure 2: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
+  <figcaption>Figure 2: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
 </figure>
 
 
@@ -523,7 +522,7 @@ At baseline, the percentage difference between treatment and control schools for
 
 <figure>
     <img src="MELQO Result.png" alt="tab1" width="600"/>
-  <figcaption>Figure 3: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
+  <figcaption>Figure 3: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
 </figure>  
  
 ~~~~
@@ -655,7 +654,7 @@ At baseline, the percentage difference between treatment and control schools for
 	}
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
+At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for motor skills at endline.  
 
 
 **3.4. Results using Truncated Sample**  
@@ -665,7 +664,7 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 **3.4.1. ASER Grades 1 - 3**  
 <figure>
     <img src="ASER Result_1_3_truncated.png" alt="tab1" width="600"/>
-  <figcaption>Figure 1: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
+  <figcaption>Figure 1: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
 </figure> 
 
 ~~~~
@@ -832,7 +831,7 @@ At baseline, the percentage difference between treatment and control schools for
 **3.4.2. ASER Grades 4 - 5**   
 <figure>
     <img src="ASER Result_4_5_truncated.png" alt="tab1" width="600"/>
-  <figcaption>Figure 2: Percentage Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
+  <figcaption>Figure 2: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
 </figure>
 
 ~~~~
@@ -1003,7 +1002,7 @@ At baseline, the percentage difference between treatment and control schools for
 
 <figure>
     <img src="MELQO Result_truncated.png" alt="tab1" width="600"/>
-  <figcaption>Figure 6: Percentage Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
+  <figcaption>Figure 6: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
 </figure>  
 ~~~~
 <<dd_do: quietly>>
@@ -1138,7 +1137,7 @@ At baseline, the percentage difference between treatment and control schools for
 	}
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
+At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for motor skills at endline.  
 
 **4. Limitations of the design**    
 
@@ -1167,7 +1166,11 @@ At baseline, the percentage difference between treatment and control schools for
   </li>
 </ol>  
 
-**5. Conclusion**
+**5. Conclusion**  
+
+There is lack of balance between treatment and control groups at baseline in terms of the number of students, proportion of male students, and outcome variables evaluated. This imbalance is attributed to the non-random selection of control schools, based on proximity to treatment schools.  
+
+Evaluating using the full sample of 97 schools, at endline, we observe better results in grades 1 - 3 and grades 4 -5 of the magnitude 0.452 standard deviations and 0.234 standard deviations respectively compared to the control group. This corresponds to approximately 3.48 years of Learning Adjusted Years of Schooling for grades 1 - 3 and 1.8 years of Learning Adjusted Years of Schooling for grades 4 - 5. Evaluating using the full sample, at endline, we observe better results in pre-primary for pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.203 standard deviations and 0.288 standard deviations. In contrast, treatment schools are .038 standard deviations below control schools for pre-literacy at endline. Similar results are observed in the truncated sample of 42 schools. 
 
 </div>
 
