@@ -20,16 +20,15 @@
 	2.3.3. MELQO  
 3. Analytics by CERP  
 3.1. Data Management  
-3.2. LAYS Calculation  
-3.3. Balance Test  
-3.4. Results  
+3.2. Balance Test  
+3.3. Results  
+	3.3.1. ASER Grades 1 - 3  
+	3.3.2. ASER Grades 4 - 5  
+	3.3.3. MELQO  
+3.4. Results using Truncated Sample  
 	3.4.1. ASER Grades 1 - 3  
 	3.4.2. ASER Grades 4 - 5  
-	3.4.3. MELQO  
-3.5. Results using Truncated Sample  
-	3.5.1. ASER Grades 1 - 3  
-	3.5.2. ASER Grades 4 - 5  
-	3.5.3. MELQO 	
+	3.4.3. MELQO 	
 4. Limitations of the design
 5. Conclusion  
 </div>  
@@ -160,7 +159,7 @@ Sine not all schools during the baseline assessment were included in the endline
   <figcaption>Table 2: Categories of schools by Treatment status</figcaption>
 </figure> 
 
-Table 2 provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements at the endline stage. Out of 44 replacement schools, six schools were added to replace that the schools that were dropped after baseline. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, ambiguous school names in the endline datasets which could not be corrected were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
+Table 2 provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement within both the treatment and control groups. The first row has frequencies; second row has column percentages. There are 97 unique schools in the master dataset, out of which 11 schools dropped after baseline and 44 schools were added as replacements at the endline stage. Out of 44 replacement schools, six schools were added to replace that the schools that were dropped after baseline. However, the number of replacement control schools is much higher due to two reasons. Firstly, when a treatment school dropped after baseline then nearby control school(s) were also introduced as replacements in addition to a treatment school. Secondly, ambiguous school names in the endline datasets which could not be corrected were consequently renamed as unknown and added to the control group. Both of these decisions were taken by Taleemabad.  
 
 Furthermore, three schools were initially enrolled in the Taleemabad program at baseline but withdrew from the program but agreed to undergo the endline assessment. Hence, their treatment status changed from treatment in baseline to control in endline. Specifically, these schools have been regarded as control schools in both baseline and endline.  
 
@@ -219,10 +218,13 @@ This study evaluates the impact of the Taleemabad program on the student learnin
 	local diff = round(( `mean_treat' - `mean_control' ),0.01)
 
 	orth_out `a', by(treatment) compare test count
+	
+	* LAYS
+	local LAYS = round((`diff_std' / 0.13),0.01)
 	}
 <</dd_do>>
 ~~~~
-At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group.  
+At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group, which is equivalent to <<dd_display: "`LAYS'">> LAYS.   
 ~~~~
 <<dd_do: quietly>>
 	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
@@ -378,10 +380,13 @@ At baseline, the percentage difference between treatment and control schools for
 	local diff = round(( `mean_treat' - `mean_control' ),0.01)
 
 	orth_out `a', by(treatment) compare test count
+	
+	* LAYS
+	local LAYS = round((`diff_std' / 0.130),0.01)
 	}
 <</dd_do>>
 ~~~~
-At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group.  
+At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group, which is equivalent to <<dd_display: "`LAYS'">> LAYS.  
 ~~~~
 <<dd_do: quietly>>
 
@@ -1130,10 +1135,34 @@ At baseline, the percentage difference between treatment and control schools for
 ~~~~
 At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for pre-numeracy at endline.  
 
-**4. Conclusion**  
+**4. Limitations of the design**    
 
+<ol style="list-style-position: inside; padding-left: 0;" type = "I" >
+  <li>
+    Inability to Track Test Scores for the Same Student at Baseline and Endline:
+    <p>One of the significant limitations of the evaluation design is the inability to consistently track test scores for the same student at both baseline and endline assessments. This constraint hinders our capacity to conduct comprehensive child-level analyses, which could provide valuable insights into individual progress over the course of the intervention. </p>
+    <p>Additionally, due to the unavailability of test scores for the same student at baseline and endline, we are compelled to aggregate test scores at the school level for analysis. However, collapsing on the school level introduces a potential distortion in our findings as the average test scores at the school level may not accurately represent how individual children within the same school are actually performing. Variability in student performance is obscured, and the aggregated school-level analysis may provide a skewed representation of Taleemabad program's impact on educational outcomes.</p>
+  </li>
 
+  <li>
+    Lack of Sufficient Data on External Factors:
+    <p>Our evaluation design faces a challenge due to the insufficient availability of data on external factors. The absence of comprehensive information on variables, such as socio-economic status, family support, or prior educational experiences, poses a substantial obstacle to effectively isolating the treatment effect from other potential influences.</p>
+    <p>For instance, without detailed data on socio-economic status, we may overlook how financial resources within households could independently impact a student's academic performance. If a student's improved outcomes align with an increase in parental involvement, discerning the isolated impact of the program becomes intricate. Household characteristics, including parental education levels or the availability of educational resources at home, could significantly influence a student's performance, but our current design lacks the granularity to account for these nuances.</p>
+    <p>Consequently, the observed differences in means cannot be conclusively attributed to the treatment alone. This limitation not only undermines the internal validity of our study but also restricts the extent to which causal inferences can be drawn. The complexity introduced by unaccounted household characteristics highlights the need for more comprehensive data collection strategies to strengthen the robustness of our analysis and enhance the validity of our conclusions.</p>
+  </li>
 
+  <li>
+    Inherent Difficulty in Establishing Causation:
+    <p>The design's limitations extend to the broader issue of establishing causation. The lack of a controlled environment and comprehensive data on confounding variables, such as teacher quality or school resources, introduces complexities in confidently attributing changes in outcomes solely to the implemented treatment. For instance, improved educational outcomes may be linked not only to the Taleemabad program but also to unaccounted variations in teaching methods or additional resources allocated to specific schools.</p>
+  </li>
+
+  <li>
+    Potential for Selection Bias in Selection of Control Schools:
+    <p>A notable limitation in our study arises from the process of selecting control schools based on proximity to treatment schools. This method, though practical, introduces the potential for selection bias. The proximity-based selection of control schools may inadvertently lead to differences in contextual factors between treatment and control groups. Local variations in community characteristics and educational resources may exist impacting the baseline comparability of the two groups. Variations in characteristics between treatment and control groups may confound our ability to attribute observed changes solely to the Taleemabad program. </p>
+  </li>
+</ol>  
+
+**5. Conclusion**
 
 </div>
 
