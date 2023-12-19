@@ -227,7 +227,7 @@ This study evaluates the impact of the Taleemabad program on the student learnin
 	local mean_treat = round(r(mean),0.01)
 
 	* Calculate the difference at baseline
-	local diff_std = round((( `mean_treat' - `mean_control' ) / `sd_control'), 0.001)
+	local diff_std = round((( `mean_treat' - `mean_control' ) / `sd_control'), 0.01)
 	local diff = round(( `mean_treat' - `mean_control' ),0.01)
 
 	orth_out `a', by(treatment) compare test count
@@ -271,7 +271,7 @@ At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteri
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'),0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'),0.01)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	orth_out `a' `b', by(treatment) compare test count
 	}
@@ -312,7 +312,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	local diff_endline_std = -1 * `diff_endline_std'
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	orth_out `a' `b', by(treatment) compare test count
@@ -354,13 +354,13 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
-	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
+	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' )* 1000)/1000
 	orth_out `a' `b', by(treatment) compare test count
 	}
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
+At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "8.26">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
 
 
 **3.3.2. ASER Grades 4 - 5**   
@@ -389,7 +389,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat = round(r(mean), 0.01)
 
 	* Calculate the difference at baseline
-	local diff_std = round((( `mean_treat' - `mean_control' ) / `sd_control'),0.001)
+	local diff_std = round((( `mean_treat' - `mean_control' ) / `sd_control'),0.01)
 	local diff = round(( `mean_treat' - `mean_control' ),0.01)
 
 	orth_out `a', by(treatment) compare test count
@@ -434,7 +434,7 @@ At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteri
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	orth_out `a' `b', by(treatment) compare test count
 	}
@@ -476,7 +476,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	orth_out `a' `b', by(treatment) compare test count
 	}
@@ -518,7 +518,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	orth_out `a' `b', by(treatment) compare test count
 	}
@@ -568,7 +568,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline_std = -1 * `diff_endline_std'
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.05)
@@ -613,7 +613,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	orth_out `a' `b', by(treatment) compare test count
@@ -656,7 +656,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	orth_out `a' `b', by(treatment) compare test count
@@ -673,7 +673,7 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 **3.4.1. ASER Grades 1 - 3**  
 <figure>
     <img src="ASER Result_1_3_truncated.png" alt="tab1" width="600"/>
-  <figcaption>Figure 1: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
+  <figcaption>Figure 4: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
 </figure> 
 
 ~~~~
@@ -695,7 +695,7 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 	local mean_treat = round(r(mean),0.01)
 
 	* Calculate the difference at baseline
-	local diff_std = round((( `mean_treat' - `mean_control' ) / `sd_control'), 0.001)
+	local diff_std = round((( `mean_treat' - `mean_control' ) / `sd_control'), 0.01)
 	local diff = round(( `mean_treat' - `mean_control' ),0.01)
 
 	orth_out `a', by(treatment) compare test count
@@ -738,7 +738,7 @@ At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteri
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'),0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'),0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	di "`diff_endline'"
@@ -782,7 +782,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	di "`diff_endline'"
@@ -834,13 +834,13 @@ At baseline, the percentage difference between treatment and control schools for
 	}
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
+At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: ".57">> standard deviations above control schools for Urdu at endline. 
 
 
 **3.4.2. ASER Grades 4 - 5**   
 <figure>
     <img src="ASER Result_4_5_truncated.png" alt="tab1" width="600"/>
-  <figcaption>Figure 2: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
+  <figcaption>Figure 5: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
 </figure>
 
 ~~~~
@@ -862,7 +862,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat = round(r(mean), 0.01)
 
 	* Calculate the difference at baseline
-	local diff_std = round((( `mean_treat' - `mean_control' ) / `sd_control'),0.001)
+	local diff_std = round((( `mean_treat' - `mean_control' ) / `sd_control'),0.01)
 	local diff = round(( `mean_treat' - `mean_control' ),0.01)
 
 	orth_out `a', by(treatment) compare test count
@@ -906,7 +906,7 @@ At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteri
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	di "`diff_endline'"
@@ -951,7 +951,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	di "`diff_endline'"
@@ -996,7 +996,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	di "`diff_endline'"
@@ -1048,7 +1048,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	di "`diff_endline'"
@@ -1093,7 +1093,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	di "`diff_endline'"
@@ -1138,7 +1138,7 @@ At baseline, the percentage difference between treatment and control schools for
 	local mean_treat_endline = r(mean)
 
 	* Calculate the difference at endline 
-	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.001)
+	local diff_endline_std = round((( `mean_treat_endline' - `mean_control_endline' ) / `sd_control_endline'), 0.01)
 	di "`diff_endline_std'"
 	local diff_endline = round(( `mean_treat_endline' - `mean_control_endline' ),0.01)
 	di "`diff_endline'"
@@ -1179,7 +1179,7 @@ At baseline, the percentage difference between treatment and control schools for
 
 There is lack of balance between treatment and control groups at baseline in terms of the number of students, proportion of male students, and outcome variables evaluated. This imbalance can be attributed to the non-random selection of control schools that is carried out based on proximity to treatment schools in this evaluation design.  
 
-By evaluating using the full sample of 97 schools, at endline, we observe better results in grades 1 - 3 and grades 4 -5 of the magnitude 0.452 standard deviations and 0.234 standard deviations respectively compared to the control group. This corresponds to approximately 3.48 years of Learning Adjusted Years of Schooling for grades 1 - 3 and 1.8 years of Learning Adjusted Years of Schooling for grades 4 - 5. Evaluating using the full sample, at endline, we observe better results in pre-primary for pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.203 standard deviations and 0.288 standard deviations. In contrast, treatment schools are 0.038 standard deviations below control schools for pre-literacy at endline. Similar results are observed in the truncated sample of 42 schools. Out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools for each outcome variable. 
+By evaluating using the full sample of 97 schools, at endline, we observe better results in grades 1 - 3 and grades 4 -5 of the magnitude 0.45 standard deviations and 0.23 standard deviations respectively compared to the control group. This corresponds to approximately 3.48 years of Learning Adjusted Years of Schooling for grades 1 - 3 and 1.8 years of Learning Adjusted Years of Schooling for grades 4 - 5. Evaluating using the full sample, at endline, we observe better results in pre-primary for pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.20 standard deviations and 0.29 standard deviations. In contrast, treatment schools are 0.04 standard deviations below control schools for pre-literacy at endline. Similar results are observed in the truncated sample of 42 schools. Out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools for each outcome variable. 
 
 The design of the evaluation study could be further strengthened by gathering data on relevant external factors (e.g., family support, socio-economic status, school-level resources) that would allow future analyses to test baseline comparability between treatment and control groups. Moreover, implementing unique student identifiers and consistent data recording procedures would not only minimize tracking errors but enable a deeper understanding of individual learning trajectories. Furthermore, if the schools in Taleemabad's cohort can be included, if not already, as part of ASER or other evaluation studies that gather household, child-level, school-level or village-level information, it would enable more nuanced analysis of the program effectiveness.   
 
