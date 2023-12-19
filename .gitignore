@@ -1,6 +1,7 @@
 # ignore ds store file
 Code/.DS_Store
 .DS_Store
+Archive/.DS_Store
 
 # ignore doc temp files
 ~$*
