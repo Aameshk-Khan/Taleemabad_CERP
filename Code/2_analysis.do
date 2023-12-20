@@ -31,6 +31,7 @@
 	3.4.3. MELQO 	
 4. Limitations of the design
 5. Conclusion  
+Appendix
 </div>  
 
 <style>
@@ -699,6 +700,10 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 	local diff = round(( `mean_treat' - `mean_control' ),0.01)
 
 	orth_out `a', by(treatment) compare test count
+	
+	* LAYS
+	local LAYS = round((`diff_std' / 0.13),0.01)
+	}
 	}
 <</dd_do>>
 ~~~~
@@ -866,6 +871,10 @@ At baseline, the percentage difference between treatment and control schools for
 	local diff = round(( `mean_treat' - `mean_control' ),0.01)
 
 	orth_out `a', by(treatment) compare test count
+	
+	* LAYS
+	local LAYS = round((`diff_std' / 0.13),0.01)
+	}
 	}
 <</dd_do>>
 ~~~~
@@ -1175,13 +1184,46 @@ At baseline, the percentage difference between treatment and control schools for
   </li>
 </ol>  
 
+One potential way to counter the lack of data on external factors would be to make use of existing village level and household level data 
+
 **5. Conclusion**  
 
 There is lack of balance between treatment and control groups at baseline in terms of the number of students, proportion of male students, and outcome variables evaluated. This imbalance can be attributed to the non-random selection of control schools that is carried out based on proximity to treatment schools in this evaluation design.  
 
-By evaluating using the full sample of 97 schools, at endline, we observe better results in grades 1 - 3 and grades 4 -5 of the magnitude 0.45 standard deviations and 0.23 standard deviations respectively compared to the control group. This corresponds to approximately 3.48 years of Learning Adjusted Years of Schooling for grades 1 - 3 and 1.8 years of Learning Adjusted Years of Schooling for grades 4 - 5. Evaluating using the full sample, at endline, we observe better results in pre-primary for pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.20 standard deviations and 0.29 standard deviations. In contrast, treatment schools are 0.04 standard deviations below control schools for pre-literacy at endline. Similar results are observed in the truncated sample of 42 schools. Out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools for each outcome variable. 
+By evaluating using the full sample of 97 schools, at endline, we observe better results in grades 1 - 3 and grades 4 -5 of the magnitude 0.45 standard deviations and 0.23 standard deviations respectively compared to the control group. This corresponds to approximately 3.48 years of Learning Adjusted Years of Schooling for grades 1 - 3 and 1.8 years of Learning Adjusted Years of Schooling for grades 4 - 5. Evaluating using the full sample, at endline, we observe better results in pre-primary for pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.20 standard deviations and 0.29 standard deviations. In contrast, treatment schools are 0.04 standard deviations below control schools for pre-literacy at endline. Similar results are observed in the truncated sample of 42 schools.   
+<div style="page-break-after: always;">
+The design of the evaluation study could be further strengthened by gathering data on relevant external factors (e.g., family support, socio-economic status, school-level resources) that would allow future analyses to test baseline comparability between treatment and control groups. Moreover, implementing unique student identifiers and consistent data recording procedures would not only minimize tracking errors but enable a deeper understanding of individual learning trajectories. Furthermore, if the schools in Taleemabad's cohort can be included, if not already, as part of ASER or other evaluation studies that gather household, child-level, school-level or village-level information, it would enable more nuanced analysis of the program effectiveness.  
+</div>  
 
-The design of the evaluation study could be further strengthened by gathering data on relevant external factors (e.g., family support, socio-economic status, school-level resources) that would allow future analyses to test baseline comparability between treatment and control groups. Moreover, implementing unique student identifiers and consistent data recording procedures would not only minimize tracking errors but enable a deeper understanding of individual learning trajectories. Furthermore, if the schools in Taleemabad's cohort can be included, if not already, as part of ASER or other evaluation studies that gather household, child-level, school-level or village-level information, it would enable more nuanced analysis of the program effectiveness.   
+**Appendix**  
+~~~~
+<<dd_do: quietly>>
+
+	use "$user/$drive/$folder/Output/Stata/MasterDataset_SchoolLevel.dta", clear
+	keep if matching == 3 // Consistent Schools
+	keep if treatment == 1 // Treatment Schools
+	
+	gen aser_eng_1_3 = aser_e_english_Sentence - aser_b_english_Sentence
+	gen aser_maths_1_3 = aser_e_math_Subtract - aser_b_math_Subtract
+	gen aser_urdu_1_3 = aser_e_urdu_Story - aser_b_urdu_Story
+	
+	gen aser_eng_4_5 = aser_e_eng_4_5_G5Sentence - aser_b_eng_4_5_G5Sentence
+	gen aser_maths_4_5 = aser_e_maths_4_5_Division - aser_b_maths_4_5_Division
+	gen aser_urdu_4_5 = aser_e_urdu_4_5_G5Story - aser_b_urdu_4_5_G5Story
+	
+	gen motor_skills = melqo_e_motor_skills - melqo_b_motor_skills
+	gen pre_numeracy = melqo_e_pre_numeracy - melqo_b_pre_numeracy
+	gen pre_literacy = melqo_e_pre_literacy - melqo_b_pre_literacy
+	
+	keep school_name treatment matching aser_eng_1_3 - pre_literacy
+
+<</dd_do>>
+~~~~
+<figure>
+   <img src="top performing schools.png" alt="top schools Image" width="630"/>
+  <figcaption>Table 4: Top 20% best performing consistent schools for each outcome variable</figcaption>
+</figure>  
+Table 4 identifies the top 20% best performing consistent schools in the treatment group for each outcome variables using the ASER and MELQO instruments. For each outcome variable, the difference in mean scores at endline compared to baseline was calculated for each school and the top 20% of schools which had the highest difference in means were picked. Subsequently, the number of times each school appeared in the top 20% best performing school was counted. Notably, out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools.
 
 </div>
 
