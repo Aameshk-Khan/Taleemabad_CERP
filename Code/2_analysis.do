@@ -704,7 +704,6 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 	* LAYS
 	local LAYS = round((`diff_std' / 0.13),0.01)
 	}
-	}
 <</dd_do>>
 ~~~~
 At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group. 
@@ -875,7 +874,7 @@ At baseline, the percentage difference between treatment and control schools for
 	* LAYS
 	local LAYS = round((`diff_std' / 0.13),0.01)
 	}
-	}
+
 <</dd_do>>
 ~~~~
 At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group. 
