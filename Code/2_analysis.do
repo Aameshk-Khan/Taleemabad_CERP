@@ -50,7 +50,7 @@ Appendix B: Top Performing Schools
   }
 
   figcaption {
-    margin-top: 1px; /* Add space between the image and the caption */
+    margin-top: 8px; /* Add space between the image and the caption */
 	font-style: italic; /* Make the caption italic */
     font-size: 13.5px; /* Set the font size to 10 pixels */
   }
@@ -200,7 +200,7 @@ In the full sample, there are 97 unique schools, out of which 33 are treatment s
 </figure> 
 
 <figure>
-    <img src="BT 3.4.png" alt="tab1" width="620"/>
+    <img src="BT 3.4.png" alt="tab1" width="600"/>
   <figcaption>Table 3.3: Balance Test at School Level using outcome variables</figcaption>
 </figure> 
 
@@ -208,12 +208,12 @@ Table 3.1, Table 3.2 and Table 3.3 demonstrate a lack of balance between treatme
 
 **3.3. School Level Analysis**  
 
-This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control schools at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools. The figures plot results by Taleemabad and CERP for comparison.  
+This section discusses the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control **schools** at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools. The figures plot results by Taleemabad and CERP for comparison.  
 
 **3.3.1. ASER Grades 1 - 3**  
 <figure>
     <img src="ASER Result_1_3.png" alt="tab1" width="600"/>
-  <figcaption>Figure 7: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
+  <figcaption>Figure 1: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
 </figure>
 
 ~~~~
@@ -368,13 +368,14 @@ At baseline, the percentage difference between treatment and control schools for
 	}
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "8.26">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline. 
+At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "8.26">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline.  
 
+To summarise, for ASER Grades 1 - 3, the treatment schools performed better than control schools at endline in English and Urdu except for Maths in which the control schools performed better at endline.  
 
 **3.3.2. ASER Grades 4 - 5**   
 <figure>
     <img src="ASER Result_4_5.png" alt="tab1" width="600"/>
-  <figcaption>Figure 8: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
+  <figcaption>Figure 2: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
 </figure>
 
 
@@ -535,11 +536,13 @@ At baseline, the percentage difference between treatment and control schools for
 ~~~~
 At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline.  
 
+To summarise, for ASER Grades 4 - 5, the treatment schools performed better than control schools at endline in English, Maths and Urdu.  
+
 **3.3.3. MELQO**  
 
 <figure>
     <img src="MELQO Result.png" alt="tab1" width="600"/>
-  <figcaption>Figure 9: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
+  <figcaption>Figure 3: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
 </figure>  
  
 ~~~~
@@ -673,6 +676,7 @@ At baseline, the percentage difference between treatment and control schools for
 ~~~~
 At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for motor skills at endline.  
 
+To summarise, for MELQO, the treatment schools performed better than control schools at endline for Pre-Numeracy and Motor Skills except for Pre-Literacy in which the control schools performed better.  
 
 **3.4. School Level Analysis using Truncated Sample**  
 
@@ -681,7 +685,7 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 **3.4.1. ASER Grades 1 - 3**  
 <figure>
     <img src="ASER Result_1_3_truncated.png" alt="tab1" width="600"/>
-  <figcaption>Figure 10: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
+  <figcaption>Figure 4: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
 </figure> 
 
 ~~~~
@@ -845,13 +849,14 @@ At baseline, the percentage difference between treatment and control schools for
 	}
 <</dd_do>>
 ~~~~
-At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: ".57">> standard deviations above control schools for Urdu at endline. 
+At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: ".57">> standard deviations above control schools for Urdu at endline.  
 
+To summarise, for ASER Grades 1 - 3, the treatment schools performed better than control schools at endline in English, Maths and Urdu.  
 
 **3.4.2. ASER Grades 4 - 5**   
 <figure>
     <img src="ASER Result_4_5_truncated.png" alt="tab1" width="600"/>
-  <figcaption>Figure 11: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
+  <figcaption>Figure 5: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>
 </figure>
 
 ~~~~
@@ -1022,11 +1027,13 @@ At baseline, the percentage difference between treatment and control schools for
 ~~~~
 At baseline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for Urdu at endline.  
 
+To summarise, for ASER Grades 4 - 5, the treatment schools performed better than control schools at endline in English, Maths and Urdu.  
+
 **3.4.3. MELQO**   
 
 <figure>
     <img src="MELQO Result_truncated.png" alt="tab1" width="600"/>
-  <figcaption>Figure 12: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
+  <figcaption>Figure 6: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</figcaption>
 </figure>  
 ~~~~
 <<dd_do: quietly>>
@@ -1163,6 +1170,8 @@ At baseline, the percentage difference between treatment and control schools for
 ~~~~
 At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for motor skills at endline.  
 
+To summarise, for MELQO, the treatment schools performed better than control schools at endline for Pre-Literacy, Pre-Numeracy and Motor Skills.
+
 **4. Limitations**    
 
 <ol style="list-style-position: inside; padding-left: 0;" type = "I" >
@@ -1206,12 +1215,12 @@ The design of the evaluation study could be further strengthened by gathering da
 
 **Appendix A: Student Level Analysis**   
 
-This study evaluates the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control students at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of students who were assessed at baseline and endline. The figures plot results by Taleemabad and CERP for comparison.  
+This section highlights the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control **students** at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of students who were assessed at baseline and endline. The figures plot results by Taleemabad and CERP's student level analysis for comparison.  
 
 **ASER Grades 1 - 3**  
 <figure>
     <img src="ASER Child 1_3.png" alt="tab1" width="600"/>
-  <figcaption>Figure 1: % Difference in Grade Threshold Clearing Between Treatment and Control Students at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
+  <figcaption>Figure 7: % Difference in Grade Threshold Clearing Between Treatment and Control Students at Baseline and Endline using ASER Grades 1 - 3 instrument</figcaption>
 </figure>  
 ~~~~
 <<dd_do: quietly>>
@@ -1419,10 +1428,12 @@ At baseline, the percentage difference between treatment and control students fo
 ~~~~  
 At baseline, the percentage difference between treatment and control students for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for Urdu is <<dd_display: "8.26">>% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are <<dd_display: "`diff_endline_std'">> standard deviations above control students for Urdu at endline.   
 
+To summarise, for ASER Grades 1 - 3, the treatment schools performed better than control schools at endline in English, Maths and Urdu.  
+
 **ASER Grades 4 - 5**  
 <figure>
     <img src="ASER Child 4_5.png" alt="tab1" width="600"/>
-  <figcaption>Figure 2: % Difference in Grade Threshold Clearing Between Treatment and Control Students at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>  
+  <figcaption>Figure 8: % Difference in Grade Threshold Clearing Between Treatment and Control Students at Baseline and Endline using ASER Grades 4 - 5 instrument</figcaption>  
 </figure>  
 ~~~~
 <<dd_do: quietly>>
@@ -1633,10 +1644,12 @@ At baseline, the percentage difference between treatment and control students fo
 ~~~~
 At baseline, the percentage difference between treatment and control students for Urdu is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for Urdu is <<dd_display: "`diff_endline'">>% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are <<dd_display: "`diff_endline_std'">> standard deviations above control students for Urdu at endline.  
 
+To summarise, for ASER Grades 4 - 5, the treatment schools performed better than control schools at endline in English, Maths and Urdu.  
+
 **MELQO**  
 <figure>
     <img src="MELQO Child.png" alt="tab1" width="600"/>
-  <figcaption>Figure 3: % Difference in Scores between Treatment and Control Students at Baseline and Endline using MELQO</figcaption>
+  <figcaption>Figure 9: % Difference in Scores between Treatment and Control Students at Baseline and Endline using MELQO</figcaption>
 </figure>  
 ~~~~
 <<dd_do: quietly>>
@@ -1809,6 +1822,8 @@ At baseline, the percentage difference between treatment and control students fo
 <</dd_do>>
 ~~~~
 At baseline, the percentage difference between treatment and control students for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for motor skills is <<dd_display: "`diff_endline'">>% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are <<dd_display: "`diff_endline_std'">> standard deviations above control students for motor skills at endline.  
+
+To summarise, for MELQO, the treatment schools performed better than control schools at endline for Pre-Literacy, Pre-Numeracy and Motor Skills.  
 
 **Appendix B: Top Performing Schools**  
 ~~~~
