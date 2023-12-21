@@ -111,23 +111,23 @@ Some of the experimental schools that were randomly chosen at baseline exited th
 
 **2.3. Summary of Results**
 
-**2.3.1. ASER Grades 1-3:**	
+**2.3.1. ASER Grades 1-3**	
 
 Overall, 50.7% of all Taleemabad students met the criteria for all 3 subjects compared to 29.4% of control students at endline. This indicated a difference of 0.46 standard deviations compared to the control group (1.58 LAYS).  
 
 During baseline, the difference between treatment and control schools is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -13.6% between treatment and control schools. At the endline, the difference between treatment and control schools rises to 22.9% for English and 14.6% for Urdu (both significant at 5% level). For Mathematics, however, the difference is -2.9% (i.e. in favor of control schools, significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.46 of a standard deviation above control schools for English and 0.29 standard deviations for Urdu, whereas the control schools are 0.07 of a standard deviation above Taleemabad schools at the endline.  
 
-**2.3.2. ASER Grades 4-5:**  
+**2.3.2. ASER Grades 4-5**  
 
 Overall, 7.2% of all Taleemabad students met the criteria for all 3 subjects compared to 6.2% of control students at endline. For 2 subjects, this stood at 49.3% for Taleemabad and 46.8% for control. This indicated a difference of 0.05 standard deviations compared to the control group (0.4 LAYS).  
 
 During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -8.7% between Taleemabad and control, meaning that control schools were at a higher level than intervention schools. At the endline, the difference between Taleemabad and control schools rises to 3.6% for English, 1.5% for Mathematics and 2.2% for Urdu (all significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.11 of a standard deviation above control schools for English, 0.03 for Mathematics and 0.05 standard deviations for Urdu.  
     
-**2.3.3. MELQO:**	
+**2.3.3. MELQO**	
 
 For MELQO, the difference between average scores obtained by treatment and control schools for pre-numeracy, pre-literacy, and motor skills is calculated. A threshold such as one for ASER is not imposed due to a lack of available guidelines. At baseline, Taleemabad schools outperformed control schools by ~6 percent of the overall score in pre-numeracy but lagged behind control schools in pre-literacy and motor skills by 0.35% and 1.58% respectively. At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. Expressed in standard deviations, the difference between Taleemabad and control schools is 0.16, 0.11, and 0.17 for pre-numeracy, pre-literacy, and motor skills respectively.    
 
-**3. Analyses by CERP:**  
+**3. Analyses by CERP**  
 
 **3.1. Data Management**  
  
