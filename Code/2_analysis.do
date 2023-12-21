@@ -29,7 +29,7 @@
 	3.4.1. ASER Grades 1 - 3  
 	3.4.2. ASER Grades 4 - 5  
 	3.4.3. MELQO 		
-4. Limitations of the design
+4. Limitations
 5. Conclusion  
 Appendix A: Student Level Analysis  
 Appendix B: Top Performing Schools  
@@ -197,19 +197,14 @@ In the full sample, there are 97 unique schools, out of which 33 are treatment s
 <figure>
     <img src="BT 3.2.png" alt="tab1" width="620"/>
   <figcaption>Table 3.2: Balance Test for consistent schools using student demographics</figcaption>
-</figure>
-
-<figure>
-    <img src="BT 3.3.png" alt="tab1" width="620"/>
-  <figcaption>Table 3.3: Balance Test at Student Level using outcome variables</figcaption>
-</figure>  
+</figure> 
 
 <figure>
     <img src="BT 3.4.png" alt="tab1" width="620"/>
-  <figcaption>Table 3.4: Balance Test at School Level using outcome variables</figcaption>
+  <figcaption>Table 3.3: Balance Test at School Level using outcome variables</figcaption>
 </figure> 
 
-Table 3.1, Table 3.2, Table 3.3 and Table 3.4 demonstrate a lack of balance between treatment and control groups at baseline. Notably, differences in the number of students, proportion of male students, and outcome variables are evident. This imbalance can be attributed to the non-random selection of control schools currently done based on proximity to treatment schools.  
+Table 3.1, Table 3.2 and Table 3.3 demonstrate a lack of balance between treatment and control groups at baseline. Notably, differences in the number of students, proportion of male students, and outcome variables are evident. This imbalance can be attributed to the non-random selection of control schools currently done based on proximity to treatment schools.  
 
 **3.3. School Level Analysis**  
 
@@ -718,7 +713,7 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 	}
 <</dd_do>>
 ~~~~
-At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group. 
+At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group.  
 
 ~~~~
 <<dd_do: quietly>>
@@ -889,7 +884,7 @@ At baseline, the percentage difference between treatment and control schools for
 
 <</dd_do>>
 ~~~~
-At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group. 
+At endline, <<dd_display: "`mean_treat'">>% of treatment schools met the criteria for all 3 subjects compared to <<dd_display: "`mean_control'">>% of control schools. This represents a difference of <<dd_display: "`diff_std'">> standard deviations compared to the control group.  
 
 ~~~~
 <<dd_do: quietly>>
@@ -1168,7 +1163,7 @@ At baseline, the percentage difference between treatment and control schools for
 ~~~~
 At baseline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_baseline'">>% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is <<dd_display: "`diff_endline'">>% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are <<dd_display: "`diff_endline_std'">> standard deviations above control schools for motor skills at endline.  
 
-**4. Limitations of the design**    
+**4. Limitations**    
 
 <ol style="list-style-position: inside; padding-left: 0;" type = "I" >
   <li>
@@ -1195,15 +1190,18 @@ At baseline, the percentage difference between treatment and control schools for
   </li>
 </ol>  
 
-One potential way to counter the lack of data on external factors would be to make use of existing village level and household level data 
+One potential way to counter the lack of data on external factors would be to explore the availability of relevant external data sources, such as census data or educational databases, that may provide insights into village level and household level characteristics. Implementing a more extensive data collection to gather information on socio-economic status, family support, and prior educational experiences of students could be another potential, however, costly, solution.  
 
 **5. Conclusion**  
 
 There is lack of balance between treatment and control groups at baseline in terms of the number of students, proportion of male students, and outcome variables evaluated. This imbalance can be attributed to the non-random selection of control schools that is carried out based on proximity to treatment schools in this evaluation design.  
 
-By evaluating using the full sample of 97 schools, at endline, we observe better results in grades 1 - 3 and grades 4 -5 of the magnitude 0.45 standard deviations and 0.23 standard deviations respectively compared to the control group. This corresponds to approximately 3.48 years of Learning Adjusted Years of Schooling for grades 1 - 3 and 1.8 years of Learning Adjusted Years of Schooling for grades 4 - 5. Evaluating using the full sample, at endline, we observe better results in pre-primary for pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.20 standard deviations and 0.29 standard deviations. In contrast, treatment schools are 0.04 standard deviations below control schools for pre-literacy at endline. Similar results are observed in the truncated sample of 42 schools.   
+By evaluating using the full sample of 97 schools, at endline, we observe better results in grades 1 - 3 and grades 4 - 5 of the magnitude 0.45 standard deviations and 0.23 standard deviations respectively compared to the control group. This corresponds to approximately 3.5 years of Learning Adjusted Years of Schooling for grades 1 - 3 and 1.8 years of Learning Adjusted Years of Schooling for grades 4 - 5. Moreover, evaluating using the full sample, at endline, we observe better results in pre-primary for pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.20 standard deviations and 0.29 standard deviations. In contrast, treatment schools are 0.04 standard deviations below control schools for pre-literacy at endline.  
+
+Furthermore, by evaluating using the truncated sample of 42 schools, at endline, we observe better results in grades 1 - 3 and grades 4 - 5 of the magnitude 0.58 standard deviations and 1.61 standard deviations respectively compared to the control group. Moreover, evaluating using the truncated sample, at endline, we observe better results in pre-primary for pre-literacy, pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.38 standard deviations, 0.17 standard deviations and 0.26 standard deviations. Notably, out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools.  
+
 <div style="page-break-after: always;">
-The design of the evaluation study could be further strengthened by gathering data on relevant external factors (e.g., family support, socio-economic status, school-level resources) that would allow future analyses to test baseline comparability between treatment and control groups. Moreover, implementing unique student identifiers and consistent data recording procedures would not only minimize tracking errors but enable a deeper understanding of individual learning trajectories. Furthermore, if the schools in Taleemabad's cohort can be included, if not already, as part of ASER or other evaluation studies that gather household, child-level, school-level or village-level information, it would enable more nuanced analysis of the program effectiveness.  
+The design of the evaluation study could be further strengthened by gathering data on relevant external factors (e.g., family support, socio-economic status, school-level resources) that would allow future analyses to test baseline comparability between treatment and control groups. Moreover, implementing unique student identifiers and consistent data recording procedures would not only minimize tracking errors but enable a deeper understanding of individual learning trajectories.   
 </div>  
 
 **Appendix A: Student Level Analysis**   
@@ -1891,9 +1889,19 @@ Table 4 identifies the top 20% best performing consistent schools in the treatme
   <figcaption>Table 4: Top 20% best performing consistent schools for each outcome variable</figcaption>
 </figure>  
 
-Furthermore, no consistent treatment school had a positive treatment effect across all subjects of the ASER and MELQO instruments. Additionally, no consistent treatment school had a positive treatment effect across all subjects of the ASER instruments specifically. However, 3 consistent treatment schools had a positive treatment in all subjects of ASER Grades 1 - 3 instrument, 5 consistent treatment schools had a positive treatment in all subjects of ASER Grades 4 - 5 instrument, and 3 consistent treatment schools had a positive treatment in all subjects of MELQO instrument. This equates to 14.3%, 23.8% and 14.3% of consistent treatment schools improving on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively. Table 5 highlights the names of these specific consistent treatment schools which had a positive treatment effect across all subjects of the specific instruments.
+Furthermore, no consistent treatment school had a positive treatment effect across all subjects of the ASER and MELQO instruments. Additionally, no consistent treatment school had a positive treatment effect across all subjects of the ASER instruments specifically. However, 3 consistent treatment schools had a positive treatment in all subjects of ASER Grades 1 - 3 instrument, 5 consistent treatment schools had a positive treatment in all subjects of ASER Grades 4 - 5 instrument, and 3 consistent treatment schools had a positive treatment in all subjects of MELQO instrument. Hence, 14.3%, 23.8% and 14.3% of consistent treatment schools improved on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively. Table 5 highlights the names of these specific consistent treatment schools which had a positive treatment effect across all subjects of the specific instruments.  
 
-Comparatively, no consistent control school had a positive change in mean scores from baseline to endline across all subjects of the ASER and MELQO instruments combined. However, 3 consistent control school had a positive change in mean scores across all subjects of the ASER instruments specifically. Moreover, 6 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 1 - 3 instrument, 7 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 4 - 5 instrument, and 5 consistent control schools had a positive change in mean scores in all subjects of MELQO instrument. Table 6 highlights the names of these specific consistent control schools.
+<figure>
+   <img src="top performing schools_treat.png" alt="top schools Image" width="630"/>
+  <figcaption>Table 5: Consistent Treatment Schools which improved from baseline to endline</figcaption>
+</figure>  
+
+Comparatively, no consistent control school had a positive change in mean scores from baseline to endline across all subjects of the ASER and MELQO instruments combined. However, 3 consistent control school had a positive change in mean scores across all subjects of the ASER instruments specifically which means 14.3% of the consistent control schools improved on the ASER instruments. Moreover, 6 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 1 - 3 instrument, 7 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 4 - 5 instrument, and 5 consistent control schools had a positive change in mean scores in all subjects of MELQO instrument. Hence, 28.6%, 33.3% and 23.8% of consistent control schools improved on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively.  Table 6 highlights the names of these specific consistent control schools.  
+
+<figure>
+   <img src="top performing schools_control.png" alt="top schools Image" width="630"/>
+  <figcaption>Table 6: Consistent Control Schools which improved from baseline to endline</figcaption>
+</figure>  
 
 </div>
 
