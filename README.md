@@ -179,7 +179,7 @@ To summarize, for ASER Grades 4 - 5, the treatment schools performed better than
 
 **3.3.3. MELQO**  
 
-![Alt Text](/Code//Code/MELQO Result.png)
+![Alt Text](/Code/MELQO Result.png)
 <p align="center">
 <em>Figure 3: Figure 3: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</em>
 </p>
