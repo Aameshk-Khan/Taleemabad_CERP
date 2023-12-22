@@ -7,7 +7,6 @@ _22nd December 2023_
 {: style="text-align: center"}
 
 ---
-test
 
 ### 1. Background
 
@@ -19,21 +18,28 @@ Taleemabad, an EdTech learning platform, is dedicated to creating educational co
 
 ### 2. Taleemabad's Evaluation  
 
-The primary objective of the evaluation conducted by Taleemabad was to discern the effectiveness of its offerings. The evaluation was conducted through third-party standardized assessments of student learning outcomes and class observations on both Taleemabad schools and comparable "control" schools.  
+The primary objective of the evaluation conducted by Taleemabad was to discern the effectiveness of its offerings. The evaluation was conducted through third-party standardized assessments of student learning outcomes and class observations on both Taleemabad schools and comparable "control" schools. 
+{: style="text-align: justify"} 
 
 #### 2.1. Instruments and Data Collection  
 
-Taleemabad administered the assessments using globally renowned instruments to evaluate learning outcomes across different grade levels. For grades 1-3 and 4-5, the ASER ("Annual Status of Education Report") instrument was employed, which rigorously tests foundational skills in English, local languages (Urdu), and Mathematics. These instruments are widely recognized and validated for their application in low and middle-income countries.  
+Taleemabad administered the assessments using globally renowned instruments to evaluate learning outcomes across different grade levels. For grades 1-3 and 4-5, the ASER ("Annual Status of Education Report") instrument was employed, which rigorously tests foundational skills in English, local languages (Urdu), and Mathematics. These instruments are widely recognized and validated for their application in low and middle-income countries. 
+{: style="text-align: justify"} 
 
-In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initiative aimed at measuring pupils' development and learning at the commencement of primary school, along with assessing the quality of pre-primary learning environments. MELQO assesses pre-numeracy, pre-literacy (English), and motor skills. Pre-numeracy evaluates a child's understanding of basic mathematical concepts such as counting and number recognition. Pre-literacy (English) assesses foundational reading and writing skills, including letter recognition and sounds. Lastly, motor skills are observed through pupils' ability to replicate shapes presented on paper, highlighting their levels of skill development.  
+In the pre-primary grades, Taleemabad employed MELQO, a UNESCO-led global initiative aimed at measuring pupils' development and learning at the commencement of primary school, along with assessing the quality of pre-primary learning environments. MELQO assesses pre-numeracy, pre-literacy (English), and motor skills. Pre-numeracy evaluates a child's understanding of basic mathematical concepts such as counting and number recognition. Pre-literacy (English) assesses foundational reading and writing skills, including letter recognition and sounds. Lastly, motor skills are observed through pupils' ability to replicate shapes presented on paper, highlighting their levels of skill development.
+{: style="text-align: justify"} 
 
-The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline.  
+The evaluation involved a comprehensive data collection process conducted at baseline during October-November 2022 and at endline during April-May 2023. This timeframe corresponds with the commencement of the fall term for baseline and the conclusion of the academic year for endline. 
+{: style="text-align: justify"} 
 
 #### 2.2. Sampling and Measurement  
 
 Taleemabad employed a two-step sampling strategy. First, using a random sampling method, approximately 30 schools were chosen at random for the experimental group from Taleemabad's extensive network of 140 schools. This was then followed by a selection of nearby non-Taleemabad schools as controls. The control schools are deliberately chosen based on their close geographical proximity to the treatment schools that are subscribed to the Taleemabad program.  
+{: style="text-align: justify"} 
 
 Some of the experimental schools that were randomly chosen at baseline exited the Taleemabad program. Hence, these schools were replaced by comparable schools for the endline assessment. Consequently, the evaluation focused on differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
+{: style="text-align: justify"} 
+
 <p align="center">
    <img src="/Code/ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
 </p>
@@ -46,24 +52,30 @@ Some of the experimental schools that were randomly chosen at baseline exited th
 **2.3.1. ASER Grades 1-3**	
 
 Overall, 50.7% of all Taleemabad students met the criteria for all 3 subjects compared to 29.4% of control students at endline. This indicated a difference of 0.46 standard deviations compared to the control group (1.58 LAYS).  
+{: style="text-align: justify"} 
 
 During baseline, the difference between treatment and control schools is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -13.6% between treatment and control schools. At the endline, the difference between treatment and control schools rises to 22.9% for English and 14.6% for Urdu (both significant at 5% level). For Mathematics, however, the difference is -2.9% (i.e. in favor of control schools, significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.46 of a standard deviation above control schools for English and 0.29 standard deviations for Urdu, whereas the control schools are 0.07 of a standard deviation above Taleemabad schools at the endline.  
+{: style="text-align: justify"} 
 
 **2.3.2. ASER Grades 4-5**  
 
 Overall, 7.2% of all Taleemabad students met the criteria for all 3 subjects compared to 6.2% of control students at endline. For 2 subjects, this stood at 49.3% for Taleemabad and 46.8% for control. This indicated a difference of 0.05 standard deviations compared to the control group (0.4 LAYS).  
+{: style="text-align: justify"} 
 
 During baseline, the difference between Taleemabad and control students is statistically insignificant from zero for English and Mathematics. For Urdu, however, the difference was -8.7% between Taleemabad and control, meaning that control schools were at a higher level than intervention schools. At the endline, the difference between Taleemabad and control schools rises to 3.6% for English, 1.5% for Mathematics and 2.2% for Urdu (all significant at 5% level). Expressed in standard deviations, Taleemabad students are 0.11 of a standard deviation above control schools for English, 0.03 for Mathematics and 0.05 standard deviations for Urdu.  
+{: style="text-align: justify"} 
     
 **2.3.3. MELQO**	
 
-For MELQO, the difference between average scores obtained by treatment and control schools for pre-numeracy, pre-literacy, and motor skills is calculated. A threshold such as one for ASER is not imposed due to a lack of available guidelines. At baseline, Taleemabad schools outperformed control schools by ~6 percent of the overall score in pre-numeracy but lagged behind control schools in pre-literacy and motor skills by 0.35% and 1.58% respectively. At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. Expressed in standard deviations, the difference between Taleemabad and control schools is 0.16, 0.11, and 0.17 for pre-numeracy, pre-literacy, and motor skills respectively.    
+For MELQO, the difference between average scores obtained by treatment and control schools for pre-numeracy, pre-literacy, and motor skills is calculated. A threshold such as one for ASER is not imposed due to a lack of available guidelines. At baseline, Taleemabad schools outperformed control schools by ~6 percent of the overall score in pre-numeracy but lagged behind control schools in pre-literacy and motor skills by 0.35% and 1.58% respectively. At the endline, the difference between Taleemabad and control schools reduced to ~4% in pre-numeracy whereas Taleemabad schools performed better than control schools in pre-literacy and motor skills by 1.6% and 3.4% respectively. These results are statistically significant at the 5% level. Expressed in standard deviations, the difference between Taleemabad and control schools is 0.16, 0.11, and 0.17 for pre-numeracy, pre-literacy, and motor skills respectively.  
+{: style="text-align: justify"} 
 
 ### 3. Analyses by CERP  
 
 #### 3.1. Data Management  
 
-Taleemabad provided six student-level raw datasets which included data collected at baseline and endline for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO. The data cleaning process of these datasets involved a series of systematic steps to enhance data quality and analytical reliability.
+Taleemabad provided six student-level raw datasets which included data collected at baseline and endline for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO. The data cleaning process of these datasets involved a series of systematic steps to enhance data quality and analytical reliability. 
+{: style="text-align: justify"} 
 
 <ol type="I">
   <li class="list-item">The first crucial step involved a thorough revision of variable names to bring clarity and consistency across all six datasets. This meticulous effort significantly enhanced the usability of the data for subsequent analysis.</li>
@@ -85,11 +97,16 @@ Since not all schools during the baseline assessment were included in the endlin
 </p>
 
 Table 2 provided above demonstrates the distribution of schools categorized as Consistent, Attrition, and Replacement, across treatment and control groups. The first row is the number of schools whereas the respective column percentage is shown in parenthesis in the second row. There are 97 unique schools, out of which 11 schools dropped after baseline while 44 schools were added as replacements at the endline. Out of 44 replacement schools, there are only six schools that were added to replace the schools dropped after baseline.
+{: style="text-align: justify"} 
+
 Based on the guidelines provided by Taleemabad, the number of replacement control schools were observed to be higher due to two main reasons. Firstly, when a treatment school dropped after baseline, it is likely that more than one nearby control school was introduced as a replacement for that treatment school. Secondly, ambiguous school names in the endline datasets which could not be corrected were consequently renamed as "unknown" and added to the control group.
+{: style="text-align: justify"} 
 
 Furthermore, three schools initially enrolled in the treatment group withdrew from the Taleemabad program after baseline but agreed to undergo the endline assessment. Hence, during analysis by the CERP team, their treatment status was preserved as "control" for both baseline and endline.
+{: style="text-align: justify"} 
 
 In the full sample, there are 97 unique schools, out of which 33 are treatment schools and 64 are control schools. The truncated sample, which consists of only Consistent schools (i.e. schools present at both baseline and endline), contains 21 treatment schools and 21 control schools.
+{: style="text-align: justify"} 
 
 #### 3.2. Balance Test  
 
@@ -114,11 +131,13 @@ In the full sample, there are 97 unique schools, out of which 33 are treatment s
 <em>Table 3.3: Balance Test at School Level using outcome variables</em>
 </p>
 
-Table 3.1, Table 3.2, and Table 3.3 demonstrate a lack of balance between treatment and control groups at baseline. Notably, differences in the number of students, proportion of male students, and outcome variables are evident. This imbalance can be attributed to the non-random selection of control schools currently done based on proximity to treatment schools.
+Table 3.1, Table 3.2, and Table 3.3 demonstrate a lack of balance between treatment and control groups at baseline. Notably, differences in the number of students, proportion of male students, and outcome variables are evident. This imbalance can be attributed to the non-random selection of control schools currently done based on proximity to treatment schools. 
+{: style="text-align: justify"} 
 
 #### 3.3. School Level Analysis  
 
 This section discusses the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control **schools** at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of 97 schools. The figures plot results by Taleemabad and CERP for comparison.
+{: style="text-align: justify"} 
 
 **3.3.1. ASER Grades 1 - 3**  
 
@@ -130,14 +149,19 @@ This section discusses the impact of the Taleemabad program on the student learn
 </p>
 
 At endline, 2.54% of treatment schools met the criteria for all 3 subjects compared to 1.06% of control schools. This represents a difference of .45 standard deviations compared to the control group, which is equivalent to 3.46 LAYS.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for English is 27.65% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for English is 17.25% which is statistically significant at 5%. Expressed in standard deviations, treatment schools are 1.07 standard deviations above control schools for English at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for Maths is -.98% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Maths is -3.17% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .16 standard deviations below control schools for Maths at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for Urdu is 17.33% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is 8.26% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .37 standard deviations above control schools for Urdu at endline.
+{: style="text-align: justify"} 
 
 To summarize, for ASER Grades 1 - 3, the treatment schools performed better than control schools at endline in English and Urdu except for Maths in which the control schools performed better at endline.
+{: style="text-align: justify"} 
 
 **3.3.2. ASER Grades 4 - 5**  
 
@@ -149,14 +173,19 @@ To summarize, for ASER Grades 1 - 3, the treatment schools performed better than
 </p>
 
 At endline, 6.77% of treatment schools met the criteria for all 3 subjects compared to 4.41% of control schools. This represents a difference of .23 standard deviations compared to the control group, which is equivalent to 1.77 LAYS.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for English is -3.56% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for English is 2.55% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .16 standard deviations above control schools for English at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for Maths is 27.09% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Maths is 4.77% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .18 standard deviations above control schools for Maths at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for Urdu is 10.76% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is 13.48% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .38 standard deviations above control schools for Urdu at endline.
+{: style="text-align: justify"} 
 
 To summarize, for ASER Grades 4 - 5, the treatment schools performed better than control schools at endline in English, Maths and Urdu.
+{: style="text-align: justify"} 
 
 **3.3.3. MELQO**  
 
@@ -168,16 +197,20 @@ To summarize, for ASER Grades 4 - 5, the treatment schools performed better than
 </p>
 
 At baseline, the percentage difference between treatment and control schools for pre-literacy is 5.81% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-literacy is -.55% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .04 standard deviations below control schools for pre-literacy at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for pre-numeracy is 2.64% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-numeracy is 3.74% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .2 standard deviations above control schools for pre-numeracy at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for motor skills is 1.05% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is 3.95% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .29 standard deviations above control schools for motor skills at endline.
+{: style="text-align: justify"} 
 
 To summarize, for MELQO, the treatment schools performed better than control schools at endline for Pre-Numeracy and Motor Skills except for Pre-Literacy in which the control schools performed better.
+{: style="text-align: justify"} 
 
 #### 3.4. School Level Analysis using Truncated Sample  
 
-The following results pertain to the truncated sample of 42 consistent schools, with 21 schools part of the treatment group and an equivalent number part of the control group. 
+The following results pertain to the truncated sample of 42 consistent schools, with 21 schools part of the treatment group and an equivalent number part of the control group. {: style="text-align: justify"} 
 
 **3.4.1. ASER Grades 1 - 3**  
 
@@ -189,14 +222,19 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 </p>
 
 At endline, 3.02% of treatment schools met the criteria for all 3 subjects compared to 1.15% of control schools. This represents a difference of .58 standard deviations compared to the control group.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for English is 22% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for English is 17.85% which is statistically significant at 5%. Expressed in standard deviations, treatment schools are 1.37 standard deviations above control schools for English at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for Maths is -.06% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Maths is 3.99% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .28 standard deviations above control schools for Maths at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for Urdu is 13.18% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Urdu is 11.57% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .57 standard deviations above control schools for Urdu at endline.
+{: style="text-align: justify"} 
 
 To summarize, for ASER Grades 1 - 3, the treatment schools performed better than control schools at endline in English, Maths and Urdu.
+{: style="text-align: justify"} 
 
 **3.4.2. ASER Grades 4 - 5**  
 
@@ -208,14 +246,19 @@ To summarize, for ASER Grades 1 - 3, the treatment schools performed better than
 </p>
 
 At endline, 7.66% of treatment schools met the criteria for all 3 subjects compared to 1.67% of control schools. This represents a difference of 1.61 standard deviations compared to the control group.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for English is -4.18% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for English is 7.71% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .91 standard deviations above control schools for English at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for Maths is 25.19% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control schools for Maths is 7.5% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .27 standard deviations above control schools for Maths at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for Urdu is 6.55% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for Urdu is 19.85% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .64 standard deviations above control schools for Urdu at endline.
+{: style="text-align: justify"} 
 
 To summarize, for ASER Grades 4 - 5, the treatment schools performed better than control schools at endline in English, Maths and Urdu.
+{: style="text-align: justify"} 
 
 **3.4.3. MELQO** 		
 
@@ -227,12 +270,16 @@ To summarize, for ASER Grades 4 - 5, the treatment schools performed better than
 </p>
 
 At baseline, the percentage difference between treatment and control schools for pre-literacy is 7.96% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-literacy is 6.06% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .38 standard deviations above control schools for pre-literacy at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for pre-numeracy is 2.31% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for pre-numeracy is 2.62% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .17 standard deviations above control schools for pre-numeracy at endline.
+{: style="text-align: justify"} 
 
 At baseline, the percentage difference between treatment and control schools for motor skills is 5.5% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control schools for motor skills is 3.53% which is statistically insignificant from zero. Expressed in standard deviations, treatment schools are .26 standard deviations above control schools for motor skills at endline.
+{: style="text-align: justify"} 
 
 To summarize, for MELQO, the treatment schools performed better than control schools at endline for Pre-Literacy, Pre-Numeracy and Motor Skills.
+{: style="text-align: justify"} 
 
 ### 4. Limitations
 
@@ -262,16 +309,21 @@ To summarize, for MELQO, the treatment schools performed better than control sch
 </ol>  
 
 One potential way to counter the lack of data on external factors would be to explore the availability of relevant external data sources, such as census data or educational databases, that may provide insights into village level and household level characteristics. Implementing a more extensive data collection to gather information on socio-economic status, family support, and prior educational experiences of students could be another potential, however, costly, solution.
+{: style="text-align: justify"} 
 
 ### 5. Conclusion  
 
 There is lack of balance between treatment and control groups at baseline in terms of the number of students, proportion of male students, and outcome variables evaluated. This imbalance can be attributed to the non-random selection of control schools that is carried out based on proximity to treatment schools in this evaluation design.
+{: style="text-align: justify"} 
 
 By evaluating using the full sample of 97 schools, at endline, we observe better results in grades 1 - 3 and grades 4 - 5 of the magnitude 0.45 standard deviations and 0.23 standard deviations respectively compared to the control group. This corresponds to approximately 3.5 years of Learning Adjusted Years of Schooling for grades 1 - 3 and 1.8 years of Learning Adjusted Years of Schooling for grades 4 - 5. Moreover, evaluating using the full sample, at endline, we observe better results in pre-primary for pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.20 standard deviations and 0.29 standard deviations. In contrast, treatment schools are 0.04 standard deviations below control schools for pre-literacy at endline.
+{: style="text-align: justify"} 
 
 Furthermore, by evaluating using the truncated sample of 42 schools, at endline, we observe better results in grades 1 - 3 and grades 4 - 5 of the magnitude 0.58 standard deviations and 1.61 standard deviations respectively compared to the control group. Moreover, evaluating using the truncated sample, at endline, we observe better results in pre-primary for pre-literacy, pre-numeracy and motor skills for treatment schools compared to control schools to the order 0.38 standard deviations, 0.17 standard deviations and 0.26 standard deviations. Notably, out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools.
+{: style="text-align: justify"} 
 
 The design of the evaluation study could be further strengthened by gathering data on relevant external factors (e.g., family support, socio-economic status, school-level resources) that would allow future analyses to test baseline comparability between treatment and control groups. Moreover, implementing unique student identifiers and consistent data recording procedures would not only minimize tracking errors but enable a deeper understanding of individual learning trajectories.  
+{: style="text-align: justify"} 
 
 ### Appendix A: Student Level Analysis  
 
