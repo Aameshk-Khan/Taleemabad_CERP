@@ -4,9 +4,7 @@
 _22nd December 2023_ 
 {: style="text-align: center"}
 
-<div style="text-align: center;">
-  <img src="/Code/logo.png" alt="Alt Text">
-</div>
+![Logo](/Code/logo.png)
 
 ---
 
@@ -79,24 +77,21 @@ Taleemabad provided six student-level raw datasets which included data collected
 
 <ol type="I">
   <li class="list-item">The first crucial step involved a thorough revision of variable names to bring clarity and consistency across all six datasets. This meticulous effort significantly enhanced the usability of the data for subsequent analysis.</li> 
-  {: style="text-align: justify"} 
+
   
   <li class="list-item">Additionally, the school names needed rigorous cleaning to standardize them across all six datasets. The correction files provided to Taleemabad mapped various spellings and discrepancies in the school names. Once consistent correct names were provided by Taleemabad, schools were assigned unique IDs to help create a master school-level dataset for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO that would consolidate information from each respective baseline and endline dataset.</li>  
-  {: style="text-align: justify"} 
+
   
   <li class="list-item">Furthermore, the raw student-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology for the respective grade levels. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Since there are no similar thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy, and motor skills are calculated. </li>
-{: style="text-align: justify"} 
+
 
   <li class="list-item">Following the cleaning of endline and baseline data for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO, the individual datasets were collapsed on schools to create school-level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicate the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy, and motor skills indicators now represent average percentage scores at the school level. The baseline and endline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO were merged on the basis of schools to create a school-level master dataset. </li>
-  {: style="text-align: justify"} 
+
 </ol>
 
 Since not all schools during the baseline assessment were included in the endline, and new schools were introduced as replacements at the endline, a matching variable was created to categorize whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent". Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement." 
-{: style="text-align: justify"} 
 
-<p align="center">
-   <img src="/Code/tab matching treatment.png" alt="tab1" width="320"/>
-</p>
+![Alt Text](/Code/tab matching treatment.png)
 <p align="center">
 <em>Table 2: Categories of schools by Treatment status</em>
 </p>
@@ -115,23 +110,17 @@ In the full sample, there are 97 unique schools, out of which 33 are treatment s
 
 #### 3.2. Balance Test  
 
-<p align="center">
-   <img src="/Code/BT 3.1.png" alt="tab1" width="620"/>
-</p>
+![Alt Text](/Code/BT 3.1.png)
 <p align="center">
 <em>Table 3.1: Balance Test for all schools using student demographics</em>
 </p>
 
-<p align="center">
-    <img src="/Code/BT 3.2.png" alt="tab1" width="620"/>
-</p>
+![Alt Text](/Code/BT 3.2.png)
 <p align="center">
 <em>Table 3.2: Balance Test for consistent schools using student demographics</em>
 </p>
 
-<p align="center">
-    <img src="/Code/BT 3.4.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code/BT 3.4.png)
 <p align="center">
 <em>Table 3.3: Balance Test at School Level using outcome variables</em>
 </p>
@@ -146,9 +135,7 @@ This section discusses the impact of the Taleemabad program on the student learn
 
 **3.3.1. ASER Grades 1 - 3**  
 
-<p align="center">
-    <img src="/Code/ASER Result_1_3.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code//Code/ASER Result_1_3.png)
 <p align="center">
 <em>Figure 1: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</em>
 </p>
@@ -170,9 +157,7 @@ To summarize, for ASER Grades 1 - 3, the treatment schools performed better than
 
 **3.3.2. ASER Grades 4 - 5**  
 
-<p align="center">
-    <img src="/Code/ASER Result_4_5.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code//Code/ASER Result_4_5.png)
 <p align="center">
 <em>Figure 2: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</em>
 </p>
@@ -194,9 +179,7 @@ To summarize, for ASER Grades 4 - 5, the treatment schools performed better than
 
 **3.3.3. MELQO**  
 
-<p align="center">
-    <img src="/Code/MELQO Result.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code//Code/MELQO Result.png)
 <p align="center">
 <em>Figure 3: Figure 3: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</em>
 </p>
@@ -220,9 +203,7 @@ The following results pertain to the truncated sample of 42 consistent schools, 
 
 **3.4.1. ASER Grades 1 - 3**  
 
-<p align="center">
-    <img src="/Code/ASER Result_1_3_truncated.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code/ASER Result_1_3_truncated.png)
 <p align="center">
 <em>Figure 1: Figure 4: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</em>
 </p>
@@ -244,9 +225,7 @@ To summarize, for ASER Grades 1 - 3, the treatment schools performed better than
 
 **3.4.2. ASER Grades 4 - 5**  
 
-<p align="center">
-    <img src="/Code/ASER Result_4_5_truncated.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code/ASER Result_4_5_truncated.png)
 <p align="center">
 <em>Figure 1: Figure 4: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</em>
 </p>
@@ -268,9 +247,7 @@ To summarize, for ASER Grades 4 - 5, the treatment schools performed better than
 
 **3.4.3. MELQO** 		
 
-<p align="center">
-    <img src="/Code/MELQO Result_truncated.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code/MELQO Result_truncated.png)
 <p align="center">
 <em>Figure 6: % Difference in Scores between Treatment and Control Schools at Baseline and Endline using MELQO</em>
 </p>
@@ -343,9 +320,7 @@ This section highlights the impact of the Taleemabad program on the student lear
 
 **ASER Grades 1 - 3**
 
-<p align="center">
-    <img src="/Code/ASER Child 1_3.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code/ASER Child 1_3.png)
 <p align="center">
 <em>Figure 7: % Difference in Grade Threshold Clearing Between Treatment and Control Students at Baseline and Endline using ASER Grades 1 - 3 instrument</em>
 </p>
@@ -367,9 +342,7 @@ To summarize, for ASER Grades 1 - 3, the treatment schools performed better than
 
 **ASER Grades 4 - 5**
 
-<p align="center">
-    <img src="/Code/ASER Child 4_5.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code/ASER Child 4_5.png)
 <p align="center">
 <em>Figure 8: % Difference in Grade Threshold Clearing Between Treatment and Control Students at Baseline and Endline using ASER Grades 4 - 5 instrument</em>
 </p>
@@ -391,9 +364,7 @@ To summarize, for ASER Grades 4 - 5, the treatment schools performed better than
 
 **MELQO**
 
-<p align="center">
-    <img src="/Code/MELQO Child.png" alt="tab1" width="600"/>
-</p>
+![Alt Text](/Code/MELQO Child.png)
 <p align="center">
 <em>Figure 9: % Difference in Scores between Treatment and Control Students at Baseline and Endline using MELQO</em>
 </p>
@@ -415,9 +386,7 @@ To summarize, for MELQO, the treatment schools performed better than control sch
 Table 4 identifies the top 20% best performing consistent schools in the treatment group for each subject of the ASER and MELQO instruments. For each subject of ASER and MELQO instruments independently, the difference in mean scores at endline compared to baseline was calculated for each school and the top 20% of schools which had the highest difference in means were picked. Subsequently, the number of times each school appeared in the top 20% best performing school was counted. Notably, out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools. 
 {: style="text-align: justify"} 
 
-<p align="center">
-    <img src="/Code/top performing schools.png" alt="tab1" width="630"/>
-</p>
+![Alt Text](/Code/top performing schools.png)
 <p align="center">
 <em>Table 4: Top 20% best performing consistent schools for each outcome variable</em>
 </p>
@@ -425,9 +394,7 @@ Table 4 identifies the top 20% best performing consistent schools in the treatme
 Furthermore, no consistent treatment school had a positive treatment effect across all subjects of the ASER and MELQO instruments. Additionally, no consistent treatment school had a positive treatment effect across all subjects of the ASER instruments specifically. However, 3 consistent treatment schools had a positive treatment in all subjects of ASER Grades 1 - 3 instrument, 5 consistent treatment schools had a positive treatment in all subjects of ASER Grades 4 - 5 instrument, and 3 consistent treatment schools had a positive treatment in all subjects of MELQO instrument. Hence, 14.3%, 23.8% and 14.3% of consistent treatment schools improved on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively. Table 5 highlights the names of these specific consistent treatment schools which had a positive treatment effect across all subjects of the specific instruments. 
 {: style="text-align: justify"} 
 
-<p align="center">
-    <img src="/Code/top performing schools_treat.png" alt="tab1" width="630"/>
-</p>
+![Alt Text](/Code/top performing schools_treat.png)
 <p align="center">
 <em>Table 5: Consistent Treatment Schools which improved from baseline to endline</em>
 </p>
@@ -435,9 +402,7 @@ Furthermore, no consistent treatment school had a positive treatment effect acro
 Comparatively, no consistent control school had a positive change in mean scores from baseline to endline across all subjects of the ASER and MELQO instruments combined. However, 3 consistent control school had a positive change in mean scores across all subjects of the ASER instruments specifically which means 14.3% of the consistent control schools improved on the ASER instruments. Moreover, 6 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 1 - 3 instrument, 7 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 4 - 5 instrument, and 5 consistent control schools had a positive change in mean scores in all subjects of MELQO instrument. Hence, 28.6%, 33.3% and 23.8% of consistent control schools improved on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively. Table 6 highlights the names of these specific consistent control schools. 
 {: style="text-align: justify"} 
 
-<p align="center">
-    <img src="/Code/top performing schools_control.png" alt="tab1" width="630"/>
-</p>
+![Alt Text](/Code/top performing schools_control.png)
 <p align="center">
 <em>Table 6: Consistent Control Schools which improved from baseline to endline</em>
 </p>
