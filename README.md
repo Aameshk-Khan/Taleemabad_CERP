@@ -1,4 +1,3 @@
-<div align="center">
 
 # Taleemabad Evaluation by CERP {: style="text-align: center"} 
 
@@ -8,11 +7,7 @@ _22nd December 2023_ {: style="text-align: center"}
    <img src="/Code/logo.png" alt="ASER Image" width="300"/>
 </p>
 
-</div>
-
 ---
-
-<div align="justify">   
    
 ### 1. Background
  
