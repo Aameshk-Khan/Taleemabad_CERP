@@ -312,6 +312,9 @@ Furthermore, by evaluating using the truncated sample of 42 schools, at endline,
 The design of the evaluation study could be further strengthened by gathering data on relevant external factors (e.g., family support, socio-economic status, school-level resources) that would allow future analyses to test baseline comparability between treatment and control groups. Moreover, implementing unique student identifiers and consistent data recording procedures would not only minimize tracking errors but enable a deeper understanding of individual learning trajectories.  
 {: style="text-align: justify"} 
 
+Additionally, another critical aspect of analysis that can be explored is gender analysis. By disaggregating the data based on gender, potential variation in mean scores between male and female students at baseline and endline can be assessed which could give a nuanced understanding of how the Taleemabad program may have differently impacted male and female students. Moreover, gender analysis can highlight areas for target support to promote gender equity is educational outcomes. 
+{: style="text-align: justify"}
+
 ### Appendix A: Student Level Analysis  
 
 This section highlights the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control **students** at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of students who were assessed at baseline and endline. The figures plot results by Taleemabad and CERP's student level analysis for comparison. 
