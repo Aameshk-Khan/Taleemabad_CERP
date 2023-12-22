@@ -1,7 +1,8 @@
+# Taleemabad Evaluation by CERP 
 
-# Taleemabad Evaluation by CERP{: style="text-align: center"} 
-
-_22nd December 2023_{: style="text-align: center"} 
+---
+  
+_22nd December 2023_ 
 
 <p align="center">
    <img src="/Code/logo.png" alt="ASER Image" width="300"/>
