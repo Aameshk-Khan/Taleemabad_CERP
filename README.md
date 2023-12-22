@@ -78,13 +78,17 @@ Taleemabad provided six student-level raw datasets which included data collected
 {: style="text-align: justify"} 
 
 <ol type="I">
-  <li class="list-item">The first crucial step involved a thorough revision of variable names to bring clarity and consistency across all six datasets. This meticulous effort significantly enhanced the usability of the data for subsequent analysis.</li> {: style="text-align: justify"} 
+  <li class="list-item">The first crucial step involved a thorough revision of variable names to bring clarity and consistency across all six datasets. This meticulous effort significantly enhanced the usability of the data for subsequent analysis.</li> 
+  {: style="text-align: justify"} 
+  
+  <li class="list-item">Additionally, the school names needed rigorous cleaning to standardize them across all six datasets. The correction files provided to Taleemabad mapped various spellings and discrepancies in the school names. Once consistent correct names were provided by Taleemabad, schools were assigned unique IDs to help create a master school-level dataset for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO that would consolidate information from each respective baseline and endline dataset.</li>  
+  {: style="text-align: justify"} 
+  
+  <li class="list-item">Furthermore, the raw student-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology for the respective grade levels. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Since there are no similar thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy, and motor skills are calculated. </li>
+{: style="text-align: justify"} 
 
-  <li class="list-item">Additionally, the school names needed rigorous cleaning to standardize them across all six datasets. The correction files provided to Taleemabad mapped various spellings and discrepancies in the school names. Once consistent correct names were provided by Taleemabad, schools were assigned unique IDs to help create a master school-level dataset for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO that would consolidate information from each respective baseline and endline dataset.</li> {: style="text-align: justify"} 
-
-  <li class="list-item">Furthermore, the raw student-level datasets included student marks for each question in the ASER instrument. To facilitate analysis, categorical variables were generated using the ASER ranking methodology for the respective grade levels. These variables categorized test scores into predefined groups, representing various levels of proficiency in English, Urdu, and Maths. Subsequently, dummy variables were created for each proficiency category, indicating whether a student belonged to a specific proficiency level. Since there are no similar thresholds for MELQO, the percentage scores obtained by students for pre-numeracy, pre-literacy, and motor skills are calculated. {: style="text-align: justify"} </li>
-
-  <li class="list-item">Following the cleaning of endline and baseline data for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO, the individual datasets were collapsed on schools to create school-level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicate the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy, and motor skills indicators now represent average percentage scores at the school level. The baseline and endline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO were merged on the basis of schools to create a school-level master dataset. {: style="text-align: justify"} </li>
+  <li class="list-item">Following the cleaning of endline and baseline data for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO, the individual datasets were collapsed on schools to create school-level datasets. Consequently, dummy variables that were previously created for each proficiency category now indicate the proportion of students in each school belonging to specific proficiency levels. Similarly, pre-numeracy, pre-literacy, and motor skills indicators now represent average percentage scores at the school level. The baseline and endline school level datasets for ASER grades 1 - 3, ASER grades 4 - 5, and MELQO were merged on the basis of schools to create a school-level master dataset. </li>
+  {: style="text-align: justify"} 
 </ol>
 
 Since not all schools during the baseline assessment were included in the endline, and new schools were introduced as replacements at the endline, a matching variable was created to categorize whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent". Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement." 
@@ -287,29 +291,30 @@ To summarize, for MELQO, the treatment schools performed better than control sch
 
 <ol style="list-style-position: inside; padding-left: 0;" type = "I" >
   <li>
-    Inability to Track Test Scores for the Same Student at Baseline and Endline:
-    <p>One of the significant limitations of the evaluation design is the inability to consistently track test scores for the same student at both baseline and endline assessments. This constraint hinders our capacity to conduct comprehensive child-level analyses, which could provide valuable insights into individual progress over the course of the intervention. {: style="text-align: justify"} </p>
-    <p>Additionally, due to the unavailability of test scores for the same student at baseline and endline, we are compelled to aggregate test scores at the school level for analysis. However, collapsing on the school level introduces a potential distortion in our findings as the average test scores at the school level may not accurately represent how individual children within the same school are actually performing. Variability in student performance is obscured, and the aggregated school-level analysis may provide a skewed representation of Taleemabad program's impact on educational outcomes. {: style="text-align: justify"} </p>
+    Inability to Track Test Scores for the Same Student at Baseline and Endline: {: style="text-align: justify"} 
+    <p>One of the significant limitations of the evaluation design is the inability to consistently track test scores for the same student at both baseline and endline assessments. This constraint hinders our capacity to conduct comprehensive child-level analyses, which could provide valuable insights into individual progress over the course of the intervention. </p>
+    
+    <p>Additionally, due to the unavailability of test scores for the same student at baseline and endline, we are compelled to aggregate test scores at the school level for analysis. However, collapsing on the school level introduces a potential distortion in our findings as the average test scores at the school level may not accurately represent how individual children within the same school are actually performing. Variability in student performance is obscured, and the aggregated school-level analysis may provide a skewed representation of Taleemabad program's impact on educational outcomes. </p>
   </li>
 
   <li>
-    Lack of Sufficient Data on External Factors:
-    <p>The evaluation design faces a challenge due to the insufficient availability of data on external factors. The absence of comprehensive information on variables, such as socio-economic status, family support, or prior educational experiences, poses a substantial obstacle to effectively isolating the treatment effect from other potential influences.{: style="text-align: justify"} </p>
-    <p>For instance, without detailed data on socio-economic status, we may overlook how financial resources within households could independently impact a student's academic performance. If a student's improved outcomes align with an increase in parental involvement, discerning the isolated impact of the program becomes intricate. Household characteristics, including parental education levels or the availability of educational resources at home, could significantly influence a student's performance, but our current design lacks the granularity to account for these nuances.{: style="text-align: justify"} </p>
-    <p>Consequently, the observed differences in means cannot be conclusively attributed to the treatment alone. This limitation not only undermines the internal validity of our study but also restricts the extent to which causal inferences can be drawn. The complexity introduced by unaccounted household characteristics highlights the need for more comprehensive data collection strategies to strengthen the robustness of our analysis and enhance the validity of our conclusions.{: style="text-align: justify"} </p>
+    Lack of Sufficient Data on External Factors: {: style="text-align: justify"} 
+    <p>The evaluation design faces a challenge due to the insufficient availability of data on external factors. The absence of comprehensive information on variables, such as socio-economic status, family support, or prior educational experiences, poses a substantial obstacle to effectively isolating the treatment effect from other potential influences. </p>
+    
+    <p>For instance, without detailed data on socio-economic status, we may overlook how financial resources within households could independently impact a student's academic performance. If a student's improved outcomes align with an increase in parental involvement, discerning the isolated impact of the program becomes intricate. Household characteristics, including parental education levels or the availability of educational resources at home, could significantly influence a student's performance, but our current design lacks the granularity to account for these nuances. </p>
+    
+    <p>Consequently, the observed differences in means cannot be conclusively attributed to the treatment alone. This limitation not only undermines the internal validity of our study but also restricts the extent to which causal inferences can be drawn. The complexity introduced by unaccounted household characteristics highlights the need for more comprehensive data collection strategies to strengthen the robustness of our analysis and enhance the validity of our conclusions. </p>
   </li>
 
   <li>
-    Inherent Difficulty in Establishing Causation:
+    Inherent Difficulty in Establishing Causation: {: style="text-align: justify"} 
     <p>The design's limitations extend to the broader issue of establishing causation. The lack of a controlled environment and comprehensive data on confounding variables, such as teacher quality or school resources, introduces complexities in confidently attributing changes in outcomes solely to the implemented treatment. For instance, improved educational outcomes may be linked not only to the Taleemabad program but also to unaccounted variations in teaching methods or additional resources allocated to specific schools.
-      {: style="text-align: justify"} 
     </p>
   </li>
 
   <li>
-    Potential for Selection Bias in Selection of Control Schools:
+    Potential for Selection Bias in Selection of Control Schools: {: style="text-align: justify"} 
     <p>A notable limitation in our study arises from the process of selecting control schools based on proximity to treatment schools. This method, though practical, introduces the potential for selection bias. The proximity-based selection of control schools may inadvertently lead to differences in contextual factors between treatment and control groups. Local variations in community characteristics and educational resources may exist impacting the baseline comparability of the two groups. Variations in characteristics between treatment and control groups may confound our ability to attribute observed changes solely to the Taleemabad program. 
-    {: style="text-align: justify"} 
     </p>
   </li>
 </ol>  
@@ -333,7 +338,7 @@ The design of the evaluation study could be further strengthened by gathering da
 
 ### Appendix A: Student Level Analysis  
 
-This section highlights the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control **students** at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of students who were assessed at baseline and endline. The figures plot results by Taleemabad and CERP's student level analysis for comparison.
+This section highlights the impact of the Taleemabad program on the student learning outcomes by comparing the mean differences in scores, in percentages, between the treatment and control **students** at baseline and endline, and testing whether these differences are statistically significant. The following results pertain to the full sample of students who were assessed at baseline and endline. The figures plot results by Taleemabad and CERP's student level analysis for comparison. {: style="text-align: justify"} 
 
 **ASER Grades 1 - 3**
 
@@ -344,15 +349,15 @@ This section highlights the impact of the Taleemabad program on the student lear
 <em>Figure 7: % Difference in Grade Threshold Clearing Between Treatment and Control Students at Baseline and Endline using ASER Grades 1 - 3 instrument</em>
 </p>
 
-At endline, 2.56% of treatment students met the criteria for all 3 subjects compared to .94% of control students. This represents a difference of .17 standard deviations compared to the control students, which is equivalent to 1.31 LAYS.
+At endline, 2.56% of treatment students met the criteria for all 3 subjects compared to .94% of control students. This represents a difference of .17 standard deviations compared to the control students, which is equivalent to 1.31 LAYS. {: style="text-align: justify"} 
 
-At baseline, the percentage difference between treatment and control students for English is 24.81% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for English is .16% which is statistically significant at 5%. Expressed in standard deviations, treatment students are .55 standard deviations above control students for English at endline.
+At baseline, the percentage difference between treatment and control students for English is 24.81% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for English is .16% which is statistically significant at 5%. Expressed in standard deviations, treatment students are .55 standard deviations above control students for English at endline. {: style="text-align: justify"} 
 
-At baseline, the percentage difference between treatment and control students for Maths is -3.01% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control students for Maths is .02% which is statistically insignificant from zero. Expressed in standard deviations, treatment students are .04 standard deviations above control students for Maths at endline.
+At baseline, the percentage difference between treatment and control students for Maths is -3.01% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control students for Maths is .02% which is statistically insignificant from zero. Expressed in standard deviations, treatment students are .04 standard deviations above control students for Maths at endline. {: style="text-align: justify"} 
 
-At baseline, the percentage difference between treatment and control students for Urdu is 14.99% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for Urdu is 8.26% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .25 standard deviations above control students for Urdu at endline.
+At baseline, the percentage difference between treatment and control students for Urdu is 14.99% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for Urdu is 8.26% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .25 standard deviations above control students for Urdu at endline. {: style="text-align: justify"} 
 
-To summarize, for ASER Grades 1 - 3, the treatment schools performed better than control schools at endline in English, Maths and Urdu.
+To summarize, for ASER Grades 1 - 3, the treatment schools performed better than control schools at endline in English, Maths and Urdu. {: style="text-align: justify"} 
 
 **ASER Grades 4 - 5**
 
@@ -363,15 +368,15 @@ To summarize, for ASER Grades 1 - 3, the treatment schools performed better than
 <em>Figure 8: % Difference in Grade Threshold Clearing Between Treatment and Control Students at Baseline and Endline using ASER Grades 4 - 5 instrument</em>
 </p>
 
-At endline, 7.32% of treatment students met the criteria for all 3 subjects compared to 6.04% of control students. This represents a difference of .05 standard deviations compared to the control students, which is equivalent to .38 LAYS.
+At endline, 7.32% of treatment students met the criteria for all 3 subjects compared to 6.04% of control students. This represents a difference of .05 standard deviations compared to the control students, which is equivalent to .38 LAYS. {: style="text-align: justify"} 
 
-At baseline, the percentage difference between treatment and control students for English is 2.57% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control students for English is 2.96% which is statistically insignificant from zero. Expressed in standard deviations, treatment students are .09 standard deviations above control students for English at endline.
+At baseline, the percentage difference between treatment and control students for English is 2.57% which is statistically insignificant from zero. At endline, the percentage difference between treatment and control students for English is 2.96% which is statistically insignificant from zero. Expressed in standard deviations, treatment students are .09 standard deviations above control students for English at endline. {: style="text-align: justify"} 
 
-At baseline, the percentage difference between treatment and control students for Maths is 20.39% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for Maths is 2% which is statistically insignificant from zero. Expressed in standard deviations, treatment students are .04 standard deviations above control students for Maths at endline.
+At baseline, the percentage difference between treatment and control students for Maths is 20.39% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for Maths is 2% which is statistically insignificant from zero. Expressed in standard deviations, treatment students are .04 standard deviations above control students for Maths at endline. {: style="text-align: justify"} 
 
-At baseline, the percentage difference between treatment and control students for Urdu is 14.24% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for Urdu is 12.74% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .27 standard deviations above control students for Urdu at endline.
+At baseline, the percentage difference between treatment and control students for Urdu is 14.24% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for Urdu is 12.74% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .27 standard deviations above control students for Urdu at endline. {: style="text-align: justify"} 
 
-To summarize, for ASER Grades 4 - 5, the treatment schools performed better than control schools at endline in English, Maths and Urdu.
+To summarize, for ASER Grades 4 - 5, the treatment schools performed better than control schools at endline in English, Maths and Urdu. {: style="text-align: justify"} 
 
 **MELQO**
 
@@ -382,17 +387,17 @@ To summarize, for ASER Grades 4 - 5, the treatment schools performed better than
 <em>Figure 9: % Difference in Scores between Treatment and Control Students at Baseline and Endline using MELQO</em>
 </p>
 
-At baseline, the percentage difference between treatment and control students for pre-literacy is 3.13% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for pre-literacy is 3.25% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .15 standard deviations above control students for pre-literacy at endline.
+At baseline, the percentage difference between treatment and control students for pre-literacy is 3.13% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for pre-literacy is 3.25% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .15 standard deviations above control students for pre-literacy at endline. {: style="text-align: justify"} 
 
-At baseline, the percentage difference between treatment and control students for pre-numeracy is 3.06% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for pre-numeracy is 3.79% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .14 standard deviations above control students for pre-numeracy at endline.
+At baseline, the percentage difference between treatment and control students for pre-numeracy is 3.06% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for pre-numeracy is 3.79% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .14 standard deviations above control students for pre-numeracy at endline. {: style="text-align: justify"} 
 
-At baseline, the percentage difference between treatment and control students for motor skills is -4.51% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for motor skills is 8.27% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .3 standard deviations above control students for motor skills at endline.
+At baseline, the percentage difference between treatment and control students for motor skills is -4.51% which is statistically significant at the 5% level. At endline, the percentage difference between treatment and control students for motor skills is 8.27% which is statistically significant at the 5% level. Expressed in standard deviations, treatment students are .3 standard deviations above control students for motor skills at endline. {: style="text-align: justify"} 
 
-To summarize, for MELQO, the treatment schools performed better than control schools at endline for Pre-Literacy, Pre-Numeracy and Motor Skills.
+To summarize, for MELQO, the treatment schools performed better than control schools at endline for Pre-Literacy, Pre-Numeracy and Motor Skills. {: style="text-align: justify"} 
 
 ### Appendix B: Top Performing Schools 
 
-Table 4 identifies the top 20% best performing consistent schools in the treatment group for each subject of the ASER and MELQO instruments. For each subject of ASER and MELQO instruments independently, the difference in mean scores at endline compared to baseline was calculated for each school and the top 20% of schools which had the highest difference in means were picked. Subsequently, the number of times each school appeared in the top 20% best performing school was counted. Notably, out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools.
+Table 4 identifies the top 20% best performing consistent schools in the treatment group for each subject of the ASER and MELQO instruments. For each subject of ASER and MELQO instruments independently, the difference in mean scores at endline compared to baseline was calculated for each school and the top 20% of schools which had the highest difference in means were picked. Subsequently, the number of times each school appeared in the top 20% best performing school was counted. Notably, out of the 21 consistent treatment schools, SRM School, DOA 12 and My School most often appeared in the top 20% best performing schools. {: style="text-align: justify"} 
 
 <p align="center">
     <img src="/Code/top performing schools.png" alt="tab1" width="630"/>
@@ -401,7 +406,7 @@ Table 4 identifies the top 20% best performing consistent schools in the treatme
 <em>Table 4: Top 20% best performing consistent schools for each outcome variable</em>
 </p>
 
-Furthermore, no consistent treatment school had a positive treatment effect across all subjects of the ASER and MELQO instruments. Additionally, no consistent treatment school had a positive treatment effect across all subjects of the ASER instruments specifically. However, 3 consistent treatment schools had a positive treatment in all subjects of ASER Grades 1 - 3 instrument, 5 consistent treatment schools had a positive treatment in all subjects of ASER Grades 4 - 5 instrument, and 3 consistent treatment schools had a positive treatment in all subjects of MELQO instrument. Hence, 14.3%, 23.8% and 14.3% of consistent treatment schools improved on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively. Table 5 highlights the names of these specific consistent treatment schools which had a positive treatment effect across all subjects of the specific instruments.
+Furthermore, no consistent treatment school had a positive treatment effect across all subjects of the ASER and MELQO instruments. Additionally, no consistent treatment school had a positive treatment effect across all subjects of the ASER instruments specifically. However, 3 consistent treatment schools had a positive treatment in all subjects of ASER Grades 1 - 3 instrument, 5 consistent treatment schools had a positive treatment in all subjects of ASER Grades 4 - 5 instrument, and 3 consistent treatment schools had a positive treatment in all subjects of MELQO instrument. Hence, 14.3%, 23.8% and 14.3% of consistent treatment schools improved on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively. Table 5 highlights the names of these specific consistent treatment schools which had a positive treatment effect across all subjects of the specific instruments. {: style="text-align: justify"} 
 
 <p align="center">
     <img src="/Code/top performing schools_treat.png" alt="tab1" width="630"/>
@@ -410,7 +415,7 @@ Furthermore, no consistent treatment school had a positive treatment effect acro
 <em>Table 5: Consistent Treatment Schools which improved from baseline to endline</em>
 </p>
 
-Comparatively, no consistent control school had a positive change in mean scores from baseline to endline across all subjects of the ASER and MELQO instruments combined. However, 3 consistent control school had a positive change in mean scores across all subjects of the ASER instruments specifically which means 14.3% of the consistent control schools improved on the ASER instruments. Moreover, 6 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 1 - 3 instrument, 7 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 4 - 5 instrument, and 5 consistent control schools had a positive change in mean scores in all subjects of MELQO instrument. Hence, 28.6%, 33.3% and 23.8% of consistent control schools improved on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively. Table 6 highlights the names of these specific consistent control schools.
+Comparatively, no consistent control school had a positive change in mean scores from baseline to endline across all subjects of the ASER and MELQO instruments combined. However, 3 consistent control school had a positive change in mean scores across all subjects of the ASER instruments specifically which means 14.3% of the consistent control schools improved on the ASER instruments. Moreover, 6 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 1 - 3 instrument, 7 consistent control schools had a positive change in mean scores in all subjects of ASER Grades 4 - 5 instrument, and 5 consistent control schools had a positive change in mean scores in all subjects of MELQO instrument. Hence, 28.6%, 33.3% and 23.8% of consistent control schools improved on the ASER Grades 1 - 3, ASER Grades 4 - 5 and MELQO instruments respectively. Table 6 highlights the names of these specific consistent control schools. {: style="text-align: justify"} 
 
 <p align="center">
     <img src="/Code/top performing schools_control.png" alt="tab1" width="630"/>
