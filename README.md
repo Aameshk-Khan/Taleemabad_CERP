@@ -5,7 +5,6 @@ _22nd December 2023_
 {: style="text-align: center"}
 
 ![Alt Text](/Code/logo.png)
-{: style="text-align: center"}
 
 ---
 
@@ -41,9 +40,7 @@ Taleemabad employed a two-step sampling strategy. First, using a random sampling
 Some of the experimental schools that were randomly chosen at baseline exited the Taleemabad program. Hence, these schools were replaced by comparable schools for the endline assessment. Consequently, the evaluation focused on differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
 {: style="text-align: justify"} 
 
-<p align="center">
 ![Alt Text](/Code/ASER_grades_and_subjects.png)
-</p>
 <p align="center">
 <em>Table 1: Metric used for analysing ASER Grades 1 - 3 and ASER Grades 4 - 5</em>
 </p>
