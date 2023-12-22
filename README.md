@@ -1,5 +1,5 @@
 # Taleemabad Evaluation by CERP
-{: style="text-align: justify"}
+{: style="text-align: center"}
 
 ---
   
