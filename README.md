@@ -4,15 +4,17 @@
 _22nd December 2023_
 
 <p align="center">
-   <img src="/Code/logo.png" alt="ASER Image" width="200"/>
+   <img src="/Code/logo.png" alt="ASER Image" width="300"/>
 </p>
 
 </div>
 
+---
+
 <div align="justify">   
    
 ### 1. Background
-  
+ 
 Taleemabad has collaborated with CERP for an external validation of their internal assessments. For this purpose, CERP has carried out an audit using the existing data that Taleemabad has collected. The following sections delve deeper into the specifics of both evaluations, highlighting their methodologies, analyses, and key differences. This comprehensive analysis provides valuable insights into the strengths and limitations of the approaches used and ultimately contributes to a more robust assessment of Taleemabad's impact on educational outcomes.  
 
 Taleemabad, an EdTech learning platform, is dedicated to creating educational content aligned with national standards to enhance student outcomes. The platform caters to both students and teachers through a proprietary learning platform that integrates content delivery, student assessment, and engagement with parents and school administration. The Learning Management System (LMS) is offered for licensing to small-scale entrepreneurs who facilitate the enhancement of existing school operations with effective pedagogical methods and administrative tools. The platform's content is accessible through a standalone Android app and is also broadcasted on TV and radio.  
@@ -361,4 +363,6 @@ Comparatively, no consistent control school had a positive change in mean scores
 <em>Table 6: Consistent Control Schools which improved from baseline to endline</em>
 </p>
 
-</div>
+<p align="center">
+    <img src="/Code/CERP Info.png" alt="ASER Image" width="1000"/>
+</p>
