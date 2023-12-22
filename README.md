@@ -4,7 +4,7 @@
 _22nd December 2023_ 
 {: style="text-align: center"}
 
-![Alt Text](/Code/logo.jpg)
+![Alt Text](/Code/logo.png)
 
 ---
 
