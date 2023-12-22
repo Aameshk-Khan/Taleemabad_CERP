@@ -268,14 +268,14 @@ To summarize, for MELQO, the treatment schools performed better than control sch
 
 <ol style="list-style-position: inside; padding-left: 0;" type = "I" >
   <li>
-    Inability to Track Test Scores for the Same Student at Baseline and Endline: {: style="text-align: justify"} 
+    Inability to Track Test Scores for the Same Student at Baseline and Endline:
     <p>One of the significant limitations of the evaluation design is the inability to consistently track test scores for the same student at both baseline and endline assessments. This constraint hinders our capacity to conduct comprehensive child-level analyses, which could provide valuable insights into individual progress over the course of the intervention. </p>
     
     <p>Additionally, due to the unavailability of test scores for the same student at baseline and endline, we are compelled to aggregate test scores at the school level for analysis. However, collapsing on the school level introduces a potential distortion in our findings as the average test scores at the school level may not accurately represent how individual children within the same school are actually performing. Variability in student performance is obscured, and the aggregated school-level analysis may provide a skewed representation of Taleemabad program's impact on educational outcomes. </p>
   </li>
 
   <li>
-    Lack of Sufficient Data on External Factors: {: style="text-align: justify"} 
+    Lack of Sufficient Data on External Factors:  
     <p>The evaluation design faces a challenge due to the insufficient availability of data on external factors. The absence of comprehensive information on variables, such as socio-economic status, family support, or prior educational experiences, poses a substantial obstacle to effectively isolating the treatment effect from other potential influences. </p>
     
     <p>For instance, without detailed data on socio-economic status, we may overlook how financial resources within households could independently impact a student's academic performance. If a student's improved outcomes align with an increase in parental involvement, discerning the isolated impact of the program becomes intricate. Household characteristics, including parental education levels or the availability of educational resources at home, could significantly influence a student's performance, but our current design lacks the granularity to account for these nuances. </p>
@@ -284,13 +284,13 @@ To summarize, for MELQO, the treatment schools performed better than control sch
   </li>
 
   <li>
-    Inherent Difficulty in Establishing Causation: {: style="text-align: justify"} 
+    Inherent Difficulty in Establishing Causation: 
     <p>The design's limitations extend to the broader issue of establishing causation. The lack of a controlled environment and comprehensive data on confounding variables, such as teacher quality or school resources, introduces complexities in confidently attributing changes in outcomes solely to the implemented treatment. For instance, improved educational outcomes may be linked not only to the Taleemabad program but also to unaccounted variations in teaching methods or additional resources allocated to specific schools.
     </p>
   </li>
 
   <li>
-    Potential for Selection Bias in Selection of Control Schools: {: style="text-align: justify"} 
+    Potential for Selection Bias in Selection of Control Schools: 
     <p>A notable limitation in our study arises from the process of selecting control schools based on proximity to treatment schools. This method, though practical, introduces the potential for selection bias. The proximity-based selection of control schools may inadvertently lead to differences in contextual factors between treatment and control groups. Local variations in community characteristics and educational resources may exist impacting the baseline comparability of the two groups. Variations in characteristics between treatment and control groups may confound our ability to attribute observed changes solely to the Taleemabad program. 
     </p>
   </li>
