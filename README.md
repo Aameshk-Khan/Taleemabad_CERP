@@ -4,8 +4,6 @@
 _22nd December 2023_ 
 {: style="text-align: center"}
 
-![Logo](/Code/logo.png)
-
 ---
 
 ### 1. Background
