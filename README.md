@@ -24,7 +24,7 @@ Taleemabad employed a two-step sampling strategy. First, using a random sampling
 
 Some of the experimental schools that were randomly chosen at baseline exited the Taleemabad program. Hence, these schools were replaced by comparable schools for the endline assessment. Consequently, the evaluation focused on differences between the treatment and control groups at both baseline and endline, presenting these differences in terms of standard deviations of the control group and later utilizing the metric of Learning Adjusted Years of Schooling (LAYS). The assessments, specifically ASER administered to grades 1-3 and 4-5, utilized a consistent metric across waves as detailed below:  
 <p align="center">
-   <img src="ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
+   <img src="/Code/ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
 </p>
 <p align="center">
 Table 1: Metric used for analysing ASER Grades 1 - 3 and ASER Grades 4 - 5
@@ -65,7 +65,7 @@ IV.	Following the cleaning of endline and baseline data for ASER grades 1 - 3, A
 Since not all schools during the baseline assessment were included in the endline, and new schools were introduced as replacements at the endline, a matching variable was created to categorize whether a school was present in the baseline, the endline, or both. Schools present in both baseline and endline assessments were labelled as "Consistent". Those exclusively present in the baseline were labeled as "Attrition," signifying their absence in the endline. Conversely, schools introduced in the endline were categorized as "Replacement." 
 
 <p align="center">
-   <img src="tab matching treatment.png" alt="tab1" width="320"/>
+   <img src="/Code/tab matching treatment.png" alt="tab1" width="320"/>
 </p>
 <p align="center">
 Table 2: Categories of schools by Treatment status
@@ -81,21 +81,21 @@ In the full sample, there are 97 unique schools, out of which 33 are treatment s
 #### 3.2. Balance Test  
 
 <p align="center">
-    <img src="BT 3.1.png" alt="tab1" width="620"/>
+    <img src="/Code/BT 3.1.png" alt="tab1" width="620"/>
 </p>
 <p align="center">
 Table 3.1: Balance Test for all schools using student demographics
 </p>
 
 <p align="center">
-    <img src="BT 3.2.png" alt="tab1" width="620"/>
+    <img src="/Code/BT 3.2.png" alt="tab1" width="620"/>
 </p>
 <p align="center">
 Table 3.2: Balance Test for consistent schools using student demographics
 </p>
 
 <p align="center">
-    <img src="BT 3.4.png" alt="tab1" width="600"/>
+    <img src="/Code/BT 3.4.png" alt="tab1" width="600"/>
 </p>
 <p align="center">
 Table 3.3: Balance Test at School Level using outcome variables
