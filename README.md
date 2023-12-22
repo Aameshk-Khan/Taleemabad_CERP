@@ -4,7 +4,9 @@
 _22nd December 2023_ 
 {: style="text-align: center"}
 
-![Alt Text](/Code/logo.png)
+<div style="text-align: center;">
+  <img src="/Code/logo.png" alt="Alt Text">
+</div>
 
 ---
 
