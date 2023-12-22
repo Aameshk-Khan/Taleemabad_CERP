@@ -135,7 +135,7 @@ This section discusses the impact of the Taleemabad program on the student learn
 
 **3.3.1. ASER Grades 1 - 3**  
 
-![Alt Text](/Code//Code/ASER Result_1_3.png)
+![Alt Text](/Code//ASER Result_1_3.png)
 <p align="center">
 <em>Figure 1: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 1 - 3 instrument</em>
 </p>
@@ -157,7 +157,7 @@ To summarize, for ASER Grades 1 - 3, the treatment schools performed better than
 
 **3.3.2. ASER Grades 4 - 5**  
 
-![Alt Text](/Code//Code/ASER Result_4_5.png)
+![Alt Text](/Code/ASER Result_4_5.png)
 <p align="center">
 <em>Figure 2: % Difference in Grade Threshold Clearing Between Treatment and Control Schools at Baseline and Endline using ASER Grades 4 - 5 instrument</em>
 </p>
