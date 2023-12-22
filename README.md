@@ -5,6 +5,7 @@ _22nd December 2023_
 {: style="text-align: center"}
 
 ![Alt Text](/Code/logo.png)
+{: style="text-align: center"}
 
 ---
 
@@ -41,7 +42,7 @@ Some of the experimental schools that were randomly chosen at baseline exited th
 {: style="text-align: justify"} 
 
 <p align="center">
-   <img src="/Code/ASER_grades_and_subjects.png" alt="ASER Image" width="600"/>
+![Alt Text](/Code/ASER_grades_and_subjects.png)
 </p>
 <p align="center">
 <em>Table 1: Metric used for analysing ASER Grades 1 - 3 and ASER Grades 4 - 5</em>
