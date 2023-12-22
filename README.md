@@ -407,6 +407,5 @@ Comparatively, no consistent control school had a positive change in mean scores
 <em>Table 6: Consistent Control Schools which improved from baseline to endline</em>
 </p>
 
-<p align="center">
-    <img src="/Code/CERP Info.png" alt="ASER Image" width="1000"/>
-</p>
+![Alt Text](/Code/CERP Info.png)
+
